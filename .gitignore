@@ -1,0 +1,11 @@
+data/shared/raw/*
+data/shared/processed/*
+data/shared/splits/train/*
+data/shared/splits/val/*
+models/experiments/*
+
+!data/shared/raw/.gitkeep
+!data/shared/processed/.gitkeep
+!data/shared/splits/train/.gitkeep
+!data/shared/splits/val/.gitkeep
+!models/experiments/.gitkeep
