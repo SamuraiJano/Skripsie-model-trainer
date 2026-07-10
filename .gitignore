@@ -1,0 +1,58 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.mypy_cache/
+.venv/
+*.egg-info/
+
+# Local data and model artifacts
+/data/
+/runs/
+/exports/
+/models/
+/logs/
+/output_frames/
+model_training/dataset_rgb/*
+model_training/dataset_hsv/*
+background/output_frames/*
+background/logs/*.csv
+*.pt
+*.onnx
+*.engine
+*.bin
+*.param
+*.zip
+
+# Frontend dependencies and builds
+foreground/node_modules/
+foreground/dist/
+foreground/vite-dev.*.log
+
+# C++ build outputs
+build/
+background/**/build/
+background/build-*/
+CMakeFiles/
+CMakeCache.txt
+_deps/
+*.dll
+*.exe
+*.exp
+*.ilk
+*.lib
+*.obj
+*.pdb
+
+# Local dependency bundles
+third_party/
+
+# Local agent/tooling metadata
+.agents/
+.codex/
+
+!model_training/dataset_rgb/.gitkeep
+!model_training/dataset_hsv/.gitkeep
+!background/models/.gitkeep
+!background/output_frames/.gitkeep
+!background/logs/.gitkeep

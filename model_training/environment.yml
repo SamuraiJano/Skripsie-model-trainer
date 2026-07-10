@@ -1,0 +1,32 @@
+name: naartjie-yolo26
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch
+  - torchvision
+  - pytorch-cuda=12.4
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - seaborn
+  - pyyaml
+  - opencv>=5.0
+  - pillow
+  - tqdm
+  - scikit-image
+  - scikit-learn
+  - jupyterlab
+  - ipykernel
+  - pytest
+  - pip:
+      - "ultralytics>=8.3.112"
+      - pycocotools
+      - rich
+      - onnx
+      - onnxruntime
+      - fiftyone
