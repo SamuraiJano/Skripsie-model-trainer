@@ -9,7 +9,12 @@ SOURCE_ROOT = Path(__file__).resolve().parents[1] / "src"
 if str(SOURCE_ROOT) not in sys.path:
     sys.path.insert(0, str(SOURCE_ROOT))
 
-from naartjie_cv.datasets import dfine_loader_smoke, ultralytics_loader_smoke, validate_training_export
+from naartjie_cv.datasets import (
+    dfine_loader_smoke,
+    ultralytics_loader_smoke,
+    validate_training_export,
+    validate_yolo_training_dataset,
+)
 from naartjie_cv.train import TrainingOptions, synthetic_asset_summary, train_dfine_export, train_yolo_export
 
 
@@ -18,6 +23,7 @@ def parser() -> argparse.ArgumentParser:
     commands = root.add_subparsers(dest="command", required=True)
     validate = commands.add_parser("validate")
     validate.add_argument("export_root")
+    validate.add_argument("--task", choices=("detect", "segment", "all"), default="detect")
     synthetic = commands.add_parser("synthetic")
     synthetic.add_argument("export_root")
     smoke = commands.add_parser("smoke-loaders")
@@ -45,7 +51,11 @@ def parser() -> argparse.ArgumentParser:
 def main() -> None:
     args = parser().parse_args()
     if args.command == "validate":
-        result = validate_training_export(args.export_root)
+        result = (
+            validate_training_export(args.export_root)
+            if args.task == "all"
+            else validate_yolo_training_dataset(args.export_root, args.task)
+        )
     elif args.command == "synthetic":
         result = synthetic_asset_summary(args.export_root)
     elif args.command == "smoke-loaders":

@@ -16,6 +16,23 @@ conda activate naartjie-yolo26
 python -m pip install -e .
 ```
 
+## Notebook UI
+
+For a form-based workflow covering both YOLO object detection and YOLO instance segmentation, open the included dashboard:
+
+```powershell
+conda activate naartjie-yolo26
+jupyter lab notebooks/model_trainer_ui.ipynb
+```
+
+The notebook accepts either a standalone YOLO dataset or a complete Data Labeller export. Select **Object detection** or **Instance segmentation**, then validate the dataset, smoke-test the real Ultralytics loader, configure training, and start the run. The training button stays disabled until the long-running action is explicitly confirmed. It also shows the equivalent CLI command for reproducibility.
+
+When installing without Conda, include the notebook dependencies:
+
+```powershell
+python -m pip install -e ".[notebook]"
+```
+
 D-FINE uses its own official checkout and dependencies. Clone `https://github.com/Peterande/D-FINE`, create the environment described upstream, and pass that checkout with `--dfine-root`. The Trainer never vendors or silently substitutes another implementation.
 
 ## Validate and smoke-test real loaders

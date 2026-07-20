@@ -21,6 +21,7 @@ dependencies:
   - scikit-learn
   - jupyterlab
   - ipykernel
+  - ipywidgets
   - pytest
   - pip:
       - ultralytics==8.4.95

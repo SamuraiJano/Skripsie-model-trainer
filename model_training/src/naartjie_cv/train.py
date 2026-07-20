@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import csv
 import json
+import math
 import os
 import platform
-import shutil
 import subprocess
 import sys
+from collections.abc import Mapping
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -13,7 +15,7 @@ from typing import Any, Literal
 
 import yaml
 
-from .datasets import require_valid_training_export, validate_training_export
+from .datasets import require_valid_training_export, require_valid_yolo_training_dataset
 
 
 @dataclass
@@ -37,6 +39,103 @@ def _utc_now() -> str:
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _json_number(value: Any) -> int | float | None:
+    if isinstance(value, bool):
+        return int(value)
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return value if math.isfinite(value) else None
+    item = getattr(value, "item", None)
+    if callable(item):
+        try:
+            scalar = item()
+        except (RuntimeError, TypeError, ValueError):
+            return None
+        if isinstance(scalar, bool):
+            return int(scalar)
+        if isinstance(scalar, int):
+            return scalar
+        if isinstance(scalar, float):
+            return scalar if math.isfinite(scalar) else None
+    return None
+
+
+def _metric_values(source: Any) -> dict[str, int | float]:
+    mapping = source if isinstance(source, Mapping) else getattr(source, "results_dict", None)
+    if not isinstance(mapping, Mapping):
+        return {}
+    metrics: dict[str, int | float] = {}
+    for key, value in mapping.items():
+        scalar = _json_number(value)
+        if scalar is not None:
+            metrics[str(key)] = scalar
+    return metrics
+
+
+def _final_csv_values(path: Path) -> dict[str, int | float]:
+    if not path.is_file():
+        return {}
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    if not rows:
+        return {}
+    metrics: dict[str, int | float] = {}
+    for key, value in rows[-1].items():
+        if key is None or value is None or not value.strip():
+            continue
+        try:
+            scalar = float(value.strip())
+        except ValueError:
+            continue
+        if math.isfinite(scalar):
+            metrics[key.strip()] = scalar
+    return metrics
+
+
+def _ultralytics_final_metrics(results: Any, trainer: Any, results_csv: Path) -> dict[str, int | float]:
+    metrics: dict[str, int | float] = {}
+    for source in (results, getattr(trainer, "metrics", None)):
+        metrics.update(_metric_values(source))
+    for key, value in _final_csv_values(results_csv).items():
+        metrics.setdefault(key, value)
+    return metrics
+
+
+def _yolo_dataset_metadata(export_root: str | Path, data_yaml: Path, task: str) -> dict[str, Any]:
+    root = Path(export_root).expanduser().resolve()
+    payload = yaml.safe_load(data_yaml.read_text(encoding="utf-8")) or {}
+    raw_names = payload.get("names") or {}
+    names = (
+        {index: str(name) for index, name in enumerate(raw_names)}
+        if isinstance(raw_names, list)
+        else dict(sorted((int(index), str(name)) for index, name in raw_names.items()))
+    )
+    manifest_path = root / "export_manifest.json"
+    manifest: dict[str, Any] | None = None
+    if manifest_path.is_file():
+        try:
+            candidate = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            candidate = None
+        if isinstance(candidate, dict):
+            manifest = candidate
+    mapping_key = "detection" if task == "detect" else "segmentation"
+    manifest_mapping = (
+        manifest.get("class_mappings", {}).get(mapping_key)
+        if manifest is not None
+        else None
+    )
+    return {
+        "root": str(root),
+        "data_yaml": str(data_yaml),
+        "manifest": str(manifest_path) if manifest is not None else None,
+        "export_hash": manifest.get("export_hash") if manifest is not None else None,
+        "split": manifest.get("split") if manifest is not None else None,
+        "class_mapping": manifest_mapping if manifest_mapping is not None else names,
+    }
 
 
 def _runtime() -> dict[str, Any]:
@@ -84,8 +183,7 @@ def train_yolo_export(
 
     options = options or TrainingOptions()
     _validate_options(options)
-    bundle = require_valid_training_export(export_root)
-    data_yaml = bundle.yolo_detection if task == "detect" else bundle.yolo_segmentation
+    data_yaml = require_valid_yolo_training_dataset(export_root, task)
     model_name = "yolo26n.pt" if task == "detect" else "yolo26n-seg.pt"
     run_name = options.run_name or f"yolo26n-{task}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
     project_dir = Path(options.output_dir).expanduser().resolve() / "yolo26"
@@ -129,7 +227,10 @@ def train_yolo_export(
     elif options.resume:
         run_dir = checkpoint.parents[1]
 
-    manifest = json.loads(bundle.manifest.read_text(encoding="utf-8"))
+    results_csv = run_dir / "results.csv"
+    final_metrics_path = run_dir / "final_metrics.json"
+    final_metrics = _ultralytics_final_metrics(results, getattr(model, "trainer", None), results_csv)
+    _write_json(final_metrics_path, final_metrics)
     metadata = {
         "schema_version": "1.0",
         "created_at": _utc_now(),
@@ -138,22 +239,22 @@ def train_yolo_export(
         "task": task,
         "options": asdict(options),
         "training_arguments": arguments,
-        "dataset": {
-            "root": str(bundle.root),
-            "manifest": str(bundle.manifest),
-            "export_hash": manifest.get("export_hash"),
-            "split": manifest.get("split"),
-            "class_mapping": manifest.get("class_mappings", {}).get("detection" if task == "detect" else "segmentation"),
-        },
+        "dataset": _yolo_dataset_metadata(export_root, data_yaml, task),
         "runtime": _runtime(),
         "artifacts": {
             "best": str(run_dir / "weights" / "best.pt"),
             "last": str(run_dir / "weights" / "last.pt"),
-            "metrics_csv": str(run_dir / "results.csv"),
+            "metrics_csv": str(results_csv),
+            "final_metrics": str(final_metrics_path),
         },
     }
     _write_json(run_dir / "run_metadata.json", metadata)
-    return {"run_dir": str(run_dir), "metadata": str(run_dir / "run_metadata.json"), "result_type": type(results).__name__}
+    return {
+        "run_dir": str(run_dir),
+        "metadata": str(run_dir / "run_metadata.json"),
+        "final_metrics": str(final_metrics_path),
+        "result_type": type(results).__name__,
+    }
 
 
 def _dfine_config(bundle_root: Path, upstream: Path, run_dir: Path, options: TrainingOptions) -> Path:

@@ -2,6 +2,7 @@
 
 __all__ = [
     "datasets",
+    "notebook_ui",
     "runtime",
     "train",
 ]
