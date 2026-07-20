@@ -3,10 +3,16 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "naartjie-cv-trainer"
-version = "0.1.0"
-description = "Synthetic-data and YOLO26 training pipeline for naartjie defect instance segmentation."
-requires-python = ">=3.11"
+name = "skripsie-model-trainer"
+version = "1.0.0"
+description = "Validated YOLO26-N and D-FINE-N training over portable Data Labeller exports."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "ultralytics==8.4.95",
+    "PyYAML==6.0.3",
+    "numpy==2.3.5",
+    "opencv-python==5.0.0.93",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -14,4 +20,3 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
-

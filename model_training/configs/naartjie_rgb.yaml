@@ -1,9 +1,0 @@
-path: ../dataset_rgb
-train: images/train
-val: images/val
-test: images/test
-
-names:
-  0: safe
-  1: minor_defect
-  2: major_defect

@@ -1,13 +1,7 @@
-"""Naartjie defect training pipeline utilities."""
+"""Validated YOLO26-N and D-FINE-N training utilities."""
 
 __all__ = [
-    "config",
+    "datasets",
     "runtime",
-    "synthetic",
-    "multispectral",
     "train",
-    "evaluate",
-    "export",
-    "classical",
-    "fiftyone_tools",
 ]

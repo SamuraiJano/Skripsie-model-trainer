@@ -4,18 +4,17 @@ channels:
   - nvidia
   - conda-forge
 dependencies:
-  - python=3.11
+  - python=3.12.6
   - pip
-  - pytorch
-  - torchvision
+  - pytorch=2.6.0
+  - torchvision=0.21.0
   - pytorch-cuda=12.4
-  - numpy
+  - numpy=2.3.5
   - scipy
   - pandas
   - matplotlib
   - seaborn
-  - pyyaml
-  - opencv>=5.0
+  - pyyaml=6.0.3
   - pillow
   - tqdm
   - scikit-image
@@ -24,9 +23,7 @@ dependencies:
   - ipykernel
   - pytest
   - pip:
-      - "ultralytics>=8.3.112"
-      - pycocotools
-      - rich
-      - onnx
-      - onnxruntime
-      - fiftyone
+      - ultralytics==8.4.95
+      - opencv-python==5.0.0.93
+      - pycocotools==2.0.10
+      - rich==14.2.0

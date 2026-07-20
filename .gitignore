@@ -56,3 +56,6 @@ third_party/
 !background/models/.gitkeep
 !background/output_frames/.gitkeep
 !background/logs/.gitkeep
+
+model_training/dataset_detect_rgb/*
+!model_training/dataset_detect_rgb/.gitkeep
