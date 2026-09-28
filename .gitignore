@@ -28,8 +28,7 @@ background/logs/*.csv
 foreground/node_modules/
 foreground/dist/
 foreground/vite-dev.*.log
-model_training/frontend/node_modules/
-model_training/frontend/dist/
+model_training/frontend/
 
 # C++ build outputs
 build/
@@ -49,10 +48,6 @@ _deps/
 # Local dependency bundles
 third_party/
 !model_training/third_party/
-!model_training/third_party/LICENSES/
-!model_training/third_party/LICENSES/Ghost-DeblurGAN-MIT.txt
-!model_training/third_party/LICENSES/DeblurGANv2-BSD.txt
-!model_training/third_party/DEBLUR_ATTRIBUTION.md
 model_training/third_party/D-FINE/
 model_training/third_party/D-FINE-seg/
 

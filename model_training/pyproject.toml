@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "skripsie-model-trainer"
 version = "2.0.0"
-description = "YOLO/D-FINE training plus paired Ghost-DeblurGAN training and safety evaluation."
+description = "Validated YOLO and D-FINE detection and segmentation training."
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "ultralytics==8.4.95",
@@ -14,8 +14,6 @@ dependencies = [
     "opencv-python==5.0.0.93",
     "Pillow>=10.0",
     "torch>=2.5,<3",
-    "fastapi>=0.115",
-    "uvicorn[standard]>=0.30",
 ]
 
 [project.optional-dependencies]
@@ -51,17 +49,11 @@ dfine-seg = [
     "tqdm>=4.66",
     "wandb==0.26.1",
 ]
-deblur-export = [
-    "torchvision>=0.20",
-    "onnx>=1.17",
-    "onnxruntime>=1.20",
-    "lpips>=0.1.4",
-]
 test = ["pytest>=8.0"]
 
 [tool.setuptools]
-packages = ["naartjie_cv", "deblur"]
-package-dir = {naartjie_cv = "src/naartjie_cv", deblur = "deblur"}
+packages = ["naartjie_cv"]
+package-dir = {naartjie_cv = "src/naartjie_cv"}
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

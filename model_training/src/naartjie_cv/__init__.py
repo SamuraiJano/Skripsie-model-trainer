@@ -1,4 +1,4 @@
-"""Validated YOLO, D-FINE, D-FINE-seg, and deblurring training utilities."""
+"""Validated YOLO, D-FINE, and D-FINE-seg training utilities."""
 
 __all__ = [
     "datasets",
