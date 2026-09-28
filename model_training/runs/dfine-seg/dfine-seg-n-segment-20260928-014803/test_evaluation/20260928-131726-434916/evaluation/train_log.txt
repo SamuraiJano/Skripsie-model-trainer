@@ -1,8 +1,0 @@
-Experiment: dfine-seg-n-segment-20260928-014803, Task: segment, Annotations: COCO
-Loaded 711 images from train.json
-Loaded 199 images from val.json
-Loaded 90 images from test.json
-Images in train: 711, val: 199, test: 90
-Objects count: wind_scarring: 1020, dark_marking: 896, skin_wrinkling: 438, light_brown_discolouration: 317, open_skin: 34
-Background images: 43
-Best Threshold for object detection: 0.6 with F1 Score: 0.438

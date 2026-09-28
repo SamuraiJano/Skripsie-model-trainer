@@ -1,3 +1,0 @@
-,precision_open_skin,recall_open_skin,iou_open_skin,f1_open_skin,precision_dark_marking,recall_dark_marking,iou_dark_marking,f1_dark_marking,precision_wind_scarring,recall_wind_scarring,iou_wind_scarring,f1_wind_scarring,precision_skin_wrinkling,recall_skin_wrinkling,iou_skin_wrinkling,f1_skin_wrinkling,precision_light_brown_discolouration,recall_light_brown_discolouration,iou_light_brown_discolouration,f1_light_brown_discolouration,mAP_50_95_mask,mAP_50_95,optimal_thresh
-val,0.0,0.0,0.0,0,0.0,0.0,0.0,0,0.0,0.0,0.0,0,0,0.0,0.0,0,0,0.0,0.0,0,0.0,0.0007,0.2
-test,0.0,0.0,0.0,0,0.0,0.0,0.0,0,0.0,0.0,0.0,0,0,0.0,0.0,0,0,0.0,0.0,0,0.0,0.002,0.25

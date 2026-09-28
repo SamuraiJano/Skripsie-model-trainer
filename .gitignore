@@ -11,6 +11,7 @@ __pycache__/
 /runs/
 /exports/
 /models/
+model_training/models/completed/
 /logs/
 /output_frames/
 model_training/dataset_rgb/*
