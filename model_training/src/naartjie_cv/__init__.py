@@ -1,8 +1,10 @@
-"""Validated YOLO26-N and D-FINE-N training utilities."""
+"""Validated YOLO, D-FINE, D-FINE-seg, and deblurring training utilities."""
 
 __all__ = [
     "datasets",
+    "dfine_notebook_ui",
     "notebook_ui",
     "runtime",
     "train",
+    "yolo_export",
 ]

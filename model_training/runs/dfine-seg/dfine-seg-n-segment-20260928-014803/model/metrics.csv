@@ -1,0 +1,3 @@
+,mAP_50,f1,precision,recall,iou,mAP_50_95,TPs,FPs,FNs
+val,0.0,0,0,0.0,0.0,0.0,0,0,588
+test,0.0,0,0,0.0,0.0,0.0,0,0,216

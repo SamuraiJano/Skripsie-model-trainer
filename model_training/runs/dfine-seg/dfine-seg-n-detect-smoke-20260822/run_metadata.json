@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-22T12:21:36+00:00",
+  "trainer": "ArgoHA/D-FINE-seg",
+  "model": "D-FINE-seg-N",
+  "task": "detect",
+  "upstream": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE-seg",
+  "python": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\.venv\\Scripts\\python.exe",
+  "command": [
+    "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\scripts\\dfine_seg_runner.py",
+    "--upstream",
+    "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE-seg",
+    "--config",
+    "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\dfine_seg_training.yaml",
+    "--action",
+    "train"
+  ],
+  "options": {
+    "model_size": "n",
+    "epochs": 1,
+    "imgsz": 640,
+    "batch": 2,
+    "workers": 0,
+    "seed": 42,
+    "device": "cuda",
+    "amp": true,
+    "amp_dtype": "float16",
+    "early_stopping": 0,
+    "grad_accumulation": 1,
+    "clip_max_norm": 0.1,
+    "use_wandb": false,
+    "use_ema": true,
+    "use_scheduler": true,
+    "use_muon": true,
+    "aux_optimizer": "adan",
+    "base_lr": null,
+    "backbone_lr": null,
+    "weight_decay": 0.000125,
+    "mosaic_probability": 0.0,
+    "no_mosaic_epochs": 0,
+    "conf_threshold": 0.5,
+    "iou_threshold": 0.5,
+    "pretrained_dataset": "coco",
+    "pretrained_model": null,
+    "visualize_validation": false,
+    "output_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs",
+    "run_name": "dfine-seg-n-detect-smoke-20260822",
+    "extra_config": {}
+  },
+  "dataset": {
+    "root": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\prepared_dataset",
+    "source_root": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\_dfine_seg_smoke_dataset",
+    "source_data_yaml": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\_dfine_seg_smoke_dataset\\data.yaml",
+    "task": "detect",
+    "format": "COCO JSON with bbox",
+    "classes": {
+      "0": "naartjie"
+    },
+    "splits": {
+      "train": {
+        "images": 8,
+        "annotations": 314,
+        "json": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\prepared_dataset\\train.json"
+      },
+      "val": {
+        "images": 4,
+        "annotations": 231,
+        "json": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\prepared_dataset\\val.json"
+      },
+      "test": {
+        "images": 4,
+        "annotations": 240,
+        "json": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\prepared_dataset\\test.json"
+      }
+    },
+    "image_materialization": [
+      "hardlink"
+    ]
+  },
+  "artifacts": {
+    "run_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822",
+    "model_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\model",
+    "config": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\dfine_seg_training.yaml",
+    "best": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\model\\model.pt",
+    "last": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\model\\last.pt",
+    "log": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-smoke-20260822\\model\\train_log.txt"
+  }
+}

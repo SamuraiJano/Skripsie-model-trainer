@@ -1,0 +1,29 @@
+Experiment: dfine-seg-n-detect-smoke-20260822, Task: detect, Annotations: COCO
+Loaded 8 images from train.json
+Loaded 4 images from val.json
+Loaded 4 images from test.json
+Images in train: 8, val: 4, test: 4
+Objects count: naartjie: 785
+Background images: 0
+Pretrained weigts from C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\third_party\D-FINE-seg\pretrained\dfine_n_coco.pt, {'missed': ['decoder.denoising_class_embed.weight'], 'unmatched': ['decoder.enc_score_head.weight', 'decoder.enc_score_head.bias', 'decoder.dec_score_head.0.weight', 'decoder.dec_score_head.0.bias', 'decoder.dec_score_head.1.weight', 'decoder.dec_score_head.1.bias', 'decoder.dec_score_head.2.weight', 'decoder.dec_score_head.2.bias']}
+EMA model will be evaluated and saved
+Saving new best model🔥
+Metrics on epoch 1:
++-----+--------+-----+-----------+--------+-----+-----------+-----+-----+-------+
+|     | mAP_50 | f1  | precision | recall | iou | mAP_50_95 | TPs | FPs |  FNs  |
++-----+--------+-----+-----------+--------+-----+-----------+-----+-----+-------+
+| val | 0.4763 | 0.0 |    0.0    |  0.0   | 0.0 |  0.4106   | 0.0 | 0.0 | 231.0 |
++-----+--------+-----+-----------+--------+-----+-----------+-----+-----+-------+
+
+Evaluating best model...
+Best Threshold for object detection: 0.95 with F1 Score: 0
+Best Threshold for object detection: 0.95 with F1 Score: 0
+Best epoch metrics:
++------+--------+-----+-----------+--------+-----+-----------+-----+-----+-------+
+|      | mAP_50 | f1  | precision | recall | iou | mAP_50_95 | TPs | FPs |  FNs  |
++------+--------+-----+-----------+--------+-----+-----------+-----+-----+-------+
+| val  | 0.4763 | 0.0 |    0.0    |  0.0   | 0.0 |  0.4106   | 0.0 | 0.0 | 231.0 |
+| test | 0.4306 | 0.0 |    0.0    |  0.0   | 0.0 |  0.3754   | 0.0 | 0.0 | 240.0 |
++------+--------+-----+-----------+--------+-----+-----------+-----+-----+-------+
+
+Full training time: 0.00 hours

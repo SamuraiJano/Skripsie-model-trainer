@@ -28,6 +28,8 @@ background/logs/*.csv
 foreground/node_modules/
 foreground/dist/
 foreground/vite-dev.*.log
+model_training/frontend/node_modules/
+model_training/frontend/dist/
 
 # C++ build outputs
 build/
@@ -46,6 +48,13 @@ _deps/
 
 # Local dependency bundles
 third_party/
+!model_training/third_party/
+!model_training/third_party/LICENSES/
+!model_training/third_party/LICENSES/Ghost-DeblurGAN-MIT.txt
+!model_training/third_party/LICENSES/DeblurGANv2-BSD.txt
+!model_training/third_party/DEBLUR_ATTRIBUTION.md
+model_training/third_party/D-FINE/
+model_training/third_party/D-FINE-seg/
 
 # Local agent/tooling metadata
 .agents/
@@ -59,3 +68,27 @@ third_party/
 
 model_training/dataset_detect_rgb/*
 !model_training/dataset_detect_rgb/.gitkeep
+
+# Segmentation datasets stay local.
+model_training/dataset_seg_rgb/
+model_training/dataset_seg_hsv/
+
+# Publish run configuration, logs, and metrics, not images or model binaries.
+model_training/runs/**
+!model_training/runs/**/
+!model_training/runs/**/*.json
+!model_training/runs/**/*.jsonl
+!model_training/runs/**/*.yaml
+!model_training/runs/**/*.yml
+!model_training/runs/**/*.csv
+!model_training/runs/**/*.txt
+!model_training/runs/**/*.log
+!model_training/runs/**/*.md
+model_training/runs/**/prepared_dataset/
+model_training/runs/_dfine_seg_smoke_dataset/
+model_training/runs/**/images/
+model_training/runs/**/labels/
+model_training/runs/**/debug_images/
+model_training/runs/**/eval_preds/
+model_training/runs/**/preview_images/
+model_training/runs/**/plots/

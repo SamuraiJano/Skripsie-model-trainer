@@ -1,0 +1,17 @@
+{
+  "logits": {
+    "max_absolute_difference": 0.0011124610900878906,
+    "mean_absolute_difference": 2.9471397399902343e-05,
+    "matches": true
+  },
+  "boxes": {
+    "max_absolute_difference": 6.10649585723877e-05,
+    "mean_absolute_difference": 6.971919598678747e-07,
+    "matches": true
+  },
+  "masks": {
+    "max_absolute_difference": 0.00018456578254699707,
+    "mean_absolute_difference": 1.4429051126777874e-06,
+    "matches": true
+  }
+}

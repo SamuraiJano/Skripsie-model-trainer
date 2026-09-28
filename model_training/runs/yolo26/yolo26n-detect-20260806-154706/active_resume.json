@@ -1,0 +1,7 @@
+{
+    "ProcessId":  21672,
+    "Stdout":  "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20260806-154706\\resume-20260806-213432.stdout.log",
+    "Stderr":  "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20260806-154706\\resume-20260806-213432.stderr.log",
+    "ResumedAt":  "2026-08-06T21:34:32.6251868+02:00",
+    "Checkpoint":  "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20260806-154706\\weights\\last.pt"
+}

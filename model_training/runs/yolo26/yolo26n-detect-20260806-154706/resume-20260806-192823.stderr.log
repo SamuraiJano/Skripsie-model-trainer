@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\scripts\model_trainer.py", line 347, in <module>
+    main()
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\scripts\model_trainer.py", line 330, in main
+    result = train_yolo_export(args.export_root, "detect", options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\src\naartjie_cv\train.py", line 374, in train_yolo_export
+    data_yaml = require_valid_yolo_training_dataset(export_root, task)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\src\naartjie_cv\datasets.py", line 252, in require_valid_yolo_training_dataset
+    raise ValueError(f"YOLO {task} dataset validation failed:\n- " + "\n- ".join(report["errors"]))
+ValueError: YOLO detect dataset validation failed:
+- YOLO detect data.yaml is missing; checked: data.yaml, yolo26_detection\data.yaml

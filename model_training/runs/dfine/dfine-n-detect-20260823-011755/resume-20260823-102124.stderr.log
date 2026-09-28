@@ -1,0 +1,5 @@
+C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\third_party\D-FINE\src\core\workspace.py:178: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  return module(**module_kwargs)
+C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\third_party\D-FINE\src\solver\det_engine.py:125: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:823.)
+  if not math.isfinite(loss_value):

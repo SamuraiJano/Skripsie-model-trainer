@@ -1,0 +1,24 @@
+__include__:
+- C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\third_party\D-FINE\configs\dfine\custom\dfine_hgnetv2_n_custom.yml
+output_dir: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\dfine\dfine-n-detect-20260822-144941
+num_classes: 1
+remap_mscoco_category: false
+epochs: 400
+train_dataloader:
+  total_batch_size: -1
+  num_workers: 8
+  dataset:
+    type: CocoDetection
+    img_folder: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\dfine\dfine-n-detect-20260822-144941\prepared_dataset\images
+    ann_file: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\dfine\dfine-n-detect-20260822-144941\prepared_dataset\train.json
+    return_masks: false
+    remap_mscoco_category: false
+val_dataloader:
+  total_batch_size: -1
+  num_workers: 8
+  dataset:
+    type: CocoDetection
+    img_folder: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\dfine\dfine-n-detect-20260822-144941\prepared_dataset\images
+    ann_file: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\dfine\dfine-n-detect-20260822-144941\prepared_dataset\val.json
+    return_masks: false
+    remap_mscoco_category: false

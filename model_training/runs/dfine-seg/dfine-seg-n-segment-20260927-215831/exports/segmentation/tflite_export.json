@@ -1,0 +1,37 @@
+{
+  "status": "failed_parity",
+  "run": "dfine-seg-n-segment-20260927-215831",
+  "checkpoint": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-segment-20260927-215831\\model\\model.pt",
+  "checkpoint_sha256": "2b4e1ecae2606fad9caa9ed320969ed8734de70ce00e9af2e1ffd874c5fcb6cc",
+  "onnx": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-segment-20260927-215831\\exports\\segmentation\\model_raw_tflite.onnx",
+  "tflite": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-segment-20260927-215831\\exports\\segmentation\\litert\\model_raw_tflite_float32.tflite",
+  "outputs": [
+    {
+      "name": "logits",
+      "shape": [
+        1,
+        300,
+        5
+      ]
+    },
+    {
+      "name": "boxes",
+      "shape": [
+        1,
+        300,
+        4
+      ]
+    },
+    {
+      "name": "masks",
+      "shape": [
+        1,
+        300,
+        160,
+        160
+      ]
+    }
+  ],
+  "postprocessing": "Raw logits, normalized boxes, and mask logits; apply confidence filtering, box scaling, and mask resizing in the consuming application.",
+  "error": "ONNX-to-TFLite conversion changed the segmentation model's predictions: {'logits': {'max_absolute_difference': 12.931296825408936, 'mean_absolute_difference': 4.111794900894165, 'matches': False}, 'boxes': {'max_absolute_difference': 0.3281872272491455, 'mean_absolute_difference': 0.04309590697521344, 'matches': False}, 'masks': {'max_absolute_difference': 0.6556959748268127, 'mean_absolute_difference': 0.07351159348484312, 'matches': False}}"
+}
