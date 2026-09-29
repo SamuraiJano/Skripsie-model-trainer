@@ -1,0 +1,3 @@
+,precision_wind_scarring,recall_wind_scarring,iou_wind_scarring,f1_wind_scarring,precision_dark_marking,recall_dark_marking,iou_dark_marking,f1_dark_marking,precision_skin_wrinkling,recall_skin_wrinkling,iou_skin_wrinkling,f1_skin_wrinkling,precision_light_brown_discolouration,recall_light_brown_discolouration,iou_light_brown_discolouration,f1_light_brown_discolouration,precision_open_skin,recall_open_skin,iou_open_skin,f1_open_skin,mAP_50_95_mask,mAP_50_95,optimal_thresh
+val,0.6455,0.5648,0.313,0.6025,0.6715,0.5055,0.2886,0.5768,0.4098,0.2049,0.0982,0.2732,0.55,0.3492,0.1818,0.4272,1.0,0.6,0.548,0.75,0.1981,0.2396,0.5
+test,0.6344,0.6413,0.3506,0.6378,0.6308,0.5694,0.306,0.5985,0.16,0.1481,0.0604,0.1538,0.1765,0.125,0.0595,0.1463,0.0,0.0,0.0,0.0,0.1063,0.1667,0.6

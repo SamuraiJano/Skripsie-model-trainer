@@ -1,0 +1,122 @@
+{
+  "onnx": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-segment-20260928-154743\\exports\\segmentation\\model_raw.onnx",
+  "onnx_sha256": "c30e0bd10a29b62209566842c93030910d735b3ca22e13724bf82a9ea0461c8a",
+  "engine": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-segment-20260928-154743\\exports\\segmentation\\model_raw_fp32_trt10_13_3_9.unvalidated.engine",
+  "engine_sha256": "5132bdbc3f5f04c5b67eaec289ac972a70beddfa40aa41a85aaedf9c8ed7adc4",
+  "tensorrt_version": "10.13.3.9",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "thresholds": {
+    "0.25": {
+      "images": 90,
+      "images_same_detection_count": 75,
+      "count_mismatch_images": [
+        "146d6578-6db3-52cf-aa05-f016211cd3b8.png",
+        "40b172ed-4673-54f3-a3af-425a27444942.png",
+        "4d0fbe46-6c0a-5888-a530-dfffe9384659.png",
+        "764de04e-7601-5da6-9df1-c095c37ebbfd.png",
+        "7c6d0445-2f18-53c3-831e-c95e2c6174e5.png",
+        "9e045a39-ae00-5fa3-9458-12399401a81d.png",
+        "9e366662-59b8-5bad-977f-a6258bcc70c4.png",
+        "9eb5db13-a3bc-50ba-b70c-a76b7f676fb4.png",
+        "a02a9e46-f0d5-5cc2-853c-46070b9ead1e.png",
+        "ae23e58a-1f88-5a9d-95ad-37c32ca1019c.png",
+        "bbff86db-b209-506b-a426-badd3210cc28.png",
+        "c19d1aa7-84ba-5f7f-92a4-558e9209f6dc.png",
+        "ca78482f-674e-59c9-b35c-91fd147943ca.png",
+        "dadb9928-5652-50dc-be0a-4cb402f2a92a.png",
+        "f711b5f3-743a-5a15-9852-b1fb8ca09f04.png"
+      ],
+      "onnx_detections": 421,
+      "tensorrt_detections": 424,
+      "matched_detections": 411,
+      "unmatched_onnx_detections": 10,
+      "unmatched_tensorrt_detections": 13,
+      "by_class": {
+        "2": {
+          "onnx": 174,
+          "tensorrt": 168,
+          "matched": 168
+        },
+        "1": {
+          "onnx": 113,
+          "tensorrt": 112,
+          "matched": 112
+        },
+        "3": {
+          "onnx": 52,
+          "tensorrt": 54,
+          "matched": 50
+        },
+        "0": {
+          "onnx": 82,
+          "tensorrt": 89,
+          "matched": 81
+        },
+        "4": {
+          "onnx": 0,
+          "tensorrt": 1,
+          "matched": 0
+        }
+      },
+      "box_ious_mean": 0.9908679419113947,
+      "box_ious_min": 0.8607133888701446,
+      "box_ious_max": 0.9998690441630907,
+      "mask_ious_mean": 0.9689859028141917,
+      "mask_ious_min": 0.7645092676997873,
+      "mask_ious_max": 0.9987323433538573,
+      "score_absolute_differences_mean": 0.012923209119017107,
+      "score_absolute_differences_min": 1.8656253814697266e-05,
+      "score_absolute_differences_max": 0.17388927936553955
+    },
+    "0.5": {
+      "images": 90,
+      "images_same_detection_count": 82,
+      "count_mismatch_images": [
+        "02df1669-af23-5114-a469-1940dfdef760.png",
+        "409a47ea-509f-589b-8115-e2a0d950ca2b.png",
+        "40b172ed-4673-54f3-a3af-425a27444942.png",
+        "61f35670-f39b-521c-aea3-667c7f195140.png",
+        "75189e86-3736-5052-84dd-584b57b5ff34.png",
+        "8e790c97-5e17-51d1-8016-69f7a9cb63bb.png",
+        "bbff86db-b209-506b-a426-badd3210cc28.png",
+        "da64b606-a03f-59b7-ab9e-e82d5d69c90a.png"
+      ],
+      "onnx_detections": 199,
+      "tensorrt_detections": 203,
+      "matched_detections": 196,
+      "unmatched_onnx_detections": 3,
+      "unmatched_tensorrt_detections": 7,
+      "by_class": {
+        "2": {
+          "onnx": 95,
+          "tensorrt": 95,
+          "matched": 94
+        },
+        "1": {
+          "onnx": 64,
+          "tensorrt": 67,
+          "matched": 64
+        },
+        "3": {
+          "onnx": 14,
+          "tensorrt": 16,
+          "matched": 13
+        },
+        "0": {
+          "onnx": 26,
+          "tensorrt": 25,
+          "matched": 25
+        }
+      },
+      "box_ious_mean": 0.992399028756948,
+      "box_ious_min": 0.923033183435303,
+      "box_ious_max": 0.999848492433739,
+      "mask_ious_mean": 0.973298090542195,
+      "mask_ious_min": 0.7645092676997873,
+      "mask_ious_max": 0.9987323433538573,
+      "score_absolute_differences_mean": 0.01104513844665216,
+      "score_absolute_differences_min": 1.8656253814697266e-05,
+      "score_absolute_differences_max": 0.17388927936553955
+    }
+  }
+}

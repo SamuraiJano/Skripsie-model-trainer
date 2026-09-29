@@ -8,6 +8,7 @@ import importlib.util
 import json
 import math
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -183,6 +184,25 @@ def _decompose_instance_normalization(model):
     return model
 
 
+def _per_class_average_precision(result: dict) -> dict[int, dict[str, float | None]]:
+    """Read COCO AP50 and AP50:95 from a TorchMetrics class-aware result."""
+    classes = result["classes"].tolist()
+    map_per_class = result["map_per_class"]
+    precision = result["precision"]  # IoU, recall, class, area, max detections
+    if precision.ndim != 5 or precision.shape[2] != len(classes) or len(map_per_class) != len(classes):
+        raise RuntimeError("Unexpected per-class average-precision result shape")
+    by_class = {}
+    for index, class_id in enumerate(classes):
+        ap50_precision = precision[0, :, index, 0, -1]
+        valid = ap50_precision[ap50_precision >= 0]
+        ap5095 = float(map_per_class[index])
+        by_class[int(class_id)] = {
+            "ap50": float(valid.mean()) if valid.numel() else None,
+            "ap50_95": ap5095 if ap5095 >= 0 else None,
+        }
+    return by_class
+
+
 def evaluate_test(run_dir: Path, dataset_root: Path, checkpoint_name: str, device: str, output_dir: Path | None = None) -> Path:
     import torch
 
@@ -223,6 +243,7 @@ def evaluate_test(run_dir: Path, dataset_root: Path, checkpoint_name: str, devic
     from scripts.dfine_seg_runner import _install_consistent_letterbox
     from src.dl import dataset as dataset_module
     from src.dl.train import Trainer
+    from src.dl.validator import Validator
 
     _install_consistent_letterbox(dataset_module)
     print(f"Testing {run_dir.name} on {test_info['images']} images from {dataset_root / 'images' / 'test'}")
@@ -231,14 +252,60 @@ def evaluate_test(run_dir: Path, dataset_root: Path, checkpoint_name: str, devic
     assert trainer.test_loader is not None
     state = torch.load(checkpoint, map_location="cpu", weights_only=True)
     trainer.model.load_state_dict(state)
-    metrics = trainer.evaluate(
-        val_loader=trainer.test_loader,
+    if trainer.distributed or not trainer.is_main:
+        raise RuntimeError("Per-class test evaluation requires a single process")
+    ground_truth, predictions = trainer.get_preds_and_gt(trainer.test_loader)
+    validator = Validator(
+        ground_truth,
+        predictions,
         conf_thresh=trainer.conf_thresh,
         iou_thresh=trainer.iou_thresh,
-        path_to_save=Path(config.train.path_to_save),
-        extended=True,
-        mode="test",
+        label_to_name=trainer.label_to_name,
+        mask_batch_size=trainer.mask_batch_size,
     )
+    for metric in (validator.torch_metric, getattr(validator, "torch_metric_mask", None)):
+        if metric is not None:
+            metric.class_metrics = True
+            metric.extended_summary = True
+    metrics = validator.compute_metrics(extended=True, cleanup=False)
+    box_ap = _per_class_average_precision(validator.torch_metrics)
+    mask_ap = (
+        _per_class_average_precision(validator.torch_metric_mask.compute())
+        if validator.use_masks else {}
+    )
+    support = {int(class_id): 0 for class_id in trainer.label_to_name}
+    prediction_counts = support.copy()
+    for ground_truth_image in ground_truth:
+        for class_id in ground_truth_image["labels"].tolist():
+            support[int(class_id)] += 1
+    for prediction_image in predictions:
+        for class_id in prediction_image["labels"].tolist():
+            prediction_counts[int(class_id)] += 1
+    per_class = {}
+    for class_id, name in sorted(trainer.label_to_name.items()):
+        class_id = int(class_id)
+        counts = validator.metrics_per_class.get(class_id, {})
+        extended = metrics["extended_metrics"]
+        per_class[name] = {
+            "class_id": class_id,
+            "ground_truth_instances": support[class_id],
+            "predictions_at_threshold": prediction_counts[class_id],
+            "true_positives": int(counts.get("TPs", 0)),
+            "false_positives": int(counts.get("FPs", 0)),
+            "false_negatives": int(counts.get("FNs", 0)),
+            "precision": extended.get(f"precision_{name}", 0),
+            "recall": extended.get(f"recall_{name}", 0),
+            "f1": extended.get(f"f1_{name}", 0),
+            "mean_mask_iou_including_errors": extended.get(f"iou_{name}"),
+            "box_ap50": box_ap.get(class_id, {}).get("ap50"),
+            "box_ap50_95": box_ap.get(class_id, {}).get("ap50_95"),
+            "mask_ap50": mask_ap.get(class_id, {}).get("ap50"),
+            "mask_ap50_95": mask_ap.get(class_id, {}).get("ap50_95"),
+        }
+    optimal_thresh = validator.save_plots(Path(config.train.path_to_save) / "plots" / "test")
+    if optimal_thresh is not None:
+        metrics["extended_metrics"]["optimal_thresh"] = optimal_thresh
+    validator._cleanup_torchmetrics()
     report = output_dir / "test_metrics.json"
     _write_report(report, {
         "run": run_dir.name,
@@ -247,8 +314,12 @@ def evaluate_test(run_dir: Path, dataset_root: Path, checkpoint_name: str, devic
         "dataset": str(dataset_root),
         "test_images": test_info["images"],
         "test_annotations": test_info["annotations"],
+        "confidence_threshold": trainer.conf_thresh,
+        "match_iou_threshold": trainer.iou_thresh,
+        "ap_scope": "Box AP uses all top-K scored boxes; mask AP uses only predictions at or above the confidence threshold because the upstream evaluator generates masks only for retained detections.",
         "evaluation_letterbox_scaleup": True,
         "metrics": metrics,
+        "per_class": per_class,
         "preview_images": str(output_dir / "preview_images"),
         "plots": str(output_dir / "evaluation" / "plots" / "test"),
     })
@@ -410,7 +481,7 @@ def export_tflite(run_dir: Path, checkpoint_name: str, overwrite: bool, allow_un
         "onnx": str(tflite_onnx_path),
         "tflite": str(tflite_path),
         "outputs": [{"name": item["name"], "shape": list(map(int, item["shape"]))} for item in outputs],
-        "postprocessing": "Raw logits, normalized boxes, and mask logits; apply confidence filtering, box scaling, and mask resizing in the consuming application.",
+        "postprocessing": "Raw logits, normalized boxes, and mask probabilities; apply confidence filtering, box scaling, and mask resizing in the consuming application.",
     }
     try:
         payload["parity"] = _compare_outputs(expected, actual, "ONNX-to-TFLite conversion")
@@ -427,6 +498,9 @@ def export_tflite(run_dir: Path, checkpoint_name: str, overwrite: bool, allow_un
 
 
 def export_tensorrt(run_dir: Path, checkpoint_name: str, overwrite: bool, workspace_gib: int, allow_unvalidated: bool = False) -> Path:
+    sidecar = PROJECT_ROOT / '.trt10'
+    if sidecar.is_dir() and str(sidecar) not in sys.path:
+        sys.path.insert(0, str(sidecar))
     if importlib.util.find_spec("tensorrt") is None:
         raise RuntimeError(
             "TensorRT is not installed in this Python environment. Install the CUDA-matched "
@@ -437,13 +511,27 @@ def export_tensorrt(run_dir: Path, checkpoint_name: str, overwrite: bool, worksp
     import onnxruntime as ort
     import torch
 
+    print(f"Using TensorRT {trt.__version__} from {Path(trt.__file__).resolve()}")
     if not torch.cuda.is_available():
         raise RuntimeError("TensorRT export requires an NVIDIA GPU with CUDA available")
     run_dir, _, upstream, config, checkpoint = _load_run(run_dir, checkpoint_name)
     export_dir = run_dir / "exports" / "segmentation"
     onnx_path = _onnx_model(config, checkpoint, upstream, export_dir, raw=True, overwrite=overwrite)
-    engine_path = export_dir / "model_raw_fp32.engine"
-    if not engine_path.is_file() or overwrite or engine_path.stat().st_mtime_ns < onnx_path.stat().st_mtime_ns:
+    version_tag = re.sub(r"[^0-9A-Za-z]+", "_", trt.__version__).strip("_")
+    engine_path = export_dir / f"model_raw_fp32_trt{version_tag}.engine"
+    report = export_dir / f"tensorrt_trt{version_tag}_export.json"
+    checkpoint_digest = _checkpoint_hash(checkpoint)
+    onnx_digest = _checkpoint_hash(onnx_path)
+    previous_report = json.loads(report.read_text(encoding="utf-8")) if report.is_file() else {}
+    rebuild = (
+        overwrite or not engine_path.is_file()
+        or engine_path.stat().st_mtime_ns < onnx_path.stat().st_mtime_ns
+        or previous_report.get("status") != "validated"
+        or previous_report.get("checkpoint_sha256") != checkpoint_digest
+        or previous_report.get("onnx_sha256") != onnx_digest
+        or previous_report.get("tensorrt_version") != trt.__version__
+    )
+    if rebuild:
         logger = trt.Logger(trt.Logger.WARNING)
         trt.init_libnvinfer_plugins(logger, "")
         major = int(str(trt.__version__).split(".")[0])
@@ -456,13 +544,14 @@ def export_tensorrt(run_dir: Path, checkpoint_name: str, overwrite: bool, worksp
             raise RuntimeError(f"TensorRT could not parse the segmentation ONNX model:\n{errors}")
         settings = builder.create_builder_config()
         settings.set_memory_pool_limit(trt.MemoryPoolType.WORKSPACE, workspace_gib * (1 << 30))
-        engine = builder.build_serialized_network(network, settings)
-        if engine is None:
+        engine_blob = builder.build_serialized_network(network, settings)
+        if engine_blob is None:
             raise RuntimeError("TensorRT could not build the segmentation engine; inspect the builder output")
-        engine_path.write_bytes(bytes(engine))
+    else:
+        engine_blob = engine_path.read_bytes()
     logger = trt.Logger(trt.Logger.WARNING)
     runtime = trt.Runtime(logger)
-    engine = runtime.deserialize_cuda_engine(engine_path.read_bytes())
+    engine = runtime.deserialize_cuda_engine(engine_blob)
     if engine is None:
         raise RuntimeError(f"TensorRT could not deserialize {engine_path}")
     names = [engine.get_tensor_name(index) for index in range(engine.num_io_tensors)]
@@ -485,6 +574,7 @@ def export_tensorrt(run_dir: Path, checkpoint_name: str, overwrite: bool, worksp
         buffers[name] = buffer
         context.set_tensor_address(name, buffer.data_ptr())
     stream = torch.cuda.Stream()
+    stream.wait_stream(torch.cuda.current_stream())
     if not context.execute_async_v3(stream.cuda_stream):
         raise RuntimeError("TensorRT segmentation inference failed")
     stream.synchronize()
@@ -493,25 +583,34 @@ def export_tensorrt(run_dir: Path, checkpoint_name: str, overwrite: bool, worksp
     expected = dict(zip((item.name for item in onnx_session.get_outputs()), onnx_session.run(None, {"input": sample})))
     parity = _compare_outputs(expected, actual, "ONNX-to-TensorRT conversion", strict=False)
     validated = all(item["matches"] for item in parity.values())
-    report = export_dir / "tensorrt_export.json"
-    _write_report(report, {
+    payload = {
         "status": "validated" if validated else "failed_parity",
         "run": run_dir.name,
         "checkpoint": str(checkpoint),
-        "checkpoint_sha256": _checkpoint_hash(checkpoint),
+        "checkpoint_sha256": checkpoint_digest,
         "onnx": str(onnx_path),
-        "engine": str(engine_path),
+        "onnx_sha256": onnx_digest,
+        "engine": None,
         "precision": "fp32",
         "tensorrt_version": trt.__version__,
         "gpu": torch.cuda.get_device_name(0),
         "tensors": names,
         "parity": parity,
-        "postprocessing": "Raw logits, normalized boxes, and mask logits; apply confidence filtering, box scaling, and mask resizing in the consuming application.",
-    })
+        "postprocessing": "Raw logits, normalized boxes, and mask probabilities; apply confidence filtering, box scaling, and mask resizing in the consuming application.",
+    }
+    if validated:
+        if rebuild:
+            engine_path.write_bytes(bytes(engine_blob))
+        payload["engine"] = str(engine_path)
+    elif allow_unvalidated:
+        unvalidated_path = engine_path.with_suffix(".unvalidated.engine")
+        unvalidated_path.write_bytes(bytes(engine_blob))
+        payload["engine"] = str(unvalidated_path)
+    _write_report(report, payload)
     if not validated and not allow_unvalidated:
         raise RuntimeError(f"TensorRT predictions differ from the PyTorch-validated ONNX model. See {report}")
     if not validated:
-        print(f"WARNING: TensorRT predictions differ from ONNX; saved unvalidated artifact at {engine_path}")
+        print(f"WARNING: TensorRT predictions differ from ONNX; saved unvalidated artifact at {payload['engine']}")
     return report
 
 

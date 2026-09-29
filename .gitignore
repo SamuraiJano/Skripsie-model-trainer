@@ -4,6 +4,7 @@ __pycache__/
 .ipynb_checkpoints/
 .mypy_cache/
 .venv/
+model_training/.trt10/
 *.egg-info/
 
 # Local data and model artifacts

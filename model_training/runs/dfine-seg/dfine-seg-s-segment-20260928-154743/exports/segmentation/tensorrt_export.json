@@ -1,0 +1,35 @@
+{
+  "status": "failed_parity",
+  "run": "dfine-seg-s-segment-20260928-154743",
+  "checkpoint": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-segment-20260928-154743\\model\\model.pt",
+  "checkpoint_sha256": "2869048b1bba2ca0e5cfb0416bf9977f79f851dd8907ffa8b07b54e8c6d049c0",
+  "onnx": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-segment-20260928-154743\\exports\\segmentation\\model_raw.onnx",
+  "engine": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-segment-20260928-154743\\exports\\segmentation\\model_raw_fp32.unvalidated.engine",
+  "precision": "fp32",
+  "tensorrt_version": "11.2.1.2",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "tensors": [
+    "input",
+    "logits",
+    "boxes",
+    "masks"
+  ],
+  "parity": {
+    "logits": {
+      "max_absolute_difference": 7.2223029136657715,
+      "mean_absolute_difference": 1.1751416069666545,
+      "matches": false
+    },
+    "boxes": {
+      "max_absolute_difference": 0.9609234631061554,
+      "mean_absolute_difference": 0.08885837893312176,
+      "matches": false
+    },
+    "masks": {
+      "max_absolute_difference": 0.9922066293656826,
+      "mean_absolute_difference": 0.10196329380804825,
+      "matches": false
+    }
+  },
+  "postprocessing": "Raw logits, normalized boxes, and mask logits; apply confidence filtering, box scaling, and mask resizing in the consuming application."
+}

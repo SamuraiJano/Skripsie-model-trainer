@@ -1,0 +1,129 @@
+{
+  "onnx": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-segment-20260928-154743\\exports\\segmentation\\model_raw.onnx",
+  "onnx_sha256": "c30e0bd10a29b62209566842c93030910d735b3ca22e13724bf82a9ea0461c8a",
+  "engine": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-segment-20260928-154743\\exports\\segmentation\\model_raw_fp32_trt11_no_tf32.unvalidated.engine",
+  "engine_sha256": "10a1f3b58a59da9b7a6addd54381c830f2b6270008b3b1e7c7d59040dca9941e",
+  "tensorrt_version": "11.2.1.2",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "thresholds": {
+    "0.25": {
+      "images": 90,
+      "images_same_detection_count": 68,
+      "count_mismatch_images": [
+        "146d6578-6db3-52cf-aa05-f016211cd3b8.png",
+        "16806dda-c794-5c91-9a3d-adfa7121481a.png",
+        "2ebf76d4-91fd-572a-917f-bcc6dd3f1fa9.png",
+        "40b172ed-4673-54f3-a3af-425a27444942.png",
+        "4d0fbe46-6c0a-5888-a530-dfffe9384659.png",
+        "50077b8e-077f-5a26-b145-535a362c7faf.png",
+        "6508545d-5736-5285-a32a-b78f3b7d70f2.png",
+        "7074bdb1-f548-5bab-824e-ce0f3568c9d6.png",
+        "7aec1b03-5762-5f1c-a634-50145a3ef700.png",
+        "7c6d0445-2f18-53c3-831e-c95e2c6174e5.png",
+        "9eb5db13-a3bc-50ba-b70c-a76b7f676fb4.png",
+        "a3382755-dd28-5318-9852-3f85b78381d6.png",
+        "aa7cc506-9740-53f0-9593-de7c32b26b29.png",
+        "ae23e58a-1f88-5a9d-95ad-37c32ca1019c.png",
+        "c8a68d8e-1097-5e86-8bd3-314e0bb64b4c.png",
+        "ca78482f-674e-59c9-b35c-91fd147943ca.png",
+        "d785dc5d-e08d-5324-86e2-ac8518d4e9b3.png",
+        "d83f4dad-37bf-5c3a-a5fb-f1b117deb799.png",
+        "dadb9928-5652-50dc-be0a-4cb402f2a92a.png",
+        "df7ee9de-5077-5b9f-a117-a62ef316f8fb.png",
+        "e8cd9e7d-4a42-5bda-974c-d1c6c299acf0.png",
+        "f711b5f3-743a-5a15-9852-b1fb8ca09f04.png"
+      ],
+      "onnx_detections": 389,
+      "tensorrt_detections": 390,
+      "matched_detections": 369,
+      "unmatched_onnx_detections": 20,
+      "unmatched_tensorrt_detections": 21,
+      "by_class": {
+        "2": {
+          "onnx": 170,
+          "tensorrt": 166,
+          "matched": 163
+        },
+        "1": {
+          "onnx": 107,
+          "tensorrt": 104,
+          "matched": 102
+        },
+        "3": {
+          "onnx": 41,
+          "tensorrt": 46,
+          "matched": 38
+        },
+        "0": {
+          "onnx": 71,
+          "tensorrt": 74,
+          "matched": 66
+        }
+      },
+      "box_ious_mean": 0.9889889970421794,
+      "box_ious_min": 0.8160220492243172,
+      "box_ious_max": 0.9998849185558633,
+      "mask_ious_mean": 0.9592603929243808,
+      "mask_ious_min": 0.6118184334348187,
+      "mask_ious_max": 0.9986636971046771,
+      "score_absolute_differences_mean": 0.018270769254948065,
+      "score_absolute_differences_min": 4.845857620239258e-05,
+      "score_absolute_differences_max": 0.2741585969924927
+    },
+    "0.5": {
+      "images": 90,
+      "images_same_detection_count": 77,
+      "count_mismatch_images": [
+        "02df1669-af23-5114-a469-1940dfdef760.png",
+        "146d6578-6db3-52cf-aa05-f016211cd3b8.png",
+        "20894fb8-9997-5b64-a219-3bd150f339c4.png",
+        "409a47ea-509f-589b-8115-e2a0d950ca2b.png",
+        "476f873b-e6c4-50bb-bea4-e5e93175db9e.png",
+        "50077b8e-077f-5a26-b145-535a362c7faf.png",
+        "5a3382d4-06b4-50bf-85e7-c4b65d76e8e4.png",
+        "61f35670-f39b-521c-aea3-667c7f195140.png",
+        "764de04e-7601-5da6-9df1-c095c37ebbfd.png",
+        "8e790c97-5e17-51d1-8016-69f7a9cb63bb.png",
+        "bbff86db-b209-506b-a426-badd3210cc28.png",
+        "c8e67c15-4d6c-50a5-a057-266256a68e7f.png",
+        "da64b606-a03f-59b7-ab9e-e82d5d69c90a.png"
+      ],
+      "onnx_detections": 195,
+      "tensorrt_detections": 196,
+      "matched_detections": 189,
+      "unmatched_onnx_detections": 6,
+      "unmatched_tensorrt_detections": 7,
+      "by_class": {
+        "2": {
+          "onnx": 94,
+          "tensorrt": 94,
+          "matched": 93
+        },
+        "1": {
+          "onnx": 63,
+          "tensorrt": 64,
+          "matched": 60
+        },
+        "3": {
+          "onnx": 12,
+          "tensorrt": 13,
+          "matched": 12
+        },
+        "0": {
+          "onnx": 26,
+          "tensorrt": 25,
+          "matched": 24
+        }
+      },
+      "box_ious_mean": 0.9911358044804336,
+      "box_ious_min": 0.9215114613489159,
+      "box_ious_max": 0.9998849185558633,
+      "mask_ious_mean": 0.9654524901092265,
+      "mask_ious_min": 0.7780052646972799,
+      "mask_ious_max": 0.9962649044677488,
+      "score_absolute_differences_mean": 0.014593361546753576,
+      "score_absolute_differences_min": 4.845857620239258e-05,
+      "score_absolute_differences_max": 0.20953136682510376
+    }
+  }
+}
