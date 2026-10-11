@@ -1,0 +1,114 @@
+{
+  "status": "validated",
+  "format": "onnx",
+  "precision": "fp32",
+  "file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\dfine_hsv\\model.onnx",
+  "sha256": "5ec4884e028597f60a60504dc887c50a3fe35481b7d36595ff141d6d5db273b3",
+  "samples": [
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\003a2000-914b-503e-a455-ae17c9faeacb.png",
+      "outputs": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.0014641284942626953,
+          "mean_absolute_difference": 1.9493897755940756e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 7.569789886474609e-06,
+          "mean_absolute_difference": 1.0540592484176158e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      }
+    },
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\74e5e392-046d-505b-a5e7-ccc44281a599.png",
+      "outputs": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.000957489013671875,
+          "mean_absolute_difference": 2.070605754852295e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 1.2516975402832031e-05,
+          "mean_absolute_difference": 1.6322087806959946e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      }
+    },
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\ff346bcf-a163-54f6-a0f5-93ffb3453dc0.png",
+      "outputs": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.0002846717834472656,
+          "mean_absolute_difference": 1.4172593752543132e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 6.407499313354492e-06,
+          "mean_absolute_difference": 6.303501625855764e-08,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "logits",
+      "shape": [
+        1,
+        300,
+        1
+      ]
+    },
+    {
+      "name": "boxes",
+      "shape": [
+        1,
+        300,
+        4
+      ]
+    }
+  ]
+}

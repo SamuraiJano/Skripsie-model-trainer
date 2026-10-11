@@ -1,0 +1,967 @@
+{
+  "manifest_sha256": "4f3aa85ff20cc5bf147565988374a57da6dc21fdfd3f45cfd9c70389f0f43288",
+  "verification": {
+    "status": "PASS",
+    "runs": 20,
+    "duration": {
+      "max_epochs": 300,
+      "min_epochs": 100,
+      "patience": 40,
+      "validation_frequency": 1,
+      "selection_metric": "box COCO mAP50-95",
+      "selection_split": "val",
+      "min_delta": 0.0
+    },
+    "evaluation": {
+      "implementation": "faster_coco_eval.COCOeval_faster",
+      "iou_thresholds": [
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95
+      ],
+      "recall_thresholds": [
+        0.0,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.1,
+        0.11,
+        0.12,
+        0.13,
+        0.14,
+        0.15,
+        0.16,
+        0.17,
+        0.18,
+        0.19,
+        0.2,
+        0.21,
+        0.22,
+        0.23,
+        0.24,
+        0.25,
+        0.26,
+        0.27,
+        0.28,
+        0.29,
+        0.3,
+        0.31,
+        0.32,
+        0.33,
+        0.34,
+        0.35,
+        0.36,
+        0.37,
+        0.38,
+        0.39,
+        0.4,
+        0.41,
+        0.42,
+        0.43,
+        0.44,
+        0.45,
+        0.46,
+        0.47,
+        0.48,
+        0.49,
+        0.5,
+        0.51,
+        0.52,
+        0.53,
+        0.54,
+        0.55,
+        0.56,
+        0.57,
+        0.58,
+        0.59,
+        0.6,
+        0.61,
+        0.62,
+        0.63,
+        0.64,
+        0.65,
+        0.66,
+        0.67,
+        0.68,
+        0.69,
+        0.7,
+        0.71,
+        0.72,
+        0.73,
+        0.74,
+        0.75,
+        0.76,
+        0.77,
+        0.78,
+        0.79,
+        0.8,
+        0.81,
+        0.82,
+        0.83,
+        0.84,
+        0.85,
+        0.86,
+        0.87,
+        0.88,
+        0.89,
+        0.9,
+        0.91,
+        0.92,
+        0.93,
+        0.94,
+        0.95,
+        0.96,
+        0.97,
+        0.98,
+        0.99,
+        1.0
+      ],
+      "max_detections": 100,
+      "score_floor": 0.001,
+      "operating_iou": 0.5,
+      "confidence_selection_split": "val",
+      "confidence_selection": "maximum validation micro-F1; highest threshold wins ties"
+    },
+    "pair_status": "PASS",
+    "split_integrity": {
+      "image_split_identity": "PASS",
+      "fruit_track_split_integrity": "NOT PROVABLE",
+      "identity_metadata_images": 0,
+      "warning": "No complete fruit, track or recording-sequence grouping metadata; related-frame leakage cannot be ruled out. Fixed exported splits are preserved.",
+      "grouping_checks": {
+        "fruit_identity": {
+          "covered_images": 0,
+          "total_images": 1851,
+          "status": "NOT PROVABLE"
+        },
+        "track_identity": {
+          "covered_images": 0,
+          "total_images": 1851,
+          "status": "NOT PROVABLE"
+        },
+        "sequence_identity": {
+          "covered_images": 0,
+          "total_images": 1851,
+          "status": "NOT PROVABLE"
+        },
+        "recording_sequence_identity": {
+          "covered_images": 0,
+          "total_images": 1851,
+          "status": "NOT PROVABLE"
+        }
+      },
+      "group_metadata_sha256": "3b2ba84565164dc17cdd8011560d44671bbbcb16123d28e8b2f6cbce7cfad3f8"
+    }
+  },
+  "tests": {
+    "full_suite": {
+      "tests": 186,
+      "failures": 1,
+      "passed": 185,
+      "raw_report": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\test_results.xml",
+      "known_failure": "test_dfine_notebook_covers_official_detection_and_dfine_seg: user notebook has saved outputs; preserved"
+    },
+    "latest_controlled_checks": {
+      "passed": 42,
+      "failed": 0,
+      "command": "python -m pytest tests/test_controlled_detection.py -q -p no:cacheprovider"
+    }
+  },
+  "physical_batch_checks": [
+    {
+      "loader_shape": [
+        8,
+        3,
+        640,
+        640
+      ],
+      "model_parameters": 3731817,
+      "loss": 38.99113464355469,
+      "resolved_config": {
+        "task": "detection",
+        "evaluator": {
+          "type": "CocoEvaluator",
+          "iou_types": [
+            "bbox"
+          ]
+        },
+        "num_classes": 1,
+        "remap_mscoco_category": false,
+        "train_dataloader": {
+          "type": "DataLoader",
+          "dataset": {
+            "type": "CocoDetection",
+            "img_folder": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\prepared_dataset\\images",
+            "ann_file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\prepared_dataset\\train.json",
+            "return_masks": false,
+            "transforms": {
+              "type": "Compose",
+              "ops": [
+                {
+                  "type": "ControlledLetterbox",
+                  "size": 640,
+                  "colour": "rgb",
+                  "flip_probability": 0.0
+                },
+                {
+                  "type": "ConvertPILImage",
+                  "dtype": "float32",
+                  "scale": true
+                },
+                {
+                  "type": "ConvertBoxes",
+                  "fmt": "cxcywh",
+                  "normalize": true
+                }
+              ],
+              "policy": {
+                "name": "default",
+                "epoch": 200,
+                "ops": [
+                  "RandomPhotometricDistort",
+                  "RandomZoomOut",
+                  "RandomIoUCrop"
+                ]
+              }
+            },
+            "remap_mscoco_category": false
+          },
+          "shuffle": true,
+          "num_workers": 0,
+          "drop_last": false,
+          "collate_fn": {
+            "type": "BatchImageCollateFunction",
+            "base_size": 640,
+            "base_size_repeat": null,
+            "stop_epoch": 280,
+            "ema_restart_decay": 0.9999
+          },
+          "total_batch_size": 8
+        },
+        "val_dataloader": {
+          "type": "DataLoader",
+          "dataset": {
+            "type": "CocoDetection",
+            "img_folder": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\prepared_dataset\\images",
+            "ann_file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\prepared_dataset\\val.json",
+            "return_masks": false,
+            "transforms": {
+              "type": "Compose",
+              "ops": [
+                {
+                  "type": "ControlledLetterbox",
+                  "size": 640,
+                  "colour": "rgb",
+                  "flip_probability": 0.0
+                },
+                {
+                  "type": "ConvertPILImage",
+                  "dtype": "float32",
+                  "scale": true
+                }
+              ],
+              "policy": {
+                "name": "default"
+              }
+            },
+            "remap_mscoco_category": false
+          },
+          "shuffle": false,
+          "num_workers": 0,
+          "drop_last": false,
+          "collate_fn": {
+            "type": "BatchImageCollateFunction"
+          },
+          "total_batch_size": 8
+        },
+        "print_freq": 10,
+        "output_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg",
+        "checkpoint_freq": 300,
+        "sync_bn": true,
+        "find_unused_parameters": false,
+        "use_amp": true,
+        "scaler": {
+          "type": "GradScaler",
+          "enabled": true
+        },
+        "use_ema": true,
+        "ema": {
+          "type": "ModelEMA",
+          "decay": 0.9999,
+          "warmups": 1000,
+          "start": 0
+        },
+        "use_wandb": false,
+        "project_name": "D-FINE",
+        "exp_name": "baseline",
+        "epochs": 300,
+        "clip_max_norm": 0.1,
+        "optimizer": {
+          "type": "AdamW",
+          "params": [
+            {
+              "params": "^(?=.*backbone)(?!.*norm|bn).*$",
+              "lr": 0.0004
+            },
+            {
+              "params": "^(?=.*backbone)(?=.*norm|bn).*$",
+              "lr": 0.0004,
+              "weight_decay": 0.0
+            },
+            {
+              "params": "^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$",
+              "weight_decay": 0.0
+            }
+          ],
+          "lr": 0.0008,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "weight_decay": 0.0001
+        },
+        "lr_scheduler": {
+          "type": "MultiStepLR",
+          "milestones": [
+            500
+          ],
+          "gamma": 0.1
+        },
+        "lr_warmup_scheduler": {
+          "type": "LinearWarmup",
+          "warmup_duration": 500
+        },
+        "model": "DFINE",
+        "criterion": "DFINECriterion",
+        "postprocessor": "DFINEPostProcessor",
+        "use_focal_loss": true,
+        "eval_spatial_size": [
+          640,
+          640
+        ],
+        "DFINE": {
+          "backbone": "HGNetv2",
+          "encoder": "HybridEncoder",
+          "decoder": "DFINETransformer"
+        },
+        "HGNetv2": {
+          "pretrained": false,
+          "local_model_dir": "weight/hgnetv2/",
+          "name": "B0",
+          "return_idx": [
+            2,
+            3
+          ],
+          "freeze_at": -1,
+          "freeze_norm": false,
+          "use_lab": true
+        },
+        "HybridEncoder": {
+          "in_channels": [
+            512,
+            1024
+          ],
+          "feat_strides": [
+            16,
+            32
+          ],
+          "hidden_dim": 128,
+          "use_encoder_idx": [
+            1
+          ],
+          "num_encoder_layers": 1,
+          "nhead": 8,
+          "dim_feedforward": 512,
+          "dropout": 0.0,
+          "enc_act": "gelu",
+          "expansion": 0.34,
+          "depth_mult": 0.5,
+          "act": "silu"
+        },
+        "DFINETransformer": {
+          "feat_channels": [
+            128,
+            128
+          ],
+          "feat_strides": [
+            16,
+            32
+          ],
+          "hidden_dim": 128,
+          "num_levels": 2,
+          "num_layers": 3,
+          "eval_idx": -1,
+          "num_queries": 300,
+          "num_denoising": 100,
+          "label_noise_ratio": 0.5,
+          "box_noise_scale": 1.0,
+          "reg_max": 32,
+          "reg_scale": 4,
+          "layer_scale": 1,
+          "num_points": [
+            6,
+            6
+          ],
+          "cross_attn_method": "default",
+          "query_select_method": "default",
+          "dim_feedforward": 512
+        },
+        "DFINEPostProcessor": {
+          "num_top_queries": 300
+        },
+        "DFINECriterion": {
+          "weight_dict": {
+            "loss_vfl": 1,
+            "loss_bbox": 5,
+            "loss_giou": 2,
+            "loss_fgl": 0.15,
+            "loss_ddf": 1.5
+          },
+          "losses": [
+            "vfl",
+            "boxes",
+            "local"
+          ],
+          "alpha": 0.75,
+          "gamma": 2.0,
+          "reg_max": 32,
+          "matcher": {
+            "type": "HungarianMatcher",
+            "weight_dict": {
+              "cost_class": 2,
+              "cost_bbox": 5,
+              "cost_giou": 2
+            },
+            "alpha": 0.25,
+            "gamma": 2.0
+          }
+        },
+        "__include__": [
+          "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE\\configs\\dfine\\custom\\dfine_hgnetv2_n_custom.yml"
+        ],
+        "seed": 0,
+        "deterministic": true,
+        "colour_space": "rgb",
+        "input_representation": {
+          "colour_space": "RGB",
+          "tensor_scaling": "divide_by_255",
+          "tensor_channel_order": "RGB"
+        },
+        "device": "cuda:0",
+        "controlled_detection": {
+          "rgb_yaml": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\_datasets\\d5485a04cba79ab8eae87244\\rgb\\data.yaml",
+          "colour": "rgb",
+          "batch": 8,
+          "workers": 0,
+          "seed": 0,
+          "metadata": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\run_metadata.json",
+          "augmentation": {
+            "colour": "disabled",
+            "horizontal_flip": 0.0,
+            "vertical_flip": 0.0,
+            "rotation": 0.0,
+            "perspective": 0.0,
+            "scale_jitter": 0.0,
+            "translation": 0.0,
+            "mosaic": 0.0,
+            "mixup": 0.0,
+            "cutmix": 0.0,
+            "geometry": "640-square aspect-preserving letterbox, RGB geometry before representation"
+          }
+        },
+        "controlled_policy": {
+          "max_epochs": 300,
+          "min_epochs": 100,
+          "patience": 40,
+          "validation_frequency": 1,
+          "selection_metric": "box COCO mAP50-95",
+          "selection_split": "val",
+          "min_delta": 0.0
+        },
+        "tuning": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE\\pretrained\\dfine_n_coco.pth"
+      },
+      "batch_object_counts": [
+        83,
+        81,
+        79,
+        79,
+        79,
+        78,
+        78,
+        78
+      ],
+      "status": "PASS",
+      "model": "dfine_n",
+      "colour": "rgb",
+      "device": "cuda:0",
+      "requested_batch": 8,
+      "backward": true,
+      "optimizer_updates": 0,
+      "test_inference_performed": false,
+      "test_usage": "pairing/hash audit only; no inference or selection",
+      "batch_selection": "densest training images",
+      "amp": true,
+      "manifest_sha256": "1ef90eb20def685ccc59bac0b6da0c170c53111ab8f8d657b147c0e1ec6fbff0",
+      "peak_allocated_bytes": 2233700864,
+      "report_path": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\preflight.json",
+      "peak_allocated_GiB": 2.080296039581299,
+      "equivalence": "Same frozen recipe, checkpoint, dataset and framework; later change bounded only the dashboard console"
+    },
+    {
+      "loader_shape": [
+        8,
+        3,
+        640,
+        640
+      ],
+      "model_parameters": 3731817,
+      "loss": 39.39677429199219,
+      "resolved_config": {
+        "task": "detection",
+        "evaluator": {
+          "type": "CocoEvaluator",
+          "iou_types": [
+            "bbox"
+          ]
+        },
+        "num_classes": 1,
+        "remap_mscoco_category": false,
+        "train_dataloader": {
+          "type": "DataLoader",
+          "dataset": {
+            "type": "CocoDetection",
+            "img_folder": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-ar_2lgfj\\prepared_dataset\\images",
+            "ann_file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-ar_2lgfj\\prepared_dataset\\train.json",
+            "return_masks": false,
+            "transforms": {
+              "type": "Compose",
+              "ops": [
+                {
+                  "type": "ControlledLetterbox",
+                  "size": 640,
+                  "colour": "hsv",
+                  "flip_probability": 0.0
+                },
+                {
+                  "type": "ConvertPILImage",
+                  "dtype": "float32",
+                  "scale": true
+                },
+                {
+                  "type": "ConvertBoxes",
+                  "fmt": "cxcywh",
+                  "normalize": true
+                }
+              ],
+              "policy": {
+                "name": "default",
+                "epoch": 200,
+                "ops": [
+                  "RandomPhotometricDistort",
+                  "RandomZoomOut",
+                  "RandomIoUCrop"
+                ]
+              }
+            },
+            "remap_mscoco_category": false
+          },
+          "shuffle": true,
+          "num_workers": 0,
+          "drop_last": false,
+          "collate_fn": {
+            "type": "BatchImageCollateFunction",
+            "base_size": 640,
+            "base_size_repeat": null,
+            "stop_epoch": 280,
+            "ema_restart_decay": 0.9999
+          },
+          "total_batch_size": 8
+        },
+        "val_dataloader": {
+          "type": "DataLoader",
+          "dataset": {
+            "type": "CocoDetection",
+            "img_folder": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-ar_2lgfj\\prepared_dataset\\images",
+            "ann_file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-ar_2lgfj\\prepared_dataset\\val.json",
+            "return_masks": false,
+            "transforms": {
+              "type": "Compose",
+              "ops": [
+                {
+                  "type": "ControlledLetterbox",
+                  "size": 640,
+                  "colour": "hsv",
+                  "flip_probability": 0.0
+                },
+                {
+                  "type": "ConvertPILImage",
+                  "dtype": "float32",
+                  "scale": true
+                }
+              ],
+              "policy": {
+                "name": "default"
+              }
+            },
+            "remap_mscoco_category": false
+          },
+          "shuffle": false,
+          "num_workers": 0,
+          "drop_last": false,
+          "collate_fn": {
+            "type": "BatchImageCollateFunction"
+          },
+          "total_batch_size": 8
+        },
+        "print_freq": 10,
+        "output_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-ar_2lgfj",
+        "checkpoint_freq": 300,
+        "sync_bn": true,
+        "find_unused_parameters": false,
+        "use_amp": true,
+        "scaler": {
+          "type": "GradScaler",
+          "enabled": true
+        },
+        "use_ema": true,
+        "ema": {
+          "type": "ModelEMA",
+          "decay": 0.9999,
+          "warmups": 1000,
+          "start": 0
+        },
+        "use_wandb": false,
+        "project_name": "D-FINE",
+        "exp_name": "baseline",
+        "epochs": 300,
+        "clip_max_norm": 0.1,
+        "optimizer": {
+          "type": "AdamW",
+          "params": [
+            {
+              "params": "^(?=.*backbone)(?!.*norm|bn).*$",
+              "lr": 0.0004
+            },
+            {
+              "params": "^(?=.*backbone)(?=.*norm|bn).*$",
+              "lr": 0.0004,
+              "weight_decay": 0.0
+            },
+            {
+              "params": "^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$",
+              "weight_decay": 0.0
+            }
+          ],
+          "lr": 0.0008,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "weight_decay": 0.0001
+        },
+        "lr_scheduler": {
+          "type": "MultiStepLR",
+          "milestones": [
+            500
+          ],
+          "gamma": 0.1
+        },
+        "lr_warmup_scheduler": {
+          "type": "LinearWarmup",
+          "warmup_duration": 500
+        },
+        "model": "DFINE",
+        "criterion": "DFINECriterion",
+        "postprocessor": "DFINEPostProcessor",
+        "use_focal_loss": true,
+        "eval_spatial_size": [
+          640,
+          640
+        ],
+        "DFINE": {
+          "backbone": "HGNetv2",
+          "encoder": "HybridEncoder",
+          "decoder": "DFINETransformer"
+        },
+        "HGNetv2": {
+          "pretrained": false,
+          "local_model_dir": "weight/hgnetv2/",
+          "name": "B0",
+          "return_idx": [
+            2,
+            3
+          ],
+          "freeze_at": -1,
+          "freeze_norm": false,
+          "use_lab": true
+        },
+        "HybridEncoder": {
+          "in_channels": [
+            512,
+            1024
+          ],
+          "feat_strides": [
+            16,
+            32
+          ],
+          "hidden_dim": 128,
+          "use_encoder_idx": [
+            1
+          ],
+          "num_encoder_layers": 1,
+          "nhead": 8,
+          "dim_feedforward": 512,
+          "dropout": 0.0,
+          "enc_act": "gelu",
+          "expansion": 0.34,
+          "depth_mult": 0.5,
+          "act": "silu"
+        },
+        "DFINETransformer": {
+          "feat_channels": [
+            128,
+            128
+          ],
+          "feat_strides": [
+            16,
+            32
+          ],
+          "hidden_dim": 128,
+          "num_levels": 2,
+          "num_layers": 3,
+          "eval_idx": -1,
+          "num_queries": 300,
+          "num_denoising": 100,
+          "label_noise_ratio": 0.5,
+          "box_noise_scale": 1.0,
+          "reg_max": 32,
+          "reg_scale": 4,
+          "layer_scale": 1,
+          "num_points": [
+            6,
+            6
+          ],
+          "cross_attn_method": "default",
+          "query_select_method": "default",
+          "dim_feedforward": 512
+        },
+        "DFINEPostProcessor": {
+          "num_top_queries": 300
+        },
+        "DFINECriterion": {
+          "weight_dict": {
+            "loss_vfl": 1,
+            "loss_bbox": 5,
+            "loss_giou": 2,
+            "loss_fgl": 0.15,
+            "loss_ddf": 1.5
+          },
+          "losses": [
+            "vfl",
+            "boxes",
+            "local"
+          ],
+          "alpha": 0.75,
+          "gamma": 2.0,
+          "reg_max": 32,
+          "matcher": {
+            "type": "HungarianMatcher",
+            "weight_dict": {
+              "cost_class": 2,
+              "cost_bbox": 5,
+              "cost_giou": 2
+            },
+            "alpha": 0.25,
+            "gamma": 2.0
+          }
+        },
+        "__include__": [
+          "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE\\configs\\dfine\\custom\\dfine_hgnetv2_n_custom.yml"
+        ],
+        "seed": 0,
+        "deterministic": true,
+        "colour_space": "rgb",
+        "input_representation": {
+          "colour_space": "RGB",
+          "tensor_scaling": "divide_by_255",
+          "tensor_channel_order": "RGB"
+        },
+        "device": "cuda:0",
+        "controlled_detection": {
+          "rgb_yaml": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\_datasets\\d5485a04cba79ab8eae87244\\rgb\\data.yaml",
+          "colour": "hsv",
+          "batch": 8,
+          "workers": 0,
+          "seed": 0,
+          "metadata": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-ar_2lgfj\\run_metadata.json",
+          "augmentation": {
+            "colour": "disabled",
+            "horizontal_flip": 0.0,
+            "vertical_flip": 0.0,
+            "rotation": 0.0,
+            "perspective": 0.0,
+            "scale_jitter": 0.0,
+            "translation": 0.0,
+            "mosaic": 0.0,
+            "mixup": 0.0,
+            "cutmix": 0.0,
+            "geometry": "640-square aspect-preserving letterbox, RGB geometry before representation"
+          }
+        },
+        "controlled_policy": {
+          "max_epochs": 300,
+          "min_epochs": 100,
+          "patience": 40,
+          "validation_frequency": 1,
+          "selection_metric": "box COCO mAP50-95",
+          "selection_split": "val",
+          "min_delta": 0.0
+        },
+        "tuning": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE\\pretrained\\dfine_n_coco.pth"
+      },
+      "batch_object_counts": [
+        83,
+        81,
+        79,
+        79,
+        79,
+        78,
+        78,
+        78
+      ],
+      "status": "PASS",
+      "model": "dfine_n",
+      "colour": "hsv",
+      "device": "cuda:0",
+      "requested_batch": 8,
+      "backward": true,
+      "optimizer_updates": 0,
+      "test_inference_performed": false,
+      "test_usage": "pairing/hash audit only; no inference or selection",
+      "batch_selection": "densest training images",
+      "amp": true,
+      "manifest_sha256": "1ef90eb20def685ccc59bac0b6da0c170c53111ab8f8d657b147c0e1ec6fbff0",
+      "peak_allocated_bytes": 2223785472,
+      "report_path": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-ar_2lgfj\\preflight.json",
+      "peak_allocated_GiB": 2.071061611175537,
+      "equivalence": "Same frozen recipe, checkpoint, dataset and framework; later change bounded only the dashboard console"
+    },
+    {
+      "loader_shape": [
+        16,
+        3,
+        640,
+        640
+      ],
+      "model_parameters": 2504190,
+      "loss": 68.31424713134766,
+      "batch_object_counts": [
+        83,
+        81,
+        79,
+        79,
+        79,
+        78,
+        78,
+        78,
+        77,
+        77,
+        77,
+        77,
+        77,
+        76,
+        76,
+        76
+      ],
+      "status": "PASS",
+      "model": "yolo26n",
+      "colour": "rgb",
+      "device": "cuda:0",
+      "requested_batch": 16,
+      "backward": true,
+      "optimizer_updates": 0,
+      "test_inference_performed": false,
+      "test_usage": "pairing/hash audit only; no inference or selection",
+      "batch_selection": "densest training images",
+      "amp": true,
+      "manifest_sha256": "1ef90eb20def685ccc59bac0b6da0c170c53111ab8f8d657b147c0e1ec6fbff0",
+      "peak_allocated_bytes": 2607857664,
+      "report_path": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-sdbmqkj_\\preflight.json",
+      "peak_allocated_GiB": 2.4287567138671875,
+      "equivalence": "Same frozen recipe, checkpoint, dataset and framework; later change bounded only the dashboard console"
+    },
+    {
+      "loader_shape": [
+        16,
+        3,
+        640,
+        640
+      ],
+      "model_parameters": 2504190,
+      "loss": 72.95526123046875,
+      "batch_object_counts": [
+        83,
+        81,
+        79,
+        79,
+        79,
+        78,
+        78,
+        78,
+        77,
+        77,
+        77,
+        77,
+        77,
+        76,
+        76,
+        76
+      ],
+      "status": "PASS",
+      "model": "yolo26n",
+      "colour": "hsv",
+      "device": "cuda:0",
+      "requested_batch": 16,
+      "backward": true,
+      "optimizer_updates": 0,
+      "test_inference_performed": false,
+      "test_usage": "pairing/hash audit only; no inference or selection",
+      "batch_selection": "densest training images",
+      "amp": true,
+      "manifest_sha256": "4f3aa85ff20cc5bf147565988374a57da6dc21fdfd3f45cfd9c70389f0f43288",
+      "peak_allocated_bytes": 2607855104,
+      "report_path": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-023501-711562\\detector-preflight-ie05sfp1\\preflight.json",
+      "peak_allocated_GiB": 2.4287543296813965,
+      "equivalence": "Same frozen recipe, checkpoint, dataset and framework; later change bounded only the dashboard console"
+    }
+  ],
+  "final_training_started": false,
+  "test_inference_performed": false,
+  "source_duplicate_annotations_removed": {
+    "train": 70,
+    "val": 0,
+    "test": 0
+  },
+  "storage_incident": {
+    "resolved": true,
+    "incomplete_lossless_cache_removed": true,
+    "previous_dfine_seg_run_stopped_at_epoch": 32,
+    "last_checkpoint_loadable": true,
+    "last_checkpoint_all_674_tensors_finite": true,
+    "checkpoint_is_weights_only": true,
+    "exact_optimizer_state_resume_available": false
+  }
+}

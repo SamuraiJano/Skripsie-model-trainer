@@ -1,0 +1,121 @@
+{
+  "status": "validated",
+  "format": "onnx",
+  "precision": "fp32",
+  "file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\yolo_hsv\\model.onnx",
+  "sha256": "a22eff846d026c66188c7c39d228bd2a156a7dafa7942598de0e7674533419f4",
+  "samples": [
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\003a2000-914b-503e-a455-ae17c9faeacb.png",
+      "outputs": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 35,
+              "exported_detections": 35,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.5407800674438477e-05,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 33,
+              "exported_detections": 33,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.5407800674438477e-05,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.239776611328125e-05,
+              "pass": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\74e5e392-046d-505b-a5e7-ccc44281a599.png",
+      "outputs": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 43,
+              "exported_detections": 43,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.055002212524414e-05,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 41,
+              "exported_detections": 41,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.055002212524414e-05,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.055002212524414e-05,
+              "pass": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\ff346bcf-a163-54f6-a0f5-93ffb3453dc0.png",
+      "outputs": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 80,
+              "exported_detections": 80,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 7.212162017822266e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 73,
+              "exported_detections": 73,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 7.212162017822266e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 71,
+              "exported_detections": 71,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 7.212162017822266e-06,
+              "pass": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "output0",
+      "shape": [
+        1,
+        300,
+        6
+      ]
+    }
+  ]
+}

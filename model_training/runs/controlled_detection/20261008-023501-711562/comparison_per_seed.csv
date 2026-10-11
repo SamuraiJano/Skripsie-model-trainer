@@ -1,0 +1,1 @@
+model,colour,seed,completed_epochs,best_validation_mAP50-95,test_mAP50-95,test_mAP50,precision,recall,F1,selected_confidence,training_seconds,physical_batch,gradient_accumulation,effective_batch

@@ -1,0 +1,1737 @@
+{
+  "generated_at": "2026-10-09T13:06:12.492677+02:00",
+  "output_folder": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09",
+  "runs": [
+    {
+      "label": "YOLO RGB",
+      "folder": "YOLO_RGB",
+      "original_run_id": "yolo26n-detect-20261006-221958",
+      "copied_files": 38,
+      "test_images": 504
+    },
+    {
+      "label": "YOLO HSV",
+      "folder": "YOLO_HSV",
+      "original_run_id": "yolo26n-detect-20261007-101115",
+      "copied_files": 38,
+      "test_images": 504
+    },
+    {
+      "label": "D-FINE RGB",
+      "folder": "D_FINE_RGB",
+      "original_run_id": "dfine-seg-n-detect-20261007-122047",
+      "copied_files": 65,
+      "test_images": 504
+    },
+    {
+      "label": "D-FINE HSV",
+      "folder": "D_FINE_HSV",
+      "original_run_id": "dfine-seg-n-detect-20261008-170850",
+      "copied_files": 68,
+      "test_images": 504
+    }
+  ],
+  "copied_run_files": 209,
+  "source_copy_sha256_check": "PASS",
+  "report_file_links_check": "PASS",
+  "original_files_unchanged": true,
+  "files": [
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\args.yaml",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\args.yaml",
+      "relative_path": "YOLO_RGB/args.yaml",
+      "bytes": 2043,
+      "sha256": "b50a43c0388ef039f1fc8142157816b70f40b7a16b6e40216e79a13ed4b01a6d"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\BoxF1_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\BoxF1_curve.png",
+      "relative_path": "YOLO_RGB/BoxF1_curve.png",
+      "bytes": 78569,
+      "sha256": "5fe17ed127279b570b3242de1d9dcfc2c3b52cd3d7c097a6c6ae40d785b4c85d"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\BoxP_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\BoxP_curve.png",
+      "relative_path": "YOLO_RGB/BoxP_curve.png",
+      "bytes": 65514,
+      "sha256": "1f7655a3409197142e94f908ff69a750f37f08c95295c81fd580da99e628722d"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\BoxPR_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\BoxPR_curve.png",
+      "relative_path": "YOLO_RGB/BoxPR_curve.png",
+      "bytes": 68379,
+      "sha256": "3281ed7fdf3cf0911eecef42020972a5acd71257d582f1c6b1eb073d685a9a28"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\BoxR_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\BoxR_curve.png",
+      "relative_path": "YOLO_RGB/BoxR_curve.png",
+      "bytes": 81070,
+      "sha256": "97e73368805204573d8dcc93154319d7b9e4cbd506d884af43429e8fe904a763"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\confusion_matrix.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\confusion_matrix.png",
+      "relative_path": "YOLO_RGB/confusion_matrix.png",
+      "bytes": 86600,
+      "sha256": "3d1f3c1edb04087fd4510fb41a4059ccb99279d5a7f764871b50f7382faac87e"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\confusion_matrix_normalized.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\confusion_matrix_normalized.png",
+      "relative_path": "YOLO_RGB/confusion_matrix_normalized.png",
+      "bytes": 86938,
+      "sha256": "c4e939aff090a3102804297bd988834ff5a4ee66ecfb5fbab9b3d55f6bd508dd"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\final_metrics.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\final_metrics.json",
+      "relative_path": "YOLO_RGB/final_metrics.json",
+      "bytes": 504,
+      "sha256": "271e2526dccf5e418a0c8965a7ce5706b7bec99b0f35307ebbf62c176d4039f3"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\labels.jpg",
+      "relative_path": "YOLO_RGB/labels.jpg",
+      "bytes": 116091,
+      "sha256": "c1169e1f60a49122dfcd2565ae8a4e8215c3459f07d1e76d31cf66b785d5dee8"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\results.csv",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\results.csv",
+      "relative_path": "YOLO_RGB/results.csv",
+      "bytes": 29109,
+      "sha256": "72d0a89b83fc7408aeb0d677e261873639047a7836ee63ed56d3475cda9aca7a"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\results.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\results.png",
+      "relative_path": "YOLO_RGB/results.png",
+      "bytes": 246763,
+      "sha256": "9ec04991a8e6e041efdf991cfdcefcd7e428ccc82663f53ed605552401ce0722"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\run_metadata.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\run_metadata.json",
+      "relative_path": "YOLO_RGB/run_metadata.json",
+      "bytes": 211669,
+      "sha256": "9b236a772c6d7469ffa46a4cdb5bf4df504125a3a545c98d71dc6475136881db"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\BoxF1_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\BoxF1_curve.png",
+      "relative_path": "YOLO_RGB/test_eval/BoxF1_curve.png",
+      "bytes": 78433,
+      "sha256": "8e48a0e66611774aabbc043967bdb7b5d7fd7105a9d514361c647fb07056854e"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\BoxP_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\BoxP_curve.png",
+      "relative_path": "YOLO_RGB/test_eval/BoxP_curve.png",
+      "bytes": 65476,
+      "sha256": "f5130a972932abfd064bcb322b589981df311e3f0ac17da8157e2a5689dbc548"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\BoxPR_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\BoxPR_curve.png",
+      "relative_path": "YOLO_RGB/test_eval/BoxPR_curve.png",
+      "bytes": 67997,
+      "sha256": "ab9f88772260a98250e8318b384cb34b0b8528c3834da9da802aa04d0ef4cd09"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\BoxR_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\BoxR_curve.png",
+      "relative_path": "YOLO_RGB/test_eval/BoxR_curve.png",
+      "bytes": 81328,
+      "sha256": "7ede9b30d2a41a9cfb47e737f1f7ecde7945cced1f45b0a12cb862e0c6ac6199"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\confusion_matrix.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\confusion_matrix.png",
+      "relative_path": "YOLO_RGB/test_eval/confusion_matrix.png",
+      "bytes": 85053,
+      "sha256": "1f9626ab6cff19d92f34c4ac467a03ab33c11aea069dcd0e137b113e87680a48"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\confusion_matrix_normalized.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\confusion_matrix_normalized.png",
+      "relative_path": "YOLO_RGB/test_eval/confusion_matrix_normalized.png",
+      "bytes": 86938,
+      "sha256": "02d10fcd53a5d5f6e5051aea92730c262dbc5189aaeece0c9ccd3ad30dd440fd"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\val_batch0_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\val_batch0_labels.jpg",
+      "relative_path": "YOLO_RGB/test_eval/val_batch0_labels.jpg",
+      "bytes": 69472,
+      "sha256": "2823bfae9a050d0b52a5ae82eb2ed4dce510308e1571916a88242b7c9f4c05b2"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\val_batch0_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\val_batch0_pred.jpg",
+      "relative_path": "YOLO_RGB/test_eval/val_batch0_pred.jpg",
+      "bytes": 70748,
+      "sha256": "1ce8dfb069834f16c543d255200f093bb6d2b590e19decc762ed231dfe6d0c5c"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\val_batch1_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\val_batch1_labels.jpg",
+      "relative_path": "YOLO_RGB/test_eval/val_batch1_labels.jpg",
+      "bytes": 85519,
+      "sha256": "6e10de8ba7af31489ce45321e6c4567dcade392eadf1b63ce5152e177648dff0"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\val_batch1_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\val_batch1_pred.jpg",
+      "relative_path": "YOLO_RGB/test_eval/val_batch1_pred.jpg",
+      "bytes": 88338,
+      "sha256": "b3ad02de995bf98ecb1d122f0ac8f5e6cf3432d2659bbc76caf1a88548e2628a"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\val_batch2_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\val_batch2_labels.jpg",
+      "relative_path": "YOLO_RGB/test_eval/val_batch2_labels.jpg",
+      "bytes": 77119,
+      "sha256": "121157835b0277322c119dd50b687561989cb1524f668a60e9bac40ad5286a93"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_eval\\val_batch2_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_eval\\val_batch2_pred.jpg",
+      "relative_path": "YOLO_RGB/test_eval/val_batch2_pred.jpg",
+      "bytes": 79714,
+      "sha256": "75e2bfb096ac9aa3535ddba359158434c863762cdb93497b21cf38b1e8719e5b"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\test_metrics.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\test_metrics.json",
+      "relative_path": "YOLO_RGB/test_metrics.json",
+      "bytes": 452,
+      "sha256": "447d778d3eeb85f4e00089dd77fe29c2b1e6e6e8fe0dbcb1eb8c6ba2e4c91a5a"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\train_batch0.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\train_batch0.jpg",
+      "relative_path": "YOLO_RGB/train_batch0.jpg",
+      "bytes": 864787,
+      "sha256": "c612f035516eaba1b757e7ab5e9e149a4bcacde5ba96a5a5ad3834568a28081f"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\train_batch1.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\train_batch1.jpg",
+      "relative_path": "YOLO_RGB/train_batch1.jpg",
+      "bytes": 854585,
+      "sha256": "61bff7e002589b4f8f36e7d104d5471c2744b000b60e880debd2f0a556a1d24d"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\train_batch2.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\train_batch2.jpg",
+      "relative_path": "YOLO_RGB/train_batch2.jpg",
+      "bytes": 903290,
+      "sha256": "df7f1cdb2e08a89bab5e48ed8af50f82a230bf1e2870dee814fd6506d0e875db"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\val_batch0_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\val_batch0_labels.jpg",
+      "relative_path": "YOLO_RGB/val_batch0_labels.jpg",
+      "bytes": 713229,
+      "sha256": "5dd688913cb0a9408be43997e86ecafb09243ff962064e21fd0f2224b9320d1a"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\val_batch0_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\val_batch0_pred.jpg",
+      "relative_path": "YOLO_RGB/val_batch0_pred.jpg",
+      "bytes": 711970,
+      "sha256": "83bfe29ee3f88f15baf8628579ddd86d54fb423f94d96902ee77305181b2fcc1"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\val_batch1_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\val_batch1_labels.jpg",
+      "relative_path": "YOLO_RGB/val_batch1_labels.jpg",
+      "bytes": 688617,
+      "sha256": "5620cea53f1c50cd4a095f3246f1821544a1a5b464908595dd0ef53ce0757d46"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\val_batch1_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\val_batch1_pred.jpg",
+      "relative_path": "YOLO_RGB/val_batch1_pred.jpg",
+      "bytes": 690795,
+      "sha256": "7506f99a1a6c665e2af1d98233a3d2235cfff58bded67f0dcbf411745fc6186a"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\val_batch2_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\val_batch2_labels.jpg",
+      "relative_path": "YOLO_RGB/val_batch2_labels.jpg",
+      "bytes": 689324,
+      "sha256": "67563ec6715411c357120a936bb4e7d5ec7edcbf36754d399b007f26a45ce683"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\val_batch2_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\val_batch2_pred.jpg",
+      "relative_path": "YOLO_RGB/val_batch2_pred.jpg",
+      "bytes": 694253,
+      "sha256": "e6047a8dd02db9651f4e708463465d196732a1359d2b954c4858f3e72d965605"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\validation_history.jsonl",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\validation_history.jsonl",
+      "relative_path": "YOLO_RGB/validation_history.jsonl",
+      "bytes": 70461,
+      "sha256": "4f400b5d02973c8d241f63ca64ea743be1c2681f73fec2edbd86559052da614e"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\weights\\best.pt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\weights\\best.pt",
+      "relative_path": "YOLO_RGB/weights/best.pt",
+      "bytes": 5387653,
+      "sha256": "1e9052defed6576c1bdd8a409a7c2b2282fa398ddd5715ca48c137a1aeb8fa7a"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\weights\\last.pt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\weights\\last.pt",
+      "relative_path": "YOLO_RGB/weights/last.pt",
+      "bytes": 5387653,
+      "sha256": "6b9be7f3146d468c2e0b8601048dc8eaf18020e6399cf537deeb0b034f9fa36e"
+    },
+    {
+      "group": "YOLO RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\_dataset_configs\\detect-9d5d0ede5955f753.yaml",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_RGB\\referenced_configs\\detect-9d5d0ede5955f753.yaml",
+      "relative_path": "YOLO_RGB/referenced_configs/detect-9d5d0ede5955f753.yaml",
+      "bytes": 173,
+      "sha256": "750cd2f92201ec78547c89de4fc618ffd621ebaabf9ee78ad7ad01ff72a2fb95"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\args.yaml",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\args.yaml",
+      "relative_path": "YOLO_HSV/args.yaml",
+      "bytes": 2043,
+      "sha256": "0c3c8a51cd0384aa3c490a550e7e95ce358a26f3d06873328feb9cca0ec89c81"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\BoxF1_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\BoxF1_curve.png",
+      "relative_path": "YOLO_HSV/BoxF1_curve.png",
+      "bytes": 79831,
+      "sha256": "19fe370be8e2c8a828000fd425bcb7e2e5ddadb507a3ac567f4449908841294d"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\BoxP_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\BoxP_curve.png",
+      "relative_path": "YOLO_HSV/BoxP_curve.png",
+      "bytes": 66458,
+      "sha256": "fd84a6710e51daf8c28a1279a93a86ed1554516004464984021519a3f1d4d176"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\BoxPR_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\BoxPR_curve.png",
+      "relative_path": "YOLO_HSV/BoxPR_curve.png",
+      "bytes": 68574,
+      "sha256": "c1cc5281534c63d5c2a90317b9932fca9ddc8817fa6fd538333c80839828c2ec"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\BoxR_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\BoxR_curve.png",
+      "relative_path": "YOLO_HSV/BoxR_curve.png",
+      "bytes": 82207,
+      "sha256": "1281d94adf7250ecc442fae94c7368225d8bc946c020e73fce643c21c9449280"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\confusion_matrix.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\confusion_matrix.png",
+      "relative_path": "YOLO_HSV/confusion_matrix.png",
+      "bytes": 85772,
+      "sha256": "016fea8c3dc853d0a606bd8093529be2407ba149c90d7660e060969ad3dc3a52"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\confusion_matrix_normalized.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\confusion_matrix_normalized.png",
+      "relative_path": "YOLO_HSV/confusion_matrix_normalized.png",
+      "bytes": 89154,
+      "sha256": "58e28f14214213544f07c5b1776e3f6c7a0f31ca378b3070b406cabf99a2f598"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\final_metrics.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\final_metrics.json",
+      "relative_path": "YOLO_HSV/final_metrics.json",
+      "bytes": 504,
+      "sha256": "7d41366ef80116a08e56324f2af1a56e852bde76cbdc86ad94cbb7532506caa9"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\labels.jpg",
+      "relative_path": "YOLO_HSV/labels.jpg",
+      "bytes": 116091,
+      "sha256": "c1169e1f60a49122dfcd2565ae8a4e8215c3459f07d1e76d31cf66b785d5dee8"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\results.csv",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\results.csv",
+      "relative_path": "YOLO_HSV/results.csv",
+      "bytes": 17980,
+      "sha256": "670bd5a2cb877fc36fa65b1886186e8ed74562894eba43213cf91d86bb81323b"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\results.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\results.png",
+      "relative_path": "YOLO_HSV/results.png",
+      "bytes": 255005,
+      "sha256": "b6b436720483a452fe9398367b48c7d7ac38ca9bd4b9940347f6c2ff81c0e491"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\run_metadata.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\run_metadata.json",
+      "relative_path": "YOLO_HSV/run_metadata.json",
+      "bytes": 212130,
+      "sha256": "c3fd32c391410f0a71d1839bac5ef1e8464764be803324a913b864273d558c56"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\BoxF1_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\BoxF1_curve.png",
+      "relative_path": "YOLO_HSV/test_eval/BoxF1_curve.png",
+      "bytes": 80227,
+      "sha256": "309baa82ba1baa041a34a28332aaee74c42520f620b9c00d6ad278ac0ba8f4f3"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\BoxP_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\BoxP_curve.png",
+      "relative_path": "YOLO_HSV/test_eval/BoxP_curve.png",
+      "bytes": 66487,
+      "sha256": "f0faa1bccbca86d6b995542001925f35a904323b59b1ebc8355a5d4011f90543"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\BoxPR_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\BoxPR_curve.png",
+      "relative_path": "YOLO_HSV/test_eval/BoxPR_curve.png",
+      "bytes": 68252,
+      "sha256": "f64fcce99252ab6f2e83ff78c619e733c56c3d5b1240298e99017e732767d5f8"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\BoxR_curve.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\BoxR_curve.png",
+      "relative_path": "YOLO_HSV/test_eval/BoxR_curve.png",
+      "bytes": 82300,
+      "sha256": "c128cb78c6f26c7827a8d83c2739c2a03fbd52a50611d02d3db6c54604e385f3"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\confusion_matrix.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\confusion_matrix.png",
+      "relative_path": "YOLO_HSV/test_eval/confusion_matrix.png",
+      "bytes": 86828,
+      "sha256": "6b72803ab1695b18c654d0b23913de481308e061b31a6df1ddb4a1e94af12eb5"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\confusion_matrix_normalized.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\confusion_matrix_normalized.png",
+      "relative_path": "YOLO_HSV/test_eval/confusion_matrix_normalized.png",
+      "bytes": 89155,
+      "sha256": "12ea4074ed46c9d2ce36255186ed43195ff0d8cb96cabaf86fb60176d937fdfe"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\val_batch0_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\val_batch0_labels.jpg",
+      "relative_path": "YOLO_HSV/test_eval/val_batch0_labels.jpg",
+      "bytes": 75091,
+      "sha256": "76549b17fa3af92080cfb380963cbc3a1ff5e5a10c31df75f77c9875abd4c156"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\val_batch0_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\val_batch0_pred.jpg",
+      "relative_path": "YOLO_HSV/test_eval/val_batch0_pred.jpg",
+      "bytes": 77073,
+      "sha256": "6e98d8b8a2d82f92e3e77428690126627f88eb6302e60d52980137dbd9ed0630"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\val_batch1_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\val_batch1_labels.jpg",
+      "relative_path": "YOLO_HSV/test_eval/val_batch1_labels.jpg",
+      "bytes": 93882,
+      "sha256": "afd08bc3aa5e2952ecd4e0547643344e3508351dc4623584cba562f6677476e0"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\val_batch1_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\val_batch1_pred.jpg",
+      "relative_path": "YOLO_HSV/test_eval/val_batch1_pred.jpg",
+      "bytes": 96313,
+      "sha256": "cb83f2f812618e93742dde2bd5c3fd35ef717d234bf1eee67bdea04cfa8898da"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\val_batch2_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\val_batch2_labels.jpg",
+      "relative_path": "YOLO_HSV/test_eval/val_batch2_labels.jpg",
+      "bytes": 85435,
+      "sha256": "b8a03411033a4a1b4fa6da65d151638f199a7a1e17516bfb9e85d39e3b33f3e6"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_eval\\val_batch2_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_eval\\val_batch2_pred.jpg",
+      "relative_path": "YOLO_HSV/test_eval/val_batch2_pred.jpg",
+      "bytes": 87394,
+      "sha256": "c88cabecc486bcbb3e90411c3b9fee633aeecf9fb824de2bc5ced228027cc81a"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\test_metrics.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\test_metrics.json",
+      "relative_path": "YOLO_HSV/test_metrics.json",
+      "bytes": 452,
+      "sha256": "aa9644483d4c85d9bdc1c58916830c64614a2b6d421c5634ffddee23dcdc6404"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\train_batch0.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\train_batch0.jpg",
+      "relative_path": "YOLO_HSV/train_batch0.jpg",
+      "bytes": 950871,
+      "sha256": "03117d569455a0ef7521ced444fb5c263620efc18679f2feb7648f9e829c6259"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\train_batch1.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\train_batch1.jpg",
+      "relative_path": "YOLO_HSV/train_batch1.jpg",
+      "bytes": 921128,
+      "sha256": "3a158c0dd6c615c3ac56a8d64ae5123f8fd3b12f9a2611a6db0294c8c2d0f0cf"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\train_batch2.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\train_batch2.jpg",
+      "relative_path": "YOLO_HSV/train_batch2.jpg",
+      "bytes": 983797,
+      "sha256": "c51cd4bb1bb50c30e39ec902fb77d830dfb6f589f300b2d8a8d35bb75264b8c2"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\val_batch0_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\val_batch0_labels.jpg",
+      "relative_path": "YOLO_HSV/val_batch0_labels.jpg",
+      "bytes": 746875,
+      "sha256": "8be70e418d359a112537996dc11a436b16aa0d891fa4c5752932f4faa39f5566"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\val_batch0_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\val_batch0_pred.jpg",
+      "relative_path": "YOLO_HSV/val_batch0_pred.jpg",
+      "bytes": 738304,
+      "sha256": "22c87dd2ee0d256d215053eb39b755aa276ab7a747dc92a1398d57ce78d295be"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\val_batch1_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\val_batch1_labels.jpg",
+      "relative_path": "YOLO_HSV/val_batch1_labels.jpg",
+      "bytes": 724581,
+      "sha256": "cb2fbc5777a7599a4e1cdee5877db10b847404c1fa3da442a658923e6aaf996a"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\val_batch1_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\val_batch1_pred.jpg",
+      "relative_path": "YOLO_HSV/val_batch1_pred.jpg",
+      "bytes": 724956,
+      "sha256": "28e7e9177b606372d84fd2cf249ebd386939a228bf72e79153badc2aa1b70b1e"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\val_batch2_labels.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\val_batch2_labels.jpg",
+      "relative_path": "YOLO_HSV/val_batch2_labels.jpg",
+      "bytes": 720787,
+      "sha256": "7e4bb283174c0f6012981f78db0bb9ed1754d3fffe79ad5512fcaa9648d42e11"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\val_batch2_pred.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\val_batch2_pred.jpg",
+      "relative_path": "YOLO_HSV/val_batch2_pred.jpg",
+      "bytes": 724500,
+      "sha256": "c7c43946f306ee54a2d75287aad8ff5eb0afcd425b7d946b9d9b2638382744d7"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\validation_history.jsonl",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\validation_history.jsonl",
+      "relative_path": "YOLO_HSV/validation_history.jsonl",
+      "bytes": 43429,
+      "sha256": "2c7cf11467a8e760e72e1d62d08766d6b01bfcedb01b87af48c7e9c0c3746daa"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\weights\\best.pt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\weights\\best.pt",
+      "relative_path": "YOLO_HSV/weights/best.pt",
+      "bytes": 5375877,
+      "sha256": "172c50b241b634749338e26ec49a35b35cdcce565976569ae4a53164ba8a2b8e"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\weights\\last.pt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\weights\\last.pt",
+      "relative_path": "YOLO_HSV/weights/last.pt",
+      "bytes": 5375877,
+      "sha256": "45a0e5f3e1f364f6c99383f3235a6c97bc81d1196731a3e30649aa9c726bb887"
+    },
+    {
+      "group": "YOLO HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\_dataset_configs\\detect-b4fe4a0107a79353.yaml",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\YOLO_HSV\\referenced_configs\\detect-b4fe4a0107a79353.yaml",
+      "relative_path": "YOLO_HSV/referenced_configs/detect-b4fe4a0107a79353.yaml",
+      "bytes": 520,
+      "sha256": "c95838214ef9849feb27a9b8423f1544ee0823cf643e807d46a0041eb931a931"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\dfine_seg_training.yaml",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\dfine_seg_training.yaml",
+      "relative_path": "D_FINE_RGB/dfine_seg_training.yaml",
+      "bytes": 4174,
+      "sha256": "c17d14c17be965e1e58fe93fbffbd42915bddd25ab264ee5aab0a3dec59a2fbc"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\00248894-0f55-5341-b71e-8537cbd50a98.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\00248894-0f55-5341-b71e-8537cbd50a98.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/00248894-0f55-5341-b71e-8537cbd50a98.jpg",
+      "bytes": 572266,
+      "sha256": "16e89cef3eae8090f04f981867aa99a68b844b9fe4c2b433587a767bd278cada"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "bytes": 498670,
+      "sha256": "d4d3dc1bb14679d95bd07d653e6859dac2c450d5dde80b6b56b8888df9b0e2d1"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\006ea799-2601-5cd0-ad78-86c9f8193af7.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\006ea799-2601-5cd0-ad78-86c9f8193af7.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/006ea799-2601-5cd0-ad78-86c9f8193af7.jpg",
+      "bytes": 370776,
+      "sha256": "7a25eee7c6cd2c3f562d593cc4fe1f1274f00e5ef72b986e9706ef7a954ce134"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg",
+      "bytes": 570061,
+      "sha256": "caa2ac7322abad7ea921e34d500e685e4bd1526cb8dc459edf50b4dc179fbc33"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\00b441d2-e2f1-58f7-ae07-5422427f8643.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\00b441d2-e2f1-58f7-ae07-5422427f8643.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/00b441d2-e2f1-58f7-ae07-5422427f8643.jpg",
+      "bytes": 475813,
+      "sha256": "22437d784fa366a674902d93bae1d139f7c8d5195eae8ddfdb1e34083da00feb"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg",
+      "bytes": 576995,
+      "sha256": "dc2423a3ef7764d4ef147a38cc1456297566674f23de2c9029c74a0c92773143"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg",
+      "bytes": 471869,
+      "sha256": "5cb14e79691cfd6ae592c48495b44ba4bb882bedf85ea4d8b1199eab3e9f6bf8"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg",
+      "bytes": 497257,
+      "sha256": "3fe9b60d46116ad7097ebdaa3907fd2b3213d17f78443caea6f96f00172e491e"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\022a51b2-651c-5537-a89d-b370a92e0d63.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\022a51b2-651c-5537-a89d-b370a92e0d63.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/022a51b2-651c-5537-a89d-b370a92e0d63.jpg",
+      "bytes": 569498,
+      "sha256": "52057a6e7fd4243b1185e8b95a897f8e4b841d78305f3ec55617a1f19d0fa825"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\025d0b11-77e8-5960-a30e-b4a584dfa926.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\025d0b11-77e8-5960-a30e-b4a584dfa926.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/025d0b11-77e8-5960-a30e-b4a584dfa926.jpg",
+      "bytes": 520218,
+      "sha256": "29a0c12e8bfb02fa6fae58d960d053b903de6c359118ab1e4057952ce6b858c7"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\0273f815-23d6-53e3-b3c0-d267424d707c.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\0273f815-23d6-53e3-b3c0-d267424d707c.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/0273f815-23d6-53e3-b3c0-d267424d707c.jpg",
+      "bytes": 438654,
+      "sha256": "1e42ea8059c67c7ce23bb548254c4b3b7c494d82daf4ee983d4375550b45f023"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\028460f2-89e7-560d-b7a4-b6605cb79808.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\028460f2-89e7-560d-b7a4-b6605cb79808.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/028460f2-89e7-560d-b7a4-b6605cb79808.jpg",
+      "bytes": 584013,
+      "sha256": "d0ae10a1f13c1ed210982ddb0ce991fcdd7dc2dd49a6216dc822d53bae702fd2"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\029a4545-6b3c-5609-b61b-dbb325e48c24.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\029a4545-6b3c-5609-b61b-dbb325e48c24.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/029a4545-6b3c-5609-b61b-dbb325e48c24.jpg",
+      "bytes": 737022,
+      "sha256": "4b1b6fc8f48446ebfe3f8542fa74bdbfcacbcf03ac25fb7fbf64d8109efdc1b3"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\02c84726-d217-518a-a5ca-04cbc62c2175.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\02c84726-d217-518a-a5ca-04cbc62c2175.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/02c84726-d217-518a-a5ca-04cbc62c2175.jpg",
+      "bytes": 586969,
+      "sha256": "ad739ef2c18c17bc83c0a7d43ad0f62efacfed3d8757369b5ad9b8327829a51c"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg",
+      "bytes": 587130,
+      "sha256": "0b2008e5dfbba812a19822d075c18e3ab96c81d8cec3f0b789f42c37753ce9f1"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\02e59936-1ef0-5c79-be38-93c5f89593b2.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\02e59936-1ef0-5c79-be38-93c5f89593b2.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/02e59936-1ef0-5c79-be38-93c5f89593b2.jpg",
+      "bytes": 536095,
+      "sha256": "56432ec253350c777f75daa0c6f46b2ed714c7c63d7fd6cefff6d7cd598fc22b"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg",
+      "bytes": 534197,
+      "sha256": "1ac5a2d0a545d49183966200c6783f95825337bf97d54a981e22cbb4e4797ed7"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\03539415-6975-5733-a57d-464ac6e57572.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\03539415-6975-5733-a57d-464ac6e57572.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/03539415-6975-5733-a57d-464ac6e57572.jpg",
+      "bytes": 566477,
+      "sha256": "8e0a4de6ed9487441a0218023a3fea18bcb9516dda1eb5568544e73f7aacf45f"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\03b6e79a-3ec8-5268-a960-3b51043b9222.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\03b6e79a-3ec8-5268-a960-3b51043b9222.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/03b6e79a-3ec8-5268-a960-3b51043b9222.jpg",
+      "bytes": 547176,
+      "sha256": "52dca1d30646a8e79d9503892805ddbdd4249c1d34777beb5d6584d9f85d32fd"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg",
+      "bytes": 610676,
+      "sha256": "febf316c9c76cc526d33f933a3e7ece8d3faa1c1aa6f4a991ef89685cd30c129"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\046959de-3e81-5699-8ef7-eb935a0637f6.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\046959de-3e81-5699-8ef7-eb935a0637f6.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/046959de-3e81-5699-8ef7-eb935a0637f6.jpg",
+      "bytes": 538348,
+      "sha256": "6017b1b5098a581161a58eb01d9710ebf8477a2d19a322bc2c9563fe7aee8f36"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg",
+      "bytes": 574106,
+      "sha256": "1d2bb845a82d9ceec72a05366386fa98eef424cb9dd0b37ea905001e054e071e"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\04e181b8-fa84-5628-9879-ef19ec25c27d.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\04e181b8-fa84-5628-9879-ef19ec25c27d.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/04e181b8-fa84-5628-9879-ef19ec25c27d.jpg",
+      "bytes": 360234,
+      "sha256": "b9090101099cd3fa862222534819e6c5e66c3e0d1c8dd70a20b8b41e04954e0f"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\053a95fe-de5a-5d16-83fb-4715221d74b7.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\053a95fe-de5a-5d16-83fb-4715221d74b7.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/053a95fe-de5a-5d16-83fb-4715221d74b7.jpg",
+      "bytes": 491419,
+      "sha256": "9fdcb325797540d6d4b1e23a5139b5960965aca01db8118a679f93ffee421bdc"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\054a2040-a884-59ef-bf27-ce8591b6e041.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\054a2040-a884-59ef-bf27-ce8591b6e041.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/054a2040-a884-59ef-bf27-ce8591b6e041.jpg",
+      "bytes": 441948,
+      "sha256": "c053f14dfacbcae41083e2b21915222f5f72e791b18c09999a7ddbde3ea3d500"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\054b6377-1d61-5358-89b8-a4635abeafb5.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\054b6377-1d61-5358-89b8-a4635abeafb5.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/054b6377-1d61-5358-89b8-a4635abeafb5.jpg",
+      "bytes": 644366,
+      "sha256": "fbcc619c90347a5f5f89a58d15493f0a12469d49f82c85fb13a7fa5623069336"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg",
+      "bytes": 553700,
+      "sha256": "0f0d1ec63bd871078747a41b1d70ab9bfd2cd12e4b5bdba696023c5694b0c0f4"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\058fd0ea-4b24-5eed-b499-280e81f81301.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\058fd0ea-4b24-5eed-b499-280e81f81301.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/058fd0ea-4b24-5eed-b499-280e81f81301.jpg",
+      "bytes": 580411,
+      "sha256": "c6ffed92d51ca9457ee864e5ad20ca866bbbd78dfaf7cf651765051f063d33af"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\0593009d-38b4-5e78-b4c3-8c419344b09e.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\0593009d-38b4-5e78-b4c3-8c419344b09e.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/0593009d-38b4-5e78-b4c3-8c419344b09e.jpg",
+      "bytes": 524785,
+      "sha256": "d559a72b95d7a0173ad0ab15fa8c8dc8de497b6c9e1b0796836c7c32aead6538"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\05b27358-c126-5834-9b96-054ede43b794.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\05b27358-c126-5834-9b96-054ede43b794.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/05b27358-c126-5834-9b96-054ede43b794.jpg",
+      "bytes": 407130,
+      "sha256": "73cb34b53a62dc5e75eeacb2768a30c2018839d9f39f60b5d79ee4b9562449c1"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg",
+      "bytes": 514111,
+      "sha256": "e7c5c760fa49f7ec6bb5477044410def25a82f2606629e1ebd960e3323ab5837"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg",
+      "bytes": 560923,
+      "sha256": "515e0df0d9bd2b9f3ad6e64a38c5741aae263bef83d1ccaa9763f917936a17d8"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\06854b23-3a29-5745-b3f4-468074d2636c.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\06854b23-3a29-5745-b3f4-468074d2636c.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/06854b23-3a29-5745-b3f4-468074d2636c.jpg",
+      "bytes": 276523,
+      "sha256": "9eaf7ecf209452421dc82efa85e8a35ce5c822ae2a43434e1a6f7d8bb2f8dbb1"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg",
+      "bytes": 476127,
+      "sha256": "9806637b9cd56d151ab953dbaf4b2fa4f1ab67848db04ba0b70a9a9a4c3fc661"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\06c163bf-18fe-58f7-ade9-86dada645535.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\06c163bf-18fe-58f7-ade9-86dada645535.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/06c163bf-18fe-58f7-ade9-86dada645535.jpg",
+      "bytes": 612781,
+      "sha256": "a1806ad3e1f9a3d0323c38c105a8397d4be361cb3945eb8e3c7bbb06177e89b9"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg",
+      "bytes": 490568,
+      "sha256": "ca82eb42829582f7f4558db9444e80440238fa56f58f32a0089c69766881a250"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\06f6f7c5-664a-522f-9374-4949808df079.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\06f6f7c5-664a-522f-9374-4949808df079.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/06f6f7c5-664a-522f-9374-4949808df079.jpg",
+      "bytes": 460900,
+      "sha256": "b5dd7e082dcf97d877393b53af0b57f3df752a8c68f48516d2c73662ee79b158"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\0713bc16-e234-5396-801f-2d2e064332e6.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\0713bc16-e234-5396-801f-2d2e064332e6.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/0713bc16-e234-5396-801f-2d2e064332e6.jpg",
+      "bytes": 554373,
+      "sha256": "5fb8021740b46da5007da2928c0e90ec4f82a33c9a7e5605ee5fec68dac11e28"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg",
+      "bytes": 346143,
+      "sha256": "d1e6a4cc31a638225125580823d807ac1b707135357318b2d768bdd56cf6a04a"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\076854fb-6651-589f-bc13-98eafcba0543.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\076854fb-6651-589f-bc13-98eafcba0543.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/076854fb-6651-589f-bc13-98eafcba0543.jpg",
+      "bytes": 461532,
+      "sha256": "45111b176534e2364dbcd36b792a9dc9b4c058f5d80f8c030913f0ad7ddbfa05"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg",
+      "bytes": 573748,
+      "sha256": "3523ceafac4a41c5bf9874de949d992ee57322ced6beef63931694c53df19a50"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg",
+      "bytes": 412192,
+      "sha256": "50f3f420bf5d2112cea992778217581813ece0cdac555a8858404234380e97cb"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\07b57bdd-663f-519c-a8de-75deb5b06160.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\07b57bdd-663f-519c-a8de-75deb5b06160.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/07b57bdd-663f-519c-a8de-75deb5b06160.jpg",
+      "bytes": 571542,
+      "sha256": "5a434058219563908a0f72f03457b2216985e75caf88a18e03a23a01c9bf3ba5"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg",
+      "bytes": 642048,
+      "sha256": "10f69e44cf69bcf510c9e069fce8a26eb8cff0bfa70802787b01c3126e144118"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\08710518-99b7-5cf6-b7f7-c5f128d51677.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\08710518-99b7-5cf6-b7f7-c5f128d51677.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/08710518-99b7-5cf6-b7f7-c5f128d51677.jpg",
+      "bytes": 577820,
+      "sha256": "ec78e6383d5e8d4e41df78b6bef23e87cb64b2618f676f25263406f01219146d"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\088d8310-4643-58f0-83be-a2781e9078e9.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\088d8310-4643-58f0-83be-a2781e9078e9.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/088d8310-4643-58f0-83be-a2781e9078e9.jpg",
+      "bytes": 333030,
+      "sha256": "d51356e3a93b6903b0d3f3dfac68c9355f6dd0f960d2ae00f89134016e064189"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg",
+      "bytes": 589641,
+      "sha256": "db25c1172521211c86c081f0c919955548088df5925e2438593dee7000002fb1"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\eval_preds\\0928986e-65bb-5a2b-aaab-452694776346.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\eval_preds\\0928986e-65bb-5a2b-aaab-452694776346.jpg",
+      "relative_path": "D_FINE_RGB/eval_preds/0928986e-65bb-5a2b-aaab-452694776346.jpg",
+      "bytes": 577281,
+      "sha256": "cc7772f09322713144436718a2a050c96227a10f6584ff7da427e4d7e438e8da"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\config.yaml",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\config.yaml",
+      "relative_path": "D_FINE_RGB/model/config.yaml",
+      "bytes": 4178,
+      "sha256": "8368093bd3dc1c18f76cc84fd4d70f4323723e9718a620c162c7c35de08ab1a5"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\extended_metrics.csv",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\extended_metrics.csv",
+      "relative_path": "D_FINE_RGB/model/extended_metrics.csv",
+      "bytes": 153,
+      "sha256": "9051996fe5131a593ac401baeb5010c842a8381fe78de9dcd22c0d16e135efcc"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\last.pt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\last.pt",
+      "relative_path": "D_FINE_RGB/model/last.pt",
+      "bytes": 15258061,
+      "sha256": "c9d0b12779aa73971956031a5d8921b270a95673b1dc7c1ed5d75c8e2b0733aa"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\metrics.csv",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\metrics.csv",
+      "relative_path": "D_FINE_RGB/model/metrics.csv",
+      "bytes": 177,
+      "sha256": "7e76f56e4475667357ba13a17a86a62b1c4693778719716cad2a9e171a8890ac"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\model.pt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\model.pt",
+      "relative_path": "D_FINE_RGB/model/model.pt",
+      "bytes": 15258739,
+      "sha256": "b5b43632e77743dc89d6484cee29de958ff482aadf713a4bc8b3ebae0546fd90"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\plots\\test\\confusion_matrix.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\plots\\test\\confusion_matrix.png",
+      "relative_path": "D_FINE_RGB/model/plots/test/confusion_matrix.png",
+      "bytes": 22304,
+      "sha256": "028b1ae519ff555cf305ae699368a7b20cff7b85b41822ad0e98614641da52e7"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\plots\\test\\f1_score_vs_threshold.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\plots\\test\\f1_score_vs_threshold.png",
+      "relative_path": "D_FINE_RGB/model/plots/test/f1_score_vs_threshold.png",
+      "bytes": 22439,
+      "sha256": "bc9c2cdf995986554e356b90384a315e9aa3a0c0b446ca3d01b960b761493e11"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\plots\\test\\precision_recall_vs_threshold.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\plots\\test\\precision_recall_vs_threshold.png",
+      "relative_path": "D_FINE_RGB/model/plots/test/precision_recall_vs_threshold.png",
+      "bytes": 29283,
+      "sha256": "a546348b64beb104377db6e3e4da6f2c7cfc7d04bb4030990463e038ad645167"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\plots\\val\\confusion_matrix.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\plots\\val\\confusion_matrix.png",
+      "relative_path": "D_FINE_RGB/model/plots/val/confusion_matrix.png",
+      "bytes": 22751,
+      "sha256": "37751e02b11f300468609ad2575cf4bc35603bd6d74f69c805211010d1bacbf7"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\plots\\val\\f1_score_vs_threshold.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\plots\\val\\f1_score_vs_threshold.png",
+      "relative_path": "D_FINE_RGB/model/plots/val/f1_score_vs_threshold.png",
+      "bytes": 24044,
+      "sha256": "467aaca91ac16b73fda9f6dc5fdbfc8d69bfa6ff79a6672b84b1b7048d92a128"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\plots\\val\\precision_recall_vs_threshold.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\plots\\val\\precision_recall_vs_threshold.png",
+      "relative_path": "D_FINE_RGB/model/plots/val/precision_recall_vs_threshold.png",
+      "bytes": 30144,
+      "sha256": "a47e33578f93f3ed5f67037464ba08fa1f37a26e563f7e902957792e631b484e"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\model\\train_log.txt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\model\\train_log.txt",
+      "relative_path": "D_FINE_RGB/model/train_log.txt",
+      "bytes": 125503,
+      "sha256": "1f7869b71f69a29b58b280e9aa0e18a912154330c8fa5ca4f08c8a1726448706"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\run_metadata.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\run_metadata.json",
+      "relative_path": "D_FINE_RGB/run_metadata.json",
+      "bytes": 212177,
+      "sha256": "67d964ff3b275e861f0ba847d926b0310822feb21f7382281c43d6d6ec9ccc88"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\test_metrics.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\test_metrics.json",
+      "relative_path": "D_FINE_RGB/test_metrics.json",
+      "bytes": 429,
+      "sha256": "4a7522d2226924fd10853687b86d1a1228973c6c9974f545e5a6701856aede45"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\trainer_console.log",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\trainer_console.log",
+      "relative_path": "D_FINE_RGB/trainer_console.log",
+      "bytes": 19804380,
+      "sha256": "5487c9eb8a9764b7ffe3d96120e15111ebcaaba71c61c18cf3061b5d463bda2e"
+    },
+    {
+      "group": "D-FINE RGB",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261007-122047\\validation_history.jsonl",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_RGB\\validation_history.jsonl",
+      "relative_path": "D_FINE_RGB/validation_history.jsonl",
+      "bytes": 78251,
+      "sha256": "c625c27d80f207d92792c32887dd6c16eb46753a8d2772dd52e816f08ad6da59"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\dfine_seg_training.yaml",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\dfine_seg_training.yaml",
+      "relative_path": "D_FINE_HSV/dfine_seg_training.yaml",
+      "bytes": 4413,
+      "sha256": "71aa27a5219ba1d4ea620e5a5fd0916533b991efbf136388a53d939b4c54e0b6"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\00248894-0f55-5341-b71e-8537cbd50a98.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\00248894-0f55-5341-b71e-8537cbd50a98.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/00248894-0f55-5341-b71e-8537cbd50a98.jpg",
+      "bytes": 786152,
+      "sha256": "04921675c5b073d5df14164e20a49809feba29808af3745a2bda835ed7fce7a6"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "bytes": 711433,
+      "sha256": "0a3a186ad5c396dc6ac8f2f0d86c60d1b88490a931660c445eb1aeb035dd9d80"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\006ea799-2601-5cd0-ad78-86c9f8193af7.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\006ea799-2601-5cd0-ad78-86c9f8193af7.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/006ea799-2601-5cd0-ad78-86c9f8193af7.jpg",
+      "bytes": 466259,
+      "sha256": "ca24e388d63dd4d9427ea5b2ee6876ee09400e48b6e99e4628fe0e86b3dc319e"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg",
+      "bytes": 782137,
+      "sha256": "990ed58262497441b346ca47e1fff9a0fbfd4f151fcd2068e356f1dace0d0a71"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\00b441d2-e2f1-58f7-ae07-5422427f8643.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\00b441d2-e2f1-58f7-ae07-5422427f8643.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/00b441d2-e2f1-58f7-ae07-5422427f8643.jpg",
+      "bytes": 626290,
+      "sha256": "070a4a3195946c953e101f527a36e3ec7de88c0be8850c81ff2ace74e8dd1c93"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg",
+      "bytes": 802864,
+      "sha256": "d11102aed70a0e9cdaf6dc0e77398935920887b72e6123b748eec4885a6df639"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg",
+      "bytes": 651559,
+      "sha256": "9e1c8f82f239c31a659b429e20bfc5c3e0dda32bfee9adc8490ff69327da5ee7"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg",
+      "bytes": 670081,
+      "sha256": "db909c2570a1e351ed2aed0aaee1abb706c175f58ed732e3989e091eef07eaf1"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\022a51b2-651c-5537-a89d-b370a92e0d63.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\022a51b2-651c-5537-a89d-b370a92e0d63.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/022a51b2-651c-5537-a89d-b370a92e0d63.jpg",
+      "bytes": 785133,
+      "sha256": "3b62d6760b3665b4c830447143439aed05676d00d3071a17d6d782256d4df0a7"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\025d0b11-77e8-5960-a30e-b4a584dfa926.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\025d0b11-77e8-5960-a30e-b4a584dfa926.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/025d0b11-77e8-5960-a30e-b4a584dfa926.jpg",
+      "bytes": 696887,
+      "sha256": "3058417bb1c58aeed9c0b063f65966ebd0765c81df4aea96a829b922d3388908"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\0273f815-23d6-53e3-b3c0-d267424d707c.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\0273f815-23d6-53e3-b3c0-d267424d707c.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/0273f815-23d6-53e3-b3c0-d267424d707c.jpg",
+      "bytes": 609871,
+      "sha256": "338f402504dbba2f7c3368ef0b2c587c89e0fa6f5cae7df0fd41857e31824185"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\028460f2-89e7-560d-b7a4-b6605cb79808.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\028460f2-89e7-560d-b7a4-b6605cb79808.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/028460f2-89e7-560d-b7a4-b6605cb79808.jpg",
+      "bytes": 805930,
+      "sha256": "c2415f209b88250162456503c055e793456780da8f84f80a416dffa7703411f1"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\029a4545-6b3c-5609-b61b-dbb325e48c24.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\029a4545-6b3c-5609-b61b-dbb325e48c24.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/029a4545-6b3c-5609-b61b-dbb325e48c24.jpg",
+      "bytes": 957781,
+      "sha256": "548eb08aca91bce2d7b01f89c3319c0ff73caa8238ac234a0be8172e3deb1fff"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\02c84726-d217-518a-a5ca-04cbc62c2175.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\02c84726-d217-518a-a5ca-04cbc62c2175.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/02c84726-d217-518a-a5ca-04cbc62c2175.jpg",
+      "bytes": 813058,
+      "sha256": "b1b834191a0b4274d0b9de1b676547ffed356fb8182a5278a1e88a6fa506ad78"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg",
+      "bytes": 821532,
+      "sha256": "74aa09c6168c3889dce6e2a806da5b57c03a81110a66393f7042bbb6ee399b9c"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\02e59936-1ef0-5c79-be38-93c5f89593b2.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\02e59936-1ef0-5c79-be38-93c5f89593b2.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/02e59936-1ef0-5c79-be38-93c5f89593b2.jpg",
+      "bytes": 747683,
+      "sha256": "c87f60ccd52e1eb90c6bc7fbb5d0a64acd52bb7b60f999897adbb747ffc56e2e"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg",
+      "bytes": 709346,
+      "sha256": "37417fc1a728e46a52745cd5f92366305809423ed0eb3a7426e3cbea41093b1a"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\03539415-6975-5733-a57d-464ac6e57572.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\03539415-6975-5733-a57d-464ac6e57572.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/03539415-6975-5733-a57d-464ac6e57572.jpg",
+      "bytes": 799130,
+      "sha256": "6dbdfd0167c4376b913dff132e27637aecfa80b24433497cf96411ad32f216fc"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\03b6e79a-3ec8-5268-a960-3b51043b9222.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\03b6e79a-3ec8-5268-a960-3b51043b9222.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/03b6e79a-3ec8-5268-a960-3b51043b9222.jpg",
+      "bytes": 761443,
+      "sha256": "acc7f22ef4ea0cd222d6ef1cdcd7b306a13b1b742c7ec147e2e446c1e18cdd43"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg",
+      "bytes": 836302,
+      "sha256": "c712be1a74c4b24918b19d8cdc99aaba9c1865fa3b0a09be1ed6cfe744b7b622"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\046959de-3e81-5699-8ef7-eb935a0637f6.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\046959de-3e81-5699-8ef7-eb935a0637f6.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/046959de-3e81-5699-8ef7-eb935a0637f6.jpg",
+      "bytes": 743856,
+      "sha256": "c08c3e4e645e8407f860660cd57d78722e18e06c6fcf020278c4bd2dc977ade7"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg",
+      "bytes": 785720,
+      "sha256": "9b64d018236264b02730fb2a8bc9378c33565f725dfc4efcd79dbe94e877bc7b"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\04e181b8-fa84-5628-9879-ef19ec25c27d.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\04e181b8-fa84-5628-9879-ef19ec25c27d.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/04e181b8-fa84-5628-9879-ef19ec25c27d.jpg",
+      "bytes": 463373,
+      "sha256": "8f78a37c77a8cac4e7f4f99e50eb06ce54234f19a0c4824683788d06f9af816c"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\053a95fe-de5a-5d16-83fb-4715221d74b7.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\053a95fe-de5a-5d16-83fb-4715221d74b7.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/053a95fe-de5a-5d16-83fb-4715221d74b7.jpg",
+      "bytes": 701973,
+      "sha256": "fac5f47e2e8d2c7ab5bdb786e5539a7cf0bc0362ac6f148261e8cee83dcf6f04"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\054a2040-a884-59ef-bf27-ce8591b6e041.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\054a2040-a884-59ef-bf27-ce8591b6e041.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/054a2040-a884-59ef-bf27-ce8591b6e041.jpg",
+      "bytes": 500326,
+      "sha256": "a3e15ed7002f5f7b176c0e67d67592a798e2becae02df0543d7be01fc6ee3bf6"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\054b6377-1d61-5358-89b8-a4635abeafb5.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\054b6377-1d61-5358-89b8-a4635abeafb5.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/054b6377-1d61-5358-89b8-a4635abeafb5.jpg",
+      "bytes": 874416,
+      "sha256": "f3413982af20915fbe61543964534691deefac84269fb8c264a2b6d83b1958dd"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg",
+      "bytes": 763575,
+      "sha256": "227b47d0269c23740130d63734792ee4c4a443422445c122b2222165f1ca2aa3"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\058fd0ea-4b24-5eed-b499-280e81f81301.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\058fd0ea-4b24-5eed-b499-280e81f81301.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/058fd0ea-4b24-5eed-b499-280e81f81301.jpg",
+      "bytes": 798310,
+      "sha256": "c9c3a118c24a15a122ee46036e9e33f3c7c6fad9e1d0c38506a31dcfd97743ff"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\0593009d-38b4-5e78-b4c3-8c419344b09e.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\0593009d-38b4-5e78-b4c3-8c419344b09e.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/0593009d-38b4-5e78-b4c3-8c419344b09e.jpg",
+      "bytes": 739478,
+      "sha256": "f77c5ce9e9677685c31bac6eed7cebad79c23e352e6c4f438dac547e469a5dd3"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\05b27358-c126-5834-9b96-054ede43b794.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\05b27358-c126-5834-9b96-054ede43b794.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/05b27358-c126-5834-9b96-054ede43b794.jpg",
+      "bytes": 586433,
+      "sha256": "44e9b590a4787eba3d462c9581de23883ba7bc46ab804b1832519b88e9a14250"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg",
+      "bytes": 723037,
+      "sha256": "37fc33591d6b42036fb38d7d8d6c2d77fe4b6283d1742034d32b546c732c14b1"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg",
+      "bytes": 782273,
+      "sha256": "cfad757ae2216e3aaff3982b9824de40e9ab94b11fb803f144f1606c50984351"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\06854b23-3a29-5745-b3f4-468074d2636c.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\06854b23-3a29-5745-b3f4-468074d2636c.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/06854b23-3a29-5745-b3f4-468074d2636c.jpg",
+      "bytes": 370003,
+      "sha256": "bd61d5cfe12bd8c5034f4dd6caee38c3be8d2c8476a6242893c6390dde4bfeb5"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg",
+      "bytes": 688133,
+      "sha256": "8490f62a6c7be087fff2477a3c2dca2c174e184fca0666433a3576dedb6b7e76"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\06c163bf-18fe-58f7-ade9-86dada645535.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\06c163bf-18fe-58f7-ade9-86dada645535.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/06c163bf-18fe-58f7-ade9-86dada645535.jpg",
+      "bytes": 845892,
+      "sha256": "52381da310469927c8a7e1cb501af46950f1a4d88e67ac7e7175651470e3ee70"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg",
+      "bytes": 661114,
+      "sha256": "a85c6b96f71c18a55d56f1cd2fd00d8edaafd3b06e0f628317979b3fa73e5002"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\06f6f7c5-664a-522f-9374-4949808df079.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\06f6f7c5-664a-522f-9374-4949808df079.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/06f6f7c5-664a-522f-9374-4949808df079.jpg",
+      "bytes": 653189,
+      "sha256": "ee3377bc71bef292ea96e516ad1d997460b11d0982eaa2b8f100de94a534b5f7"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\0713bc16-e234-5396-801f-2d2e064332e6.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\0713bc16-e234-5396-801f-2d2e064332e6.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/0713bc16-e234-5396-801f-2d2e064332e6.jpg",
+      "bytes": 759287,
+      "sha256": "e1ce314e198eda11f3a4ba08a3a23f464bca211eb193939281dd51362324b151"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg",
+      "bytes": 460879,
+      "sha256": "0b32f58981a7391cfa083dfab7abf91e377abb32c789e86d024765e50e7c4d4f"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\076854fb-6651-589f-bc13-98eafcba0543.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\076854fb-6651-589f-bc13-98eafcba0543.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/076854fb-6651-589f-bc13-98eafcba0543.jpg",
+      "bytes": 623715,
+      "sha256": "e7f686d3e481365d34c7a200f8c4b9280504d8d64b9cbb72c8cfcfe32f9756a0"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg",
+      "bytes": 787895,
+      "sha256": "5262cd4c63aa6fc281975f5b6594250a9feb93ffb4c1eb72b8d0614285a746af"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg",
+      "bytes": 580141,
+      "sha256": "728d8e28a6afdbbc444acc2fa7ba6f98d341c47b29589e3160e7fc9633c8be45"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\07b57bdd-663f-519c-a8de-75deb5b06160.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\07b57bdd-663f-519c-a8de-75deb5b06160.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/07b57bdd-663f-519c-a8de-75deb5b06160.jpg",
+      "bytes": 798971,
+      "sha256": "0e4f590790e8246ece180a5e098159d668c99a48ab6a3c9cff089a4a8651446d"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg",
+      "bytes": 874872,
+      "sha256": "f27475274a86ba23fa029358909e937ed1c51ae8cc3f4be913c74470265f148e"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\08710518-99b7-5cf6-b7f7-c5f128d51677.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\08710518-99b7-5cf6-b7f7-c5f128d51677.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/08710518-99b7-5cf6-b7f7-c5f128d51677.jpg",
+      "bytes": 782437,
+      "sha256": "83aa61974e4ae6dbb0a3de7167928d854558346afd9cfd4fc4a2a10a9285764c"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\088d8310-4643-58f0-83be-a2781e9078e9.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\088d8310-4643-58f0-83be-a2781e9078e9.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/088d8310-4643-58f0-83be-a2781e9078e9.jpg",
+      "bytes": 404805,
+      "sha256": "fa3a3ea4b6fb9aad12996547b242a434dce28b4978b43f0d98c00f0b991c3b28"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg",
+      "bytes": 815100,
+      "sha256": "ac8b63f978504c7710565486235cda34adf1938a820e93c8e11a7f066b265891"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\eval_preds\\0928986e-65bb-5a2b-aaab-452694776346.jpg",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\eval_preds\\0928986e-65bb-5a2b-aaab-452694776346.jpg",
+      "relative_path": "D_FINE_HSV/eval_preds/0928986e-65bb-5a2b-aaab-452694776346.jpg",
+      "bytes": 798976,
+      "sha256": "a277de4b903cacc715538ec10ba6a2172dbff1ea59f72d8243ff2ce07d01006a"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\config.yaml",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\config.yaml",
+      "relative_path": "D_FINE_HSV/model/config.yaml",
+      "bytes": 4417,
+      "sha256": "1cd934479ad851decb17b3d349e1eea5288a8f898417b8e735c0b1d5904461d4"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\extended_metrics.csv",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\extended_metrics.csv",
+      "relative_path": "D_FINE_HSV/model/extended_metrics.csv",
+      "bytes": 153,
+      "sha256": "c341351fd45170241de1dcd6e7c9371124150afd3cc5a174919c752dae00fcb7"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\last.pt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\last.pt",
+      "relative_path": "D_FINE_HSV/model/last.pt",
+      "bytes": 15258061,
+      "sha256": "1c023bc884680033fae78caaf16a92030b8bd101124a44766b77d93e73fcd329"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\metrics.csv",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\metrics.csv",
+      "relative_path": "D_FINE_HSV/model/metrics.csv",
+      "bytes": 177,
+      "sha256": "f22ccbbcf344d013ef5ac4a08ce582295cffb2de2dc1e816289b80b46f4b1dd3"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\model.pt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\model.pt",
+      "relative_path": "D_FINE_HSV/model/model.pt",
+      "bytes": 15258739,
+      "sha256": "272dc8517a3074c7e5470d1764e56ec6b4c5e129a3d81acfdad4d95240e440de"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\plots\\test\\confusion_matrix.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\plots\\test\\confusion_matrix.png",
+      "relative_path": "D_FINE_HSV/model/plots/test/confusion_matrix.png",
+      "bytes": 22122,
+      "sha256": "0fd6f01069e8d8652af5ea615ea2139114ae36c81e682db630e8d6beba7038fa"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\plots\\test\\f1_score_vs_threshold.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\plots\\test\\f1_score_vs_threshold.png",
+      "relative_path": "D_FINE_HSV/model/plots/test/f1_score_vs_threshold.png",
+      "bytes": 24127,
+      "sha256": "4a29b032023eb283ff52698857df31822c526afbb5a180bfcd299cdd95cca44f"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\plots\\test\\precision_recall_vs_threshold.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\plots\\test\\precision_recall_vs_threshold.png",
+      "relative_path": "D_FINE_HSV/model/plots/test/precision_recall_vs_threshold.png",
+      "bytes": 28304,
+      "sha256": "dc02ed2943845dfd8e593b1db82f7752984711b7d4f359241f0a4c08fd78aaf9"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\plots\\val\\confusion_matrix.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\plots\\val\\confusion_matrix.png",
+      "relative_path": "D_FINE_HSV/model/plots/val/confusion_matrix.png",
+      "bytes": 21940,
+      "sha256": "ae91c097cf3fea2cb1f0b730d28f5ca333051dd691575b6de980a04a64817a86"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\plots\\val\\f1_score_vs_threshold.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\plots\\val\\f1_score_vs_threshold.png",
+      "relative_path": "D_FINE_HSV/model/plots/val/f1_score_vs_threshold.png",
+      "bytes": 20139,
+      "sha256": "ed6084230d7809907eba5c94b17891447e70a14f206bceebed4305632629e0c5"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\plots\\val\\precision_recall_vs_threshold.png",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\plots\\val\\precision_recall_vs_threshold.png",
+      "relative_path": "D_FINE_HSV/model/plots/val/precision_recall_vs_threshold.png",
+      "bytes": 29153,
+      "sha256": "dac08615ec0bb9051a9aa776f1312d2b5e7cfbfdfdd7b654bc0aef5d29ea9e2f"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\model\\train_log.txt",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\model\\train_log.txt",
+      "relative_path": "D_FINE_HSV/model/train_log.txt",
+      "bytes": 107449,
+      "sha256": "e3c6416683119b3bb4c04a92c7d9ce9717a6c205b91b642949a7a0fbe68284ea"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\prepared_dataset\\test.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\prepared_dataset\\test.json",
+      "relative_path": "D_FINE_HSV/prepared_dataset/test.json",
+      "bytes": 6950314,
+      "sha256": "adb4bafc453f093406689f39ff20d989f643704ae327e9a1d13d72af9f658521"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\prepared_dataset\\train.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\prepared_dataset\\train.json",
+      "relative_path": "D_FINE_HSV/prepared_dataset/train.json",
+      "bytes": 11610459,
+      "sha256": "91ba022a0e1517b805dc6a3f327dfc785f94091adf93887240af499718b2f481"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\prepared_dataset\\val.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\prepared_dataset\\val.json",
+      "relative_path": "D_FINE_HSV/prepared_dataset/val.json",
+      "bytes": 6970972,
+      "sha256": "a5c373157c6d47bff8eaf3afdba17363c06c697b0773d0738b8782e9e086a254"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\run_metadata.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\run_metadata.json",
+      "relative_path": "D_FINE_HSV/run_metadata.json",
+      "bytes": 213296,
+      "sha256": "94def959b2ead512558cdd78abf9ea7c89364bf0a0d78dcf3cbf8ee28073260c"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\test_metrics.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\test_metrics.json",
+      "relative_path": "D_FINE_HSV/test_metrics.json",
+      "bytes": 430,
+      "sha256": "380c8b489b26ec7c42c7e44f2ec3a036f597f70f41a6d93d337e96ac2bd97eb7"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\trainer_console.log",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\trainer_console.log",
+      "relative_path": "D_FINE_HSV/trainer_console.log",
+      "bytes": 16819220,
+      "sha256": "90d6373b21bdaebe715c7a24f921144b4137d6c1b535f5f6f58557a183ea714d"
+    },
+    {
+      "group": "D-FINE HSV",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-n-detect-20261008-170850\\validation_history.jsonl",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\D_FINE_HSV\\validation_history.jsonl",
+      "relative_path": "D_FINE_HSV/validation_history.jsonl",
+      "bytes": 66439,
+      "sha256": "198690952c93ba990031eaf3e7b23d000d54301967bec46f4fa97f52bb350fe2"
+    },
+    {
+      "group": "Comparison",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\reports\\latest_four_detection_runs_20261009-125417\\all_metrics_with_training_losses.json",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\Comparison\\all_metrics.json",
+      "relative_path": "Comparison/all_metrics.json",
+      "bytes": 2770467,
+      "sha256": "37350a653afede34ca4856647692259a60328933976f099f4a71ab817d9c9d8a"
+    },
+    {
+      "group": "Comparison",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\reports\\latest_four_detection_runs_20261009-125417\\dfine_training_losses.md",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\Comparison\\dfine_training_losses.md",
+      "relative_path": "Comparison/dfine_training_losses.md",
+      "bytes": 7393,
+      "sha256": "a01fcfe78c979874c1f6165fa7fe63b5ff49484b1fbe733d98b4c5edc526a41c"
+    },
+    {
+      "group": "Comparison",
+      "source": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\reports\\latest_four_detection_runs_20261009-125417\\metrics_report.md",
+      "copy": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Comparison_Results_2026-10-09\\Comparison\\metrics_report.md",
+      "relative_path": "Comparison/metrics_report.md",
+      "bytes": 10629,
+      "sha256": "e94922ffbcb9f849a7315f833f275a372bddd479d55ce3e2a0d1d2cc86d367ec",
+      "note": "File links updated to point to the copied run folders."
+    }
+  ]
+}

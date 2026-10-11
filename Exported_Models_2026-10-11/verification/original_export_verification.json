@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "source_checkpoints_unchanged": true,
+  "selected_model_count": 4,
+  "delivered_artifacts": [
+    {
+      "model": "yolo_rgb",
+      "file": "yolo_rgb/model.onnx",
+      "bytes": 9805102,
+      "sha256": "652e657e11781cb0b184a4988586c776962664be34ad9eeaae7d5c5cdf752a19"
+    },
+    {
+      "model": "yolo_rgb",
+      "file": "yolo_rgb/nvidia/model_fp32.engine",
+      "bytes": 60257972,
+      "sha256": "182898d45a136fed749e9dca4a927811c104527df69995224e297fc15a6ebdf8"
+    },
+    {
+      "model": "yolo_rgb",
+      "file": "yolo_rgb/raspberry_pi4/ncnn_fp32/model.ncnn.param",
+      "bytes": 26137,
+      "sha256": "1564847eb02c07b6abded54a84851944d5befbcbee7a1036984394c6f8cc5d2a"
+    },
+    {
+      "model": "yolo_rgb",
+      "file": "yolo_rgb/raspberry_pi4/ncnn_fp32/model.ncnn.bin",
+      "bytes": 9601332,
+      "sha256": "eaf2b0958d16261a11369ba632cbe1dd26336522f393ba43e0927d4221aedf73"
+    },
+    {
+      "model": "yolo_hsv",
+      "file": "yolo_hsv/model.onnx",
+      "bytes": 9805102,
+      "sha256": "a22eff846d026c66188c7c39d228bd2a156a7dafa7942598de0e7674533419f4"
+    },
+    {
+      "model": "yolo_hsv",
+      "file": "yolo_hsv/nvidia/model_fp32.engine",
+      "bytes": 60980684,
+      "sha256": "60d9c257fa7834bfdb014022daef969184d7c9b67b3df9549c0e1bc03b295da0"
+    },
+    {
+      "model": "yolo_hsv",
+      "file": "yolo_hsv/raspberry_pi4/ncnn_fp32/model.ncnn.param",
+      "bytes": 26137,
+      "sha256": "1564847eb02c07b6abded54a84851944d5befbcbee7a1036984394c6f8cc5d2a"
+    },
+    {
+      "model": "yolo_hsv",
+      "file": "yolo_hsv/raspberry_pi4/ncnn_fp32/model.ncnn.bin",
+      "bytes": 9601332,
+      "sha256": "1625eac3e9945e5bd38349ba3cea5fb800bb2f1904a6f71c25083d5055027ac6"
+    },
+    {
+      "model": "dfine_rgb",
+      "file": "dfine_rgb/model.onnx",
+      "bytes": 15392086,
+      "sha256": "340a4189c7985dbf0b078fc1ee16162f1aa58c45cf6223ff90f65f533eae0b67"
+    },
+    {
+      "model": "dfine_rgb",
+      "file": "dfine_rgb/nvidia/model_fp32.engine",
+      "bytes": 36685884,
+      "sha256": "c43f705a048cfa46cd530e4dfcd6c508111f8fecf434267058d66cc26dd554d8"
+    },
+    {
+      "model": "dfine_rgb",
+      "file": "dfine_rgb/raspberry_pi4/model.onnx",
+      "bytes": 15392086,
+      "sha256": "340a4189c7985dbf0b078fc1ee16162f1aa58c45cf6223ff90f65f533eae0b67"
+    },
+    {
+      "model": "dfine_hsv",
+      "file": "dfine_hsv/model.onnx",
+      "bytes": 15392086,
+      "sha256": "5ec4884e028597f60a60504dc887c50a3fe35481b7d36595ff141d6d5db273b3"
+    },
+    {
+      "model": "dfine_hsv",
+      "file": "dfine_hsv/nvidia/model_fp32.engine",
+      "bytes": 37579860,
+      "sha256": "3160079e7b900b0e7f55ff4a21d5f15a4ee14679a305739270cb88f01cb0515c"
+    },
+    {
+      "model": "dfine_hsv",
+      "file": "dfine_hsv/raspberry_pi4/model.onnx",
+      "bytes": 15392086,
+      "sha256": "5ec4884e028597f60a60504dc887c50a3fe35481b7d36595ff141d6d5db273b3"
+    }
+  ],
+  "onnx_vs_pytorch": "PASS, three real validation images per model",
+  "tensorrt_vs_onnx": "PASS, three real validation images per model",
+  "yolo_ncnn_vs_onnx": "PASS, three real validation images per model",
+  "dfine_pi_runtime": "ONNX Runtime CPU",
+  "dfine_ncnn": "Not delivered: native runtime crash",
+  "portable_runner_backend_checks": 18,
+  "pi_hardware_benchmark": "Not performed; no Pi attached"
+}

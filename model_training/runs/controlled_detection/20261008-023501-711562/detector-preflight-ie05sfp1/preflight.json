@@ -1,0 +1,41 @@
+{
+  "loader_shape": [
+    16,
+    3,
+    640,
+    640
+  ],
+  "model_parameters": 2504190,
+  "loss": 72.95526123046875,
+  "batch_object_counts": [
+    83,
+    81,
+    79,
+    79,
+    79,
+    78,
+    78,
+    78,
+    77,
+    77,
+    77,
+    77,
+    77,
+    76,
+    76,
+    76
+  ],
+  "status": "PASS",
+  "model": "yolo26n",
+  "colour": "hsv",
+  "device": "cuda:0",
+  "requested_batch": 16,
+  "backward": true,
+  "optimizer_updates": 0,
+  "test_inference_performed": false,
+  "test_usage": "pairing/hash audit only; no inference or selection",
+  "batch_selection": "densest training images",
+  "amp": true,
+  "manifest_sha256": "4f3aa85ff20cc5bf147565988374a57da6dc21fdfd3f45cfd9c70389f0f43288",
+  "peak_allocated_bytes": 2607855104
+}

@@ -1,0 +1,6 @@
+path: C:/Users/USER/Desktop/1Skripsie/VS Code/New Model Trainer/model_training/dataset_detect_rgb
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: naartjie

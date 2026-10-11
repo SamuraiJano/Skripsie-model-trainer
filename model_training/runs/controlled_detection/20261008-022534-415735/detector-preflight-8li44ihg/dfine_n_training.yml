@@ -1,0 +1,128 @@
+__include__:
+- C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\third_party\D-FINE\configs\dfine\custom\dfine_hgnetv2_n_custom.yml
+print_freq: 10
+output_dir: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\controlled_detection\20261008-022534-415735\detector-preflight-8li44ihg
+num_classes: 1
+remap_mscoco_category: false
+epochs: 300
+use_ema: true
+train_dataloader:
+  total_batch_size: 8
+  num_workers: 0
+  dataset:
+    type: CocoDetection
+    img_folder: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\controlled_detection\20261008-022534-415735\detector-preflight-8li44ihg\prepared_dataset\images
+    ann_file: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\controlled_detection\20261008-022534-415735\detector-preflight-8li44ihg\prepared_dataset\train.json
+    return_masks: false
+    remap_mscoco_category: false
+    transforms:
+      type: Compose
+      ops:
+      - type: ControlledLetterbox
+        size: 640
+        colour: rgb
+        flip_probability: 0.0
+      - type: ConvertPILImage
+        dtype: float32
+        scale: true
+      - type: ConvertBoxes
+        fmt: cxcywh
+        normalize: true
+      policy:
+        name: default
+  collate_fn:
+    base_size: 640
+    base_size_repeat: null
+    stop_epoch: 280
+    ema_restart_decay: 0.9999
+  drop_last: false
+  shuffle: true
+val_dataloader:
+  total_batch_size: 8
+  num_workers: 0
+  dataset:
+    type: CocoDetection
+    img_folder: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\controlled_detection\20261008-022534-415735\detector-preflight-8li44ihg\prepared_dataset\images
+    ann_file: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\controlled_detection\20261008-022534-415735\detector-preflight-8li44ihg\prepared_dataset\val.json
+    return_masks: false
+    remap_mscoco_category: false
+    transforms:
+      type: Compose
+      ops:
+      - type: ControlledLetterbox
+        size: 640
+        colour: rgb
+        flip_probability: 0.0
+      - type: ConvertPILImage
+        dtype: float32
+        scale: true
+      policy:
+        name: default
+  drop_last: false
+  shuffle: false
+optimizer:
+  lr: 0.0008
+  params:
+  - params: ^(?=.*backbone)(?!.*norm|bn).*$
+    lr: 0.0004
+  - params: ^(?=.*backbone)(?=.*norm|bn).*$
+    lr: 0.0004
+    weight_decay: 0.0
+  - params: ^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$
+    weight_decay: 0.0
+  weight_decay: 0.0001
+clip_max_norm: 0.1
+lr_warmup_scheduler:
+  warmup_duration: 500
+eval_spatial_size:
+- 640
+- 640
+seed: 0
+deterministic: true
+colour_space: rgb
+input_representation:
+  colour_space: RGB
+  tensor_scaling: divide_by_255
+  tensor_channel_order: RGB
+use_amp: true
+device: cuda:0
+use_wandb: false
+checkpoint_freq: 300
+lr_scheduler:
+  type: MultiStepLR
+  milestones:
+  - 500
+  gamma: 0.1
+ema:
+  type: ModelEMA
+  decay: 0.9999
+  warmups: 1000
+HGNetv2:
+  pretrained: false
+controlled_detection:
+  rgb_yaml: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\controlled_detection\_datasets\d5485a04cba79ab8eae87244\rgb\data.yaml
+  colour: rgb
+  batch: 8
+  workers: 0
+  seed: 0
+  metadata: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\runs\controlled_detection\20261008-022534-415735\detector-preflight-8li44ihg\run_metadata.json
+  augmentation:
+    colour: disabled
+    horizontal_flip: 0.0
+    vertical_flip: 0.0
+    rotation: 0.0
+    perspective: 0.0
+    scale_jitter: 0.0
+    translation: 0.0
+    mosaic: 0.0
+    mixup: 0.0
+    cutmix: 0.0
+    geometry: 640-square aspect-preserving letterbox, RGB geometry before representation
+controlled_policy:
+  max_epochs: 300
+  min_epochs: 100
+  patience: 40
+  validation_frequency: 1
+  selection_metric: box COCO mAP50-95
+  selection_split: val
+  min_delta: 0.0

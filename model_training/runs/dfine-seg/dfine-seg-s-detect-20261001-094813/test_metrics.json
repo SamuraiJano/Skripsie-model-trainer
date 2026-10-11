@@ -1,0 +1,16 @@
+{
+  "split": "test",
+  "images": 504,
+  "checkpoint": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\model\\model.pt",
+  "metrics": {
+    "mAP_50": 0.99,
+    "f1": 0.994,
+    "precision": 0.9911,
+    "recall": 0.9969,
+    "iou": 0.9735,
+    "mAP_50_95": 0.9851,
+    "TPs": 23406.0,
+    "FPs": 211.0,
+    "FNs": 72.0
+  }
+}

@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from .datasets import ultralytics_loader_smoke, validate_yolo_training_dataset
-from .train import TrainingOptions, YoloTrainingOptions, train_yolo_export
+from .train import TrainingOptions, YoloTrainingOptions, final_yolo_options, train_yolo_export
 
 
 TRAINING_TASKS = (
@@ -24,6 +24,7 @@ YOLO_PARAMETER_GROUPS = (
         (
             "time",
             "patience",
+            "min_epochs_before_early_stop",
             "cache",
             "optimizer",
             "pretrained",
@@ -113,6 +114,7 @@ YOLO_PARAMETER_GROUPS = (
 YOLO_PARAMETER_LABELS = {
     "time": "Time limit (hours)",
     "patience": "Early-stop patience",
+    "min_epochs_before_early_stop": "Minimum training epochs",
     "cache": "Dataset cache",
     "optimizer": "Optimizer",
     "pretrained": "Use pretrained weights",
@@ -200,7 +202,7 @@ _PROBABILITIES = {
     "copy_paste",
     "erasing",
 }
-_INTEGER_FIELDS = {"patience", "save_period", "close_mosaic", "mask_ratio", "max_det", "line_width", "nbs"}
+_INTEGER_FIELDS = {"patience", "min_epochs_before_early_stop", "save_period", "close_mosaic", "mask_ratio", "max_det", "line_width", "nbs"}
 
 
 def _project_root(project_root: str | Path | None) -> Path:
@@ -246,13 +248,16 @@ def _command_line(command: list[str]) -> str:
 
 
 def _yolo_cli_arguments(options: YoloTrainingOptions) -> list[str]:
-    defaults = asdict(YoloTrainingOptions())
+    defaults = asdict(final_yolo_options("detect"))
     values = asdict(options)
     extra_args = values.pop("extra_args")
     defaults.pop("extra_args")
     command: list[str] = []
     for name, value in values.items():
-        if value == defaults[name]:
+        if value == defaults[name] and name not in {
+            "patience", "min_epochs_before_early_stop", "optimizer", "lr0", "weight_decay", "nbs", "mosaic",
+            "mixup", "hsv_h", "hsv_s", "hsv_v",
+        }:
             continue
         flag = f"--{name.replace('_', '-')}"
         if name == "cache":
@@ -267,9 +272,12 @@ def _yolo_cli_arguments(options: YoloTrainingOptions) -> list[str]:
             command.extend([flag, ",".join(str(item) for item in value)])
         elif value is not None:
             command.extend([flag, str(value)])
-    if extra_args:
-        command.extend(["--yolo-args-json", json.dumps(extra_args, separators=(",", ":"))])
+    command.extend(["--yolo-args-json", json.dumps(extra_args, separators=(",", ":"))])
     return command
+
+
+def _dashboard_yolo_defaults(task: str = "detect") -> YoloTrainingOptions:
+    return final_yolo_options(task)
 
 
 def create_training_dashboard(project_root: str | Path | None = None) -> Any:
@@ -301,6 +309,9 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
         description="Dataset",
         placeholder="Standalone YOLO dataset or complete Data Labeller export",
     )
+    colour_space = widgets.Dropdown(options=(("Auto (dataset)", "auto"), ("RGB", "rgb"), ("HSV", "hsv")),
+                                   value="auto", description="Colour space", layout=field_layout, style=text_style)
+    colour_space.tooltip = "HSV creates a lossless H,S,V view from the same RGB images and labels. Training settings stay fixed."
     output_dir = text_field(value=str(root / "runs"), description="Runs directory")
     run_name = text_field(
         value="",
@@ -310,7 +321,7 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
     resume = text_field(value="", description="Resume checkpoint", placeholder="Optional path to last.pt")
 
     epochs = widgets.BoundedIntText(
-        value=100, min=1, max=10000, description="Epochs", layout=field_layout, style=text_style
+        value=300, min=1, max=10000, description="Epochs", layout=field_layout, style=text_style
     )
     image_size = widgets.BoundedIntText(
         value=640,
@@ -322,15 +333,16 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
         style=text_style,
     )
     batch = widgets.FloatText(value=16, description="Batch size", layout=field_layout, style=text_style)
+    batch.tooltip = "Physical GPU batch: 16 by default. If memory is tight, use 8 or 4 with nominal batch 16; accumulation ramps during warm-up."
     workers = widgets.BoundedIntText(
-        value=0 if sys.platform == "win32" else 8,
+        value=4,
         min=0,
         max=128,
         description="Data workers",
         layout=field_layout,
         style=text_style,
     )
-    seed = widgets.IntText(value=42, description="Random seed", layout=field_layout, style=text_style)
+    seed = widgets.IntText(value=0, description="Random seed", layout=field_layout, style=text_style)
     device = text_field(value="0", description="Device", placeholder="0, 0,1, cpu, or mps")
     amp = widgets.Checkbox(
         value=True,
@@ -339,7 +351,7 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
         layout=field_layout,
     )
 
-    yolo_defaults = YoloTrainingOptions()
+    yolo_defaults = _dashboard_yolo_defaults()
     yolo_controls: dict[str, Any] = {}
     dropdown_options = {
         "cache": (("Off", False), ("RAM", "ram"), ("Disk", "disk")),
@@ -371,11 +383,11 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
                 options = (
                     ("auto", "SGD", "Adam", "AdamW", "NAdam", "RAdam", "RMSProp")
                     if name == "optimizer"
-                    else ("randaugment", "autoaugment", "augmix")
+                    else ("none", "randaugment", "autoaugment", "augmix")
                 )
                 control = widgets.Combobox(
                     options=options,
-                    value=str(default),
+                    value="none" if default is None else str(default),
                     ensure_option=False,
                     description=description,
                     layout=field_layout,
@@ -444,14 +456,21 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
                 control.tooltip = "Validation remains on so test images cannot influence checkpoint selection."
             elif name == "save":
                 control.tooltip = "Save the best checkpoint so it can be evaluated on the held-out test split."
+            elif name == "nbs":
+                control.tooltip = "Target effective batch: 16. Reducing physical batch to 8 or 4 accumulates 2 or 4 batches after warm-up."
+            elif name in {"hsv_h", "hsv_s", "hsv_v"}:
+                control.tooltip = "Zero for both RGB and HSV to preserve the controlled colour representation."
+            elif name == "optimizer":
+                control.tooltip = "AdamW is selected explicitly so changing batch size cannot silently switch the optimizer."
 
     extra_args = widgets.Textarea(
-        value="",
+        value=_formatted_json(yolo_defaults.extra_args),
         description="Additional YOLO args",
         placeholder='Optional JSON for version-specific settings, for example {"end2end": true}',
         layout=widgets.Layout(width="100%", min_width="0", height="82px"),
         style=text_style,
     )
+    extra_args.tooltip = "The empty augmentations list disables additional default colour transforms. Remove that key to restore them."
     confirmation = widgets.Checkbox(
         value=False,
         description="I understand that training can run for a long time",
@@ -504,6 +523,8 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
                 values[name] = _parse_integer_selection(control.value)
             elif name == "distill_model":
                 values[name] = control.value.strip() or None
+            elif name == "auto_augment":
+                values[name] = None if control.value.strip().lower() in {"", "none"} else control.value.strip()
             else:
                 values[name] = control.value
         values["extra_args"] = _parse_json_object(extra_args.value)
@@ -516,6 +537,7 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
             batch=_batch_value(batch.value),
             workers=workers.value,
             seed=seed.value,
+            colour_space=colour_space.value,
             device=device.value.strip() or "0",
             amp=amp.value,
             output_dir=output_dir.value.strip() or str(root / "runs"),
@@ -544,6 +566,8 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
                 options.device,
                 "--seed",
                 str(options.seed),
+                "--colour-space",
+                options.colour_space,
                 "--output-dir",
                 options.output_dir,
             ]
@@ -555,9 +579,21 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
                 command.append("--no-amp")
             command.extend(_yolo_cli_arguments(options.yolo))
             preview = html.escape(_command_line(command))
+            nominal_batch = (
+                options.batch * max(round(options.yolo.nbs / options.batch), 1)
+                if options.batch >= 1
+                else "automatic"
+            )
+            resume_note = (
+                "<p>Resume restores the checkpoint's saved training arguments. "
+                "Leave resume empty for the final experiment defaults.</p>"
+                if options.resume else ""
+            )
             command_preview.value = (
                 "<div class='model-trainer-preview'>"
                 f"<p><b>Base model:</b> <code>{html.escape(model_name())}</code></p>"
+                f"<p><b>Nominal effective batch after warm-up:</b> {nominal_batch}</p>"
+                f"{resume_note}"
                 f"<p><b>Equivalent CLI:</b></p><pre><code>{preview}</code></pre>"
                 "</div>"
             )
@@ -638,6 +674,7 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
 
     observed_controls = [
         task,
+        colour_space,
         dataset_root,
         output_dir,
         run_name,
@@ -654,6 +691,19 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
     ]
     for control in observed_controls:
         control.observe(update_preview, names="value")
+
+    def task_changed(change: dict[str, Any]) -> None:
+        old_task, new_task = change["old"], change["new"]
+        old_dataset = root / ("dataset_detect_rgb" if old_task == "detect" else "dataset_seg_rgb")
+        if dataset_root.value == str(old_dataset):
+            dataset_root.value = str(root / ("dataset_detect_rgb" if new_task == "detect" else "dataset_seg_rgb"))
+        old_defaults = _dashboard_yolo_defaults(old_task)
+        new_defaults = _dashboard_yolo_defaults(new_task)
+        for name in ("mosaic", "hsv_h", "hsv_s", "hsv_v"):
+            if yolo_controls[name].value == getattr(old_defaults, name):
+                yolo_controls[name].value = getattr(new_defaults, name)
+
+    task.observe(task_changed, names="value")
     confirmation.observe(lambda change: set_busy(busy), names="value")
     validate_button.on_click(validate_clicked)
     smoke_button.on_click(smoke_clicked)
@@ -693,7 +743,7 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
         parameters.set_title(index, title)
 
     paths = widgets.VBox(
-        [dataset_root, output_dir, run_name, resume],
+        [dataset_root, colour_space, output_dir, run_name, resume],
         layout=widgets.Layout(width="100%", overflow="visible"),
     )
     button_row = widgets.HBox(
@@ -743,7 +793,10 @@ def create_training_dashboard(project_root: str | Path | None = None) -> Any:
             widgets.HTML(
                 "<h2>YOLO26 Model Trainer</h2>"
                 "<p>Validate and train standalone YOLO datasets or complete Data Labeller exports. "
-                "Every relevant Ultralytics train setting is available below.</p>"
+                "Defaults use AdamW, maximum 300 epochs, minimum 100 epochs, patience 40, 4 workers, seed 0 and fixed batch 16. "
+                "Colour augmentation is off for detection and segmentation. "
+                "RGB and HSV share the same task recipe and starting checkpoint. "
+                "Select final settings using validation results.</p>"
             ),
             task,
             widgets.HTML("<h3>Dataset & run</h3>"),

@@ -1,0 +1,19 @@
+mean = 
+norm = 
+shape = [640,640,3]
+pixel = 
+thread = 8
+method = eq
+---------------------------------------
+count the absmax 0.00% [ 0 / 843 ]
+count the absmax 11.86% [ 100 / 843 ]
+count the absmax 23.72% [ 200 / 843 ]
+count the absmax 35.59% [ 300 / 843 ]
+count the absmax 47.45% [ 400 / 843 ]
+count the absmax 59.31% [ 500 / 843 ]
+count the absmax 71.17% [ 600 / 843 ]
+count the absmax 83.04% [ 700 / 843 ]
+count the absmax 94.90% [ 800 / 843 ]
+build histogram 0.00% [ 0 / 843 ]
+build histogram 11.86% [ 100 / 843 ]
+build histogram 23.72% [ 200 / 843 ]

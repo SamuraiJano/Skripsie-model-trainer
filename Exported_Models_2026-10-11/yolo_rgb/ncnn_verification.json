@@ -1,0 +1,120 @@
+{
+  "status": "validated",
+  "format": "ncnn",
+  "precision": "fp32",
+  "directory": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\yolo_rgb\\raspberry_pi4\\ncnn_fp32",
+  "runtime_version": "1.0.20260526",
+  "inputs": [
+    "in0"
+  ],
+  "outputs": [
+    "out0"
+  ],
+  "samples": [
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\rgb\\003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "outputs": {
+        "out0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 33,
+              "exported_detections": 33,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.3113021850585938e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.1920928955078125e-07,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.1920928955078125e-07,
+              "pass": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\rgb\\74e5e392-046d-505b-a5e7-ccc44281a599.jpg",
+      "outputs": {
+        "out0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.430511474609375e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.430511474609375e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.430511474609375e-06,
+              "pass": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\rgb\\ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "outputs": {
+        "out0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 78,
+              "exported_detections": 78,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.9073486328125e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 74,
+              "exported_detections": 74,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.9073486328125e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 72,
+              "exported_detections": 72,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.9073486328125e-06,
+              "pass": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "calibration_required": false,
+  "verified_host": "Windows x86-64 CPU; Raspberry Pi hardware not attached",
+  "contract": "Preserved one-to-one head; raw [8400,5] pixel xyxy and probability; host TopK, no NMS"
+}

@@ -1,0 +1,51 @@
+{
+  "detection": {
+    "splits": {
+      "train": {
+        "rgb_images": 843,
+        "hsv_images": 843,
+        "identical_image_identities": true,
+        "identical_annotations": true
+      },
+      "val": {
+        "rgb_images": 504,
+        "hsv_images": 504,
+        "identical_image_identities": true,
+        "identical_annotations": true
+      },
+      "test": {
+        "rgb_images": 504,
+        "hsv_images": 504,
+        "identical_image_identities": true,
+        "identical_annotations": true
+      }
+    }
+  },
+  "segmentation": {
+    "rgb_data_yaml": "dataset_seg_rgb/data.yaml",
+    "hsv_directory": "dataset_seg_hsv",
+    "hsv_data_yaml_exists": false,
+    "hsv_label_files": 0,
+    "splits": {
+      "train": {
+        "rgb_images": 711,
+        "hsv_images": 711,
+        "identical_image_identities": true,
+        "annotations_comparison": "unavailable: HSV labels missing"
+      },
+      "val": {
+        "rgb_images": 199,
+        "hsv_images": 199,
+        "identical_image_identities": true,
+        "annotations_comparison": "unavailable: HSV labels missing"
+      },
+      "test": {
+        "rgb_images": 90,
+        "hsv_images": 90,
+        "identical_image_identities": true,
+        "annotations_comparison": "unavailable: HSV labels missing"
+      }
+    },
+    "disjoint_splits": true
+  }
+}

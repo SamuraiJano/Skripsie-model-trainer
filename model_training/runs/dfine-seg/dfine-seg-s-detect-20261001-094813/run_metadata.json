@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-10-01T07:48:20+00:00",
+  "trainer": "ArgoHA/D-FINE-seg",
+  "model": "D-FINE-seg-S",
+  "task": "detect",
+  "upstream": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE-seg",
+  "python": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\.venv\\Scripts\\python.exe",
+  "command": [
+    "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\scripts\\dfine_seg_runner.py",
+    "--upstream",
+    "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE-seg",
+    "--config",
+    "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\dfine_seg_training.yaml",
+    "--action",
+    "train"
+  ],
+  "options": {
+    "model_size": "s",
+    "epochs": 400,
+    "imgsz": 640,
+    "batch": 3,
+    "workers": 4,
+    "seed": 42,
+    "device": "cuda",
+    "amp": true,
+    "amp_dtype": "bfloat16",
+    "early_stopping": 40,
+    "grad_accumulation": 4,
+    "clip_max_norm": 0.1,
+    "use_wandb": false,
+    "use_ema": true,
+    "use_scheduler": true,
+    "use_muon": true,
+    "aux_optimizer": "adan",
+    "base_lr": null,
+    "backbone_lr": null,
+    "weight_decay": 0.000125,
+    "mosaic_probability": 0.0,
+    "no_mosaic_epochs": 0,
+    "conf_threshold": 0.5,
+    "iou_threshold": 0.5,
+    "pretrained_dataset": "coco",
+    "pretrained_model": null,
+    "visualize_validation": true,
+    "output_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs",
+    "run_name": null,
+    "extra_config": {}
+  },
+  "dataset": {
+    "root": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\prepared_dataset",
+    "source_root": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\dataset_detect_rgb",
+    "source_data_yaml": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\dataset_detect_rgb\\data.yaml",
+    "task": "detect",
+    "format": "COCO JSON with bbox",
+    "classes": {
+      "0": "naartjie"
+    },
+    "splits": {
+      "train": {
+        "images": 843,
+        "annotations": 39175,
+        "json": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\prepared_dataset\\train.json"
+      },
+      "val": {
+        "images": 504,
+        "annotations": 23546,
+        "json": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\prepared_dataset\\val.json"
+      },
+      "test": {
+        "images": 504,
+        "annotations": 23478,
+        "json": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\prepared_dataset\\test.json"
+      }
+    },
+    "image_materialization": [
+      "hardlink"
+    ]
+  },
+  "artifacts": {
+    "run_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813",
+    "model_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\model",
+    "config": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\dfine_seg_training.yaml",
+    "best": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\model\\model.pt",
+    "last": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\model\\last.pt",
+    "log": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\model\\train_log.txt",
+    "console_log": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\trainer_console.log",
+    "test_metrics": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\dfine-seg\\dfine-seg-s-detect-20261001-094813\\test_metrics.json"
+  }
+}

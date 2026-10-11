@@ -21,6 +21,8 @@ from .notebook_ui import _formatted_json, _project_root
 from .train import (
     DFineSegOptions,
     TrainingOptions,
+    final_dfine_seg_options,
+    preferred_dfine_amp_dtype,
     dfine_seg_loader_smoke,
     train_dfine_export,
     train_dfine_seg_export,
@@ -76,14 +78,7 @@ def _default_dfine_seg_python(checkout: str) -> str:
 
 def _preferred_amp_dtype() -> str:
     """Use the more stable BF16 format when the active GPU supports it."""
-    try:
-        import torch
-
-        if torch.cuda.is_available() and torch.cuda.is_bf16_supported():
-            return "bfloat16"
-    except (ImportError, RuntimeError):
-        pass
-    return "float16"
+    return preferred_dfine_amp_dtype()
 
 
 def create_dfine_training_dashboard(project_root: str | Path | None = None) -> Any:
@@ -152,6 +147,11 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         placeholder="Python from the D-FINE-seg uv/venv environment",
     )
     output_dir = text_field(value=str(root / "runs"), description="Runs directory")
+    colour_space = widgets.Dropdown(options=(("Auto (dataset)", "auto"), ("RGB", "rgb"), ("HSV", "hsv")),
+                                   value="auto", description="Colour space", layout=field_layout(), style=field_style)
+    deterministic = widgets.Checkbox(value=True, description="Deterministic mode", indent=False)
+    colour_space.tooltip = "HSV prepares H,S,V from the same RGB source images and labels; training settings stay fixed."
+    deterministic.tooltip = "Seed all training frameworks and augmentation generators; disable cuDNN benchmarking."
     run_name = text_field(
         value="",
         description="Run name",
@@ -164,7 +164,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
     )
 
     official_epochs = widgets.BoundedIntText(
-        value=100,
+        value=300,
         min=1,
         max=10000,
         description="Epochs",
@@ -189,7 +189,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         style=field_style,
     )
     official_workers = widgets.BoundedIntText(
-        value=0 if os.name == "nt" else 8,
+        value=4,
         min=0,
         max=128,
         description="Data workers",
@@ -197,7 +197,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         style=field_style,
     )
     official_seed = widgets.IntText(
-        value=42,
+        value=0,
         description="Random seed",
         layout=field_layout(),
         style=field_style,
@@ -237,13 +237,13 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
 
     model_size = widgets.Dropdown(
         options=(("Nano", "n"), ("Small", "s"), ("Medium", "m"), ("Large", "l"), ("X-Large", "x")),
-        value="s",
+        value="n",
         description="Model size",
         layout=field_layout(),
         style=field_style,
     )
     seg_epochs = widgets.BoundedIntText(
-        value=120,
+        value=300,
         min=1,
         max=10000,
         description="Epochs",
@@ -266,7 +266,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         style=field_style,
     )
     seg_workers = widgets.BoundedIntText(
-        value=2 if os.name == "nt" else 8,
+        value=DFineSegOptions().workers,
         min=0,
         max=128,
         description="Data workers",
@@ -274,7 +274,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         style=field_style,
     )
     seg_seed = widgets.IntText(
-        value=42,
+        value=0,
         description="Random seed",
         layout=field_layout(),
         style=field_style,
@@ -294,15 +294,19 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         style=field_style,
     )
     early_stopping = widgets.BoundedIntText(
-        value=20,
+        value=40,
         min=0,
         max=10000,
         description="Early-stop patience",
         layout=field_layout(),
         style=field_style,
     )
+    minimum_epochs = widgets.BoundedIntText(
+        value=100, min=0, max=10000, description="Minimum training epochs",
+        layout=field_layout(), style=field_style,
+    )
     grad_accumulation = widgets.BoundedIntText(
-        value=4,
+        value=8,
         min=1,
         max=10000,
         description="Gradient accumulation",
@@ -360,7 +364,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         placeholder="0 disables mosaic",
     )
     no_mosaic_epochs = widgets.BoundedIntText(
-        value=0,
+        value=10,
         min=0,
         max=10000,
         description="Close mosaic epochs",
@@ -403,6 +407,13 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         indent=False,
         layout=field_layout(),
     )
+    checkpoint_metric = widgets.Dropdown(
+        options=(("Validation mask mAP50–95", "mAP_50_95_mask"), ("Validation box mAP50–95", "mAP_50_95"), ("Validation mAP50", "mAP_50"), ("Validation F1", "f1")),
+        value="mAP_50_95_mask",
+        description="Checkpoint metric",
+        layout=field_layout(),
+        style=field_style,
+    )
     keep_ratio = widgets.Checkbox(
         value=True,
         description="Preserve image aspect ratio",
@@ -424,7 +435,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         style=field_style,
     )
     horizontal_flip = widgets.BoundedFloatText(
-        value=0.3,
+        value=0.5,
         min=0,
         max=1,
         step=0.05,
@@ -477,6 +488,12 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         layout=field_layout(),
         style=field_style,
     )
+    colour_augmentation = widgets.Checkbox(
+        value=False,
+        description="Colour augmentation",
+        indent=False,
+        layout=field_layout(),
+    )
     extra_config = widgets.Textarea(
         value="",
         description="Advanced config",
@@ -509,17 +526,18 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         (official_warmup_steps, "Optimizer steps used to ramp up the learning rate at the start."),
         (official_ema, "Average recent model weights to make validation and final weights more stable."),
         (official_extra_config, "Optional JSON overrides for other official D-FINE YAML settings."),
-        (model_size, "Model capacity. Small balances accuracy and memory on an 8 GB GPU."),
+        (model_size, "Final controlled models use Nano for detection and segmentation."),
         (seg_epochs, "Maximum passes through the segmentation training set; early stopping may finish sooner."),
         (seg_image_size, "Square input size. 640 preserves this dataset's detail without excessive GPU memory use."),
-        (seg_batch, "Images per GPU step. Two leaves headroom on an 8 GB GPU; use one if memory is tight."),
-        (seg_workers, "Parallel image-loading processes. Two uses the laptop CPU without many Windows worker copies."),
+        (seg_batch, "Images per GPU step: 4 for detection and 2 for masks. Adjust accumulation to keep effective batch 16."),
+        (seg_workers, "Defaults to zero to load images in the trainer process and avoid Windows worker crashes. Higher counts use more system RAM."),
         (seg_seed, "Controls training randomness so runs can be compared."),
         (seg_device, "PyTorch device, normally cuda for the laptop GPU or cpu for debugging."),
         (seg_amp, "Mixed precision reduces GPU memory and speeds up training."),
         (amp_dtype, "BF16 has a wider numeric range than FP16. The dashboard selects BF16 only on supported GPUs."),
-        (early_stopping, "Stop when validation stops improving for this many epochs; zero disables it."),
-        (grad_accumulation, "Combine several small GPU batches before one optimizer step. Two times four gives an effective batch of eight."),
+        (early_stopping, "Strict validation improvement; patience 40, with stopping permitted after completing epoch 100."),
+        (minimum_epochs, "Completed one-based epoch at which early stopping becomes legal; default 100."),
+        (grad_accumulation, "Combine GPU batches before one optimizer step. Detection defaults to 4 × 4 = 16; masks to 2 × 8 = 16."),
         (clip_max_norm, "Cap gradient magnitude to avoid unstable training updates."),
         (use_wandb, "Send experiment metrics to Weights & Biases when configured."),
         (use_ema, "Average recent model weights for more stable validation and final checkpoints."),
@@ -529,14 +547,15 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         (base_lr, "Main learning rate; blank uses the upstream value for the selected model size."),
         (backbone_lr, "Learning rate for the pretrained backbone; blank uses the upstream value."),
         (weight_decay, "Regularization on model weights to limit overfitting."),
-        (mosaic_probability, "Chance of combining four training images. Zero avoids distorted instance masks."),
+        (mosaic_probability, "Chance of combining four training images. Detection starts at 0.5; small defect masks default to zero."),
         (no_mosaic_epochs, "Disable mosaic for the final epochs; irrelevant when mosaic probability is zero."),
         (conf_threshold, "Minimum prediction confidence used during validation."),
         (iou_threshold, "Overlap threshold used to match validation predictions with labels."),
         (pretrained_dataset, "Source of pretrained weights. Automatic segmentation weights are available for COCO."),
         (pretrained_model, "Optional custom pretrained checkpoint; blank selects the matching COCO model."),
         (visualize_validation, "Save example validation predictions, using additional disk space."),
-        (keep_ratio, "Pad images to keep their original aspect ratio instead of stretching their defect masks."),
+        (checkpoint_metric, "Select the best checkpoint and apply early stopping using validation data. Segmentation uses the mask version of mAP."),
+        (keep_ratio, "Pad images to preserve their original aspect ratio instead of stretching objects or defect masks."),
         (freeze_except_mask, "Train only the mask head. Leave off when adapting the whole model to new defect classes."),
         (mask_batch_size, "Images processed together for mask metrics; lower values reduce evaluation memory spikes."),
         (horizontal_flip, "Chance of mirroring a training image left to right."),
@@ -545,6 +564,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         (rotation_degrees, "Largest angle used for small random rotations."),
         (rotation_probability, "Chance of applying a small random rotation."),
         (blur_probability, "Chance of adding blur. Zero keeps small defect details sharp."),
+        (colour_augmentation, "Off for RGB/HSV comparisons: disables grayscale, gamma, brightness and noise transforms. Enable to use upstream probabilities or advanced overrides."),
         (extra_config, "Optional nested JSON for upstream D-FINE-seg settings not shown in the form."),
     )
     for control, explanation in setting_help:
@@ -614,6 +634,8 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
             seg_amp,
             amp_dtype,
             early_stopping,
+            minimum_epochs,
+            checkpoint_metric,
         ],
         layout=responsive_layout,
     )
@@ -662,8 +684,8 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
             widgets.VBox(
                 [
                     widgets.HTML(
-                        "<p class='dfine-help'>Mask evaluation and image augmentation. "
-                        "The defaults match the selected D-FINE-seg checkout. "
+                        "<p class='dfine-help'>Preserve image geometry and use moderate augmentation. "
+                        "Colour transforms are off for RGB/HSV comparisons. "
                         "Mosaic probability is in Advanced D-FINE-seg settings; set it to 0 "
                         "to disable mosaic for masks. Train mask head only requires a "
                         "suitable pretrained segmentation checkpoint.</p>"
@@ -679,6 +701,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
                             rotation_degrees,
                             rotation_probability,
                             blur_probability,
+                            colour_augmentation,
                         ],
                         layout=responsive_layout,
                     ),
@@ -757,6 +780,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
     busy = False
     active_training: threading.Thread | None = None
     monitor_tasks: set[asyncio.Task[Any]] = set()
+    previous_seg_task = "segment"
 
     def is_official() -> bool:
         return task.value == "official_detect"
@@ -765,12 +789,13 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         return "segment" if task.value == "dfine_seg_segment" else "detect"
 
     def official_options() -> TrainingOptions:
-        return TrainingOptions(
+        options = TrainingOptions(
             epochs=official_epochs.value,
             imgsz=official_image_size.value,
             batch=official_batch.value,
             workers=official_workers.value,
             seed=official_seed.value,
+            colour_space=colour_space.value,
             device=official_device.value.strip() or "0",
             amp=official_amp.value,
             output_dir=output_dir.value.strip() or str(root / "runs"),
@@ -784,33 +809,42 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
             dfine_use_ema=official_ema.value,
             dfine_extra_config=_json_object(official_extra_config.value),
         )
+        options.yolo.deterministic = deterministic.value
+        return options
 
     def seg_options() -> DFineSegOptions:
         config = _json_object(extra_config.value)
+        train_config = config.setdefault("train", {})
+        if not isinstance(train_config, dict):
+            raise ValueError("Advanced config 'train' must be a JSON object.")
+        train_config.update(
+            {"keep_ratio": keep_ratio.value, "decision_metrics": [checkpoint_metric.value]}
+        )
         if dfine_seg_task() == "segment":
-            train_config = config.setdefault("train", {})
-            if not isinstance(train_config, dict):
-                raise ValueError("Advanced config 'train' must be a JSON object.")
             train_config.update(
                 {
-                    "keep_ratio": keep_ratio.value,
                     "freeze_except_mask": freeze_except_mask.value,
                     "mask_batch_size": mask_batch_size.value,
                 }
             )
-            augmentations = train_config.setdefault("augs", {})
-            if not isinstance(augmentations, dict):
-                raise ValueError("Advanced config 'train.augs' must be a JSON object.")
-            augmentations.update(
-                {
-                    "left_right_flip": horizontal_flip.value,
-                    "up_down_flip": vertical_flip.value,
-                    "rotate_90": rotate_90.value,
-                    "rotation_degree": rotation_degrees.value,
-                    "rotation_p": rotation_probability.value,
-                    "blur": blur_probability.value,
-                }
-            )
+        augmentations = train_config.setdefault("augs", {})
+        if not isinstance(augmentations, dict):
+            raise ValueError("Advanced config 'train.augs' must be a JSON object.")
+        augmentations.update(
+            {
+                "left_right_flip": horizontal_flip.value,
+                "up_down_flip": vertical_flip.value,
+                "rotate_90": rotate_90.value,
+                "rotation_degree": rotation_degrees.value,
+                "rotation_p": rotation_probability.value,
+                "blur": blur_probability.value,
+            }
+        )
+        if not colour_augmentation.value:
+            augmentations.update({"to_gray": 0.0, "gamma": 0.0, "brightness": 0.0, "noise": 0.0})
+        else:
+            for name, probability in {"to_gray": 0.01, "gamma": 0.02, "brightness": 0.02, "noise": 0.01}.items():
+                augmentations.setdefault(name, probability)
         return DFineSegOptions(
             model_size=model_size.value,
             epochs=seg_epochs.value,
@@ -818,10 +852,13 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
             batch=seg_batch.value,
             workers=seg_workers.value,
             seed=seg_seed.value,
+            colour_space=colour_space.value,
+            deterministic=deterministic.value,
             device=seg_device.value.strip() or "cuda",
             amp=seg_amp.value,
             amp_dtype=amp_dtype.value,
             early_stopping=early_stopping.value,
+            min_epochs_before_early_stop=minimum_epochs.value,
             grad_accumulation=grad_accumulation.value,
             clip_max_norm=clip_max_norm.value,
             use_wandb=use_wandb.value,
@@ -845,7 +882,32 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         )
 
     def update_mode(*_: Any) -> None:
+        nonlocal previous_seg_task
         official = is_official()
+        if not official:
+            selected_task = dfine_seg_task()
+            if selected_task != previous_seg_task:
+                old_defaults = final_dfine_seg_options(previous_seg_task)
+                new_defaults = final_dfine_seg_options(selected_task)
+                for control, name in (
+                    (model_size, "model_size"), (seg_batch, "batch"),
+                    (grad_accumulation, "grad_accumulation"),
+                    (use_muon, "use_muon"), (aux_optimizer, "aux_optimizer"),
+                    (weight_decay, "weight_decay"),
+                ):
+                    if control.value == getattr(old_defaults, name):
+                        control.value = getattr(new_defaults, name)
+                for control, name in ((base_lr, "base_lr"), (backbone_lr, "backbone_lr"), (mosaic_probability, "mosaic_probability")):
+                    old_value = getattr(old_defaults, name)
+                    new_value = getattr(new_defaults, name)
+                    old_text = "" if old_value is None else str(old_value)
+                    # Zero was originally displayed as "0" rather than "0.0".
+                    if control.value == old_text or (old_value == 0 and control.value == "0"):
+                        control.value = "" if new_value is None else str(new_value)
+                old_metric = "mAP_50_95" if previous_seg_task == "detect" else "mAP_50_95_mask"
+                if checkpoint_metric.value == old_metric:
+                    checkpoint_metric.value = "mAP_50_95" if selected_task == "detect" else "mAP_50_95_mask"
+                previous_seg_task = selected_task
         if task.value == "dfine_seg_segment":
             if dataset_root.value == str(detection_dataset):
                 dataset_root.value = str(segmentation_dataset)
@@ -857,8 +919,13 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         dfine_seg_root.layout.display = "none" if official else ""
         dfine_seg_python.layout.display = "none" if official else ""
         seg_settings.layout.display = "none" if official else ""
-        segment_settings.layout.display = "" if task.value == "dfine_seg_segment" else "none"
-        segment_settings.selected_index = 0 if task.value == "dfine_seg_segment" else None
+        segment_settings.layout.display = "none" if official else ""
+        segment_settings.selected_index = None if official else 0
+        segment_settings.set_title(
+            0, "Instance segmentation options" if dfine_seg_task() == "segment" else "Image geometry and augmentation"
+        )
+        freeze_except_mask.layout.display = "" if task.value == "dfine_seg_segment" else "none"
+        mask_batch_size.layout.display = "" if task.value == "dfine_seg_segment" else "none"
         if official:
             format_note.value = (
                 "<div class='dfine-format'><b>Format:</b> Official Peterande/D-FINE is "
@@ -884,7 +951,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
                 "<code>class x1 y1 x2 y2 ... xN yN</code>, normalized to 0–1 with at least three "
                 "points. The notebook reads <code>data.yaml</code> from the selected dataset and stages "
                 "COCO JSON containing both <code>bbox</code> and polygon "
-                "<code>segmentation</code> fields. The default Small/640 px/batch-2 profile "
+                "<code>segmentation</code> fields. The default Nano/640 px/batch-2 profile "
                 "leaves headroom on an 8 GB GPU, but available memory can change. If training "
                 "reports an out-of-memory error, set Physical batch size to 1.</div>"
             )
@@ -970,6 +1037,8 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
                     options.amp_dtype,
                     "--early-stopping",
                     str(options.early_stopping),
+                    "--min-epochs-before-early-stop",
+                    str(options.min_epochs_before_early_stop),
                     "--grad-accumulation",
                     str(options.grad_accumulation),
                     "--clip-max-norm",
@@ -1002,7 +1071,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
                     "wandb": False,
                     "ema": True,
                     "scheduler": True,
-                    "muon": True,
+                    "muon": final_dfine_seg_options(dfine_seg_task()).use_muon,
                     "visualize-validation": True,
                 }
                 for name, value in boolean_options:
@@ -1018,6 +1087,8 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
                 for name, value in optional_values:
                     if value is not None:
                         command.extend([f"--{name}", str(value)])
+                    elif name in {"base-lr", "backbone-lr", "mosaic-probability"}:
+                        command.extend([f"--{name}", "none"])
                 if options.extra_config:
                     command.extend(
                         [
@@ -1026,9 +1097,17 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
                         ]
                     )
                 model = f"D-FINE-seg {options.model_size.upper()} ({dfine_seg_task()})"
+            command.extend(["--colour-space", options.colour_space])
+            if not deterministic.value:
+                command.append("--no-deterministic")
+            batch_detail = ""
+            if not is_official():
+                effective_batch = options.batch * options.grad_accumulation if options.batch > 0 else "automatic"
+                batch_detail = f"<p><b>Effective batch:</b> {effective_batch}</p>"
             command_preview.value = (
                 "<div class='dfine-preview'>"
                 f"<p><b>Model:</b> <code>{html.escape(model)}</code></p>"
+                f"{batch_detail}"
                 "<p><b>Equivalent CLI:</b></p>"
                 f"<pre><code>{html.escape(_command_line(command))}</code></pre>"
                 "</div>"
@@ -1324,6 +1403,8 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
 
     controls = [
         task,
+        colour_space,
+        deterministic,
         dataset_root,
         official_root,
         official_python,
@@ -1356,6 +1437,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         seg_amp,
         amp_dtype,
         early_stopping,
+        minimum_epochs,
         grad_accumulation,
         clip_max_norm,
         use_wandb,
@@ -1373,6 +1455,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         pretrained_dataset,
         pretrained_model,
         visualize_validation,
+        checkpoint_metric,
         keep_ratio,
         freeze_except_mask,
         mask_batch_size,
@@ -1382,6 +1465,7 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
         rotation_degrees,
         rotation_probability,
         blur_probability,
+        colour_augmentation,
         extra_config,
     ]
     for control in controls:
@@ -1458,6 +1542,8 @@ def create_dfine_training_dashboard(project_root: str | Path | None = None) -> A
             dfine_seg_python,
             output_dir,
             run_name,
+            colour_space,
+            deterministic,
         ],
         layout=widgets.Layout(width="100%", overflow="visible"),
     )

@@ -1,0 +1,43 @@
+{
+  "rgb": {
+    "variant": "minmax_stem11_head",
+    "confidence": 0.5118937492370605,
+    "pi_benchmark_candidates": [
+      "minmax_stem11_head",
+      "minmax_stem6_head"
+    ],
+    "validation_map50_95": 0.968866650367742,
+    "fp32_validation_map50_95": 0.9699076268570154,
+    "validation_drop_percentage_points": 0.10409764892733708,
+    "validation_report_sha256": "fc224a438b74fd705f18776ea03b6c26b7004bf96acd38c2d1b317dc82940376"
+  },
+  "hsv": {
+    "variant": "minmax_stem11_head",
+    "confidence": 0.4494438171386719,
+    "pi_benchmark_candidates": [
+      "minmax_stem11_head",
+      "minmax_stem6_head",
+      "minmax_stem6_regression"
+    ],
+    "validation_map50_95": 0.9655416501431034,
+    "fp32_validation_map50_95": 0.9665281397089951,
+    "validation_drop_percentage_points": 0.09864895658916462,
+    "validation_report_sha256": "6cd8e94dfafddd3facc8eb40f4bc2cb519798e82c8f2a4d485d374c12b2306ad"
+  },
+  "policy": {
+    "frozen_at": "2026-10-11T12:18:46.391519+00:00",
+    "calibration": "all 843 training images",
+    "selection": "all 504 validation images; no test scores",
+    "accuracy_limit_percentage_points": 0.2,
+    "accuracy_limit_metrics": [
+      "mAP50-95",
+      "mAP50"
+    ],
+    "default": "maximum validation mAP50-95 among eligible INT8 candidates",
+    "duplicate_layout_rule": "For identical float/INT8 layer placement, keep the highest validation AP calibration",
+    "pi_tuning": "fastest median image-to-detections time among accuracy-qualified INT8 candidates, with 1/2/4 threads",
+    "pi_measured": false,
+    "format": "NCNN mixed-precision INT8",
+    "ncnn_version": "1.0.20260526"
+  }
+}

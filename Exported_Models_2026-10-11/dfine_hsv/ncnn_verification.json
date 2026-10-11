@@ -1,0 +1,6 @@
+{
+  "status": "not_delivered",
+  "format": "ncnn",
+  "reason": "D-FINE conversion has unsupported TopK/Gather; attempted CPU implementation crashed in native runtime. Verified ONNX CPU is supplied for Raspberry Pi 4.",
+  "fallback": "raspberry_pi4/model.onnx"
+}

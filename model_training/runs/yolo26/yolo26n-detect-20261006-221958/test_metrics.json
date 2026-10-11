@@ -1,0 +1,12 @@
+{
+  "split": "test",
+  "images": 504,
+  "checkpoint": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\weights\\best.pt",
+  "metrics": {
+    "metrics/precision(B)": 0.9907167809595654,
+    "metrics/recall(B)": 0.9917369452253173,
+    "metrics/mAP50(B)": 0.9948259346820414,
+    "metrics/mAP50-95(B)": 0.9843405471233158,
+    "fitness": 0.9843405471233158
+  }
+}

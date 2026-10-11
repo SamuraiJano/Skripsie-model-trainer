@@ -1,0 +1,240 @@
+# Copied files
+
+All copied run outputs and comparison reports are listed below. README, this index and the verification manifest are additional generated files.
+
+## YOLO RGB
+
+| File | Bytes |
+|---|---:|
+| [YOLO_RGB/args.yaml](<YOLO_RGB/args.yaml>) | 2043 |
+| [YOLO_RGB/BoxF1_curve.png](<YOLO_RGB/BoxF1_curve.png>) | 78569 |
+| [YOLO_RGB/BoxP_curve.png](<YOLO_RGB/BoxP_curve.png>) | 65514 |
+| [YOLO_RGB/BoxPR_curve.png](<YOLO_RGB/BoxPR_curve.png>) | 68379 |
+| [YOLO_RGB/BoxR_curve.png](<YOLO_RGB/BoxR_curve.png>) | 81070 |
+| [YOLO_RGB/confusion_matrix.png](<YOLO_RGB/confusion_matrix.png>) | 86600 |
+| [YOLO_RGB/confusion_matrix_normalized.png](<YOLO_RGB/confusion_matrix_normalized.png>) | 86938 |
+| [YOLO_RGB/final_metrics.json](<YOLO_RGB/final_metrics.json>) | 504 |
+| [YOLO_RGB/labels.jpg](<YOLO_RGB/labels.jpg>) | 116091 |
+| [YOLO_RGB/results.csv](<YOLO_RGB/results.csv>) | 29109 |
+| [YOLO_RGB/results.png](<YOLO_RGB/results.png>) | 246763 |
+| [YOLO_RGB/run_metadata.json](<YOLO_RGB/run_metadata.json>) | 211669 |
+| [YOLO_RGB/test_eval/BoxF1_curve.png](<YOLO_RGB/test_eval/BoxF1_curve.png>) | 78433 |
+| [YOLO_RGB/test_eval/BoxP_curve.png](<YOLO_RGB/test_eval/BoxP_curve.png>) | 65476 |
+| [YOLO_RGB/test_eval/BoxPR_curve.png](<YOLO_RGB/test_eval/BoxPR_curve.png>) | 67997 |
+| [YOLO_RGB/test_eval/BoxR_curve.png](<YOLO_RGB/test_eval/BoxR_curve.png>) | 81328 |
+| [YOLO_RGB/test_eval/confusion_matrix.png](<YOLO_RGB/test_eval/confusion_matrix.png>) | 85053 |
+| [YOLO_RGB/test_eval/confusion_matrix_normalized.png](<YOLO_RGB/test_eval/confusion_matrix_normalized.png>) | 86938 |
+| [YOLO_RGB/test_eval/val_batch0_labels.jpg](<YOLO_RGB/test_eval/val_batch0_labels.jpg>) | 69472 |
+| [YOLO_RGB/test_eval/val_batch0_pred.jpg](<YOLO_RGB/test_eval/val_batch0_pred.jpg>) | 70748 |
+| [YOLO_RGB/test_eval/val_batch1_labels.jpg](<YOLO_RGB/test_eval/val_batch1_labels.jpg>) | 85519 |
+| [YOLO_RGB/test_eval/val_batch1_pred.jpg](<YOLO_RGB/test_eval/val_batch1_pred.jpg>) | 88338 |
+| [YOLO_RGB/test_eval/val_batch2_labels.jpg](<YOLO_RGB/test_eval/val_batch2_labels.jpg>) | 77119 |
+| [YOLO_RGB/test_eval/val_batch2_pred.jpg](<YOLO_RGB/test_eval/val_batch2_pred.jpg>) | 79714 |
+| [YOLO_RGB/test_metrics.json](<YOLO_RGB/test_metrics.json>) | 452 |
+| [YOLO_RGB/train_batch0.jpg](<YOLO_RGB/train_batch0.jpg>) | 864787 |
+| [YOLO_RGB/train_batch1.jpg](<YOLO_RGB/train_batch1.jpg>) | 854585 |
+| [YOLO_RGB/train_batch2.jpg](<YOLO_RGB/train_batch2.jpg>) | 903290 |
+| [YOLO_RGB/val_batch0_labels.jpg](<YOLO_RGB/val_batch0_labels.jpg>) | 713229 |
+| [YOLO_RGB/val_batch0_pred.jpg](<YOLO_RGB/val_batch0_pred.jpg>) | 711970 |
+| [YOLO_RGB/val_batch1_labels.jpg](<YOLO_RGB/val_batch1_labels.jpg>) | 688617 |
+| [YOLO_RGB/val_batch1_pred.jpg](<YOLO_RGB/val_batch1_pred.jpg>) | 690795 |
+| [YOLO_RGB/val_batch2_labels.jpg](<YOLO_RGB/val_batch2_labels.jpg>) | 689324 |
+| [YOLO_RGB/val_batch2_pred.jpg](<YOLO_RGB/val_batch2_pred.jpg>) | 694253 |
+| [YOLO_RGB/validation_history.jsonl](<YOLO_RGB/validation_history.jsonl>) | 70461 |
+| [YOLO_RGB/weights/best.pt](<YOLO_RGB/weights/best.pt>) | 5387653 |
+| [YOLO_RGB/weights/last.pt](<YOLO_RGB/weights/last.pt>) | 5387653 |
+| [YOLO_RGB/referenced_configs/detect-9d5d0ede5955f753.yaml](<YOLO_RGB/referenced_configs/detect-9d5d0ede5955f753.yaml>) | 173 |
+
+## YOLO HSV
+
+| File | Bytes |
+|---|---:|
+| [YOLO_HSV/args.yaml](<YOLO_HSV/args.yaml>) | 2043 |
+| [YOLO_HSV/BoxF1_curve.png](<YOLO_HSV/BoxF1_curve.png>) | 79831 |
+| [YOLO_HSV/BoxP_curve.png](<YOLO_HSV/BoxP_curve.png>) | 66458 |
+| [YOLO_HSV/BoxPR_curve.png](<YOLO_HSV/BoxPR_curve.png>) | 68574 |
+| [YOLO_HSV/BoxR_curve.png](<YOLO_HSV/BoxR_curve.png>) | 82207 |
+| [YOLO_HSV/confusion_matrix.png](<YOLO_HSV/confusion_matrix.png>) | 85772 |
+| [YOLO_HSV/confusion_matrix_normalized.png](<YOLO_HSV/confusion_matrix_normalized.png>) | 89154 |
+| [YOLO_HSV/final_metrics.json](<YOLO_HSV/final_metrics.json>) | 504 |
+| [YOLO_HSV/labels.jpg](<YOLO_HSV/labels.jpg>) | 116091 |
+| [YOLO_HSV/results.csv](<YOLO_HSV/results.csv>) | 17980 |
+| [YOLO_HSV/results.png](<YOLO_HSV/results.png>) | 255005 |
+| [YOLO_HSV/run_metadata.json](<YOLO_HSV/run_metadata.json>) | 212130 |
+| [YOLO_HSV/test_eval/BoxF1_curve.png](<YOLO_HSV/test_eval/BoxF1_curve.png>) | 80227 |
+| [YOLO_HSV/test_eval/BoxP_curve.png](<YOLO_HSV/test_eval/BoxP_curve.png>) | 66487 |
+| [YOLO_HSV/test_eval/BoxPR_curve.png](<YOLO_HSV/test_eval/BoxPR_curve.png>) | 68252 |
+| [YOLO_HSV/test_eval/BoxR_curve.png](<YOLO_HSV/test_eval/BoxR_curve.png>) | 82300 |
+| [YOLO_HSV/test_eval/confusion_matrix.png](<YOLO_HSV/test_eval/confusion_matrix.png>) | 86828 |
+| [YOLO_HSV/test_eval/confusion_matrix_normalized.png](<YOLO_HSV/test_eval/confusion_matrix_normalized.png>) | 89155 |
+| [YOLO_HSV/test_eval/val_batch0_labels.jpg](<YOLO_HSV/test_eval/val_batch0_labels.jpg>) | 75091 |
+| [YOLO_HSV/test_eval/val_batch0_pred.jpg](<YOLO_HSV/test_eval/val_batch0_pred.jpg>) | 77073 |
+| [YOLO_HSV/test_eval/val_batch1_labels.jpg](<YOLO_HSV/test_eval/val_batch1_labels.jpg>) | 93882 |
+| [YOLO_HSV/test_eval/val_batch1_pred.jpg](<YOLO_HSV/test_eval/val_batch1_pred.jpg>) | 96313 |
+| [YOLO_HSV/test_eval/val_batch2_labels.jpg](<YOLO_HSV/test_eval/val_batch2_labels.jpg>) | 85435 |
+| [YOLO_HSV/test_eval/val_batch2_pred.jpg](<YOLO_HSV/test_eval/val_batch2_pred.jpg>) | 87394 |
+| [YOLO_HSV/test_metrics.json](<YOLO_HSV/test_metrics.json>) | 452 |
+| [YOLO_HSV/train_batch0.jpg](<YOLO_HSV/train_batch0.jpg>) | 950871 |
+| [YOLO_HSV/train_batch1.jpg](<YOLO_HSV/train_batch1.jpg>) | 921128 |
+| [YOLO_HSV/train_batch2.jpg](<YOLO_HSV/train_batch2.jpg>) | 983797 |
+| [YOLO_HSV/val_batch0_labels.jpg](<YOLO_HSV/val_batch0_labels.jpg>) | 746875 |
+| [YOLO_HSV/val_batch0_pred.jpg](<YOLO_HSV/val_batch0_pred.jpg>) | 738304 |
+| [YOLO_HSV/val_batch1_labels.jpg](<YOLO_HSV/val_batch1_labels.jpg>) | 724581 |
+| [YOLO_HSV/val_batch1_pred.jpg](<YOLO_HSV/val_batch1_pred.jpg>) | 724956 |
+| [YOLO_HSV/val_batch2_labels.jpg](<YOLO_HSV/val_batch2_labels.jpg>) | 720787 |
+| [YOLO_HSV/val_batch2_pred.jpg](<YOLO_HSV/val_batch2_pred.jpg>) | 724500 |
+| [YOLO_HSV/validation_history.jsonl](<YOLO_HSV/validation_history.jsonl>) | 43429 |
+| [YOLO_HSV/weights/best.pt](<YOLO_HSV/weights/best.pt>) | 5375877 |
+| [YOLO_HSV/weights/last.pt](<YOLO_HSV/weights/last.pt>) | 5375877 |
+| [YOLO_HSV/referenced_configs/detect-b4fe4a0107a79353.yaml](<YOLO_HSV/referenced_configs/detect-b4fe4a0107a79353.yaml>) | 520 |
+
+## D-FINE RGB
+
+| File | Bytes |
+|---|---:|
+| [D_FINE_RGB/dfine_seg_training.yaml](<D_FINE_RGB/dfine_seg_training.yaml>) | 4174 |
+| [D_FINE_RGB/eval_preds/00248894-0f55-5341-b71e-8537cbd50a98.jpg](<D_FINE_RGB/eval_preds/00248894-0f55-5341-b71e-8537cbd50a98.jpg>) | 572266 |
+| [D_FINE_RGB/eval_preds/003a2000-914b-503e-a455-ae17c9faeacb.jpg](<D_FINE_RGB/eval_preds/003a2000-914b-503e-a455-ae17c9faeacb.jpg>) | 498670 |
+| [D_FINE_RGB/eval_preds/006ea799-2601-5cd0-ad78-86c9f8193af7.jpg](<D_FINE_RGB/eval_preds/006ea799-2601-5cd0-ad78-86c9f8193af7.jpg>) | 370776 |
+| [D_FINE_RGB/eval_preds/009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg](<D_FINE_RGB/eval_preds/009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg>) | 570061 |
+| [D_FINE_RGB/eval_preds/00b441d2-e2f1-58f7-ae07-5422427f8643.jpg](<D_FINE_RGB/eval_preds/00b441d2-e2f1-58f7-ae07-5422427f8643.jpg>) | 475813 |
+| [D_FINE_RGB/eval_preds/0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg](<D_FINE_RGB/eval_preds/0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg>) | 576995 |
+| [D_FINE_RGB/eval_preds/01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg](<D_FINE_RGB/eval_preds/01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg>) | 471869 |
+| [D_FINE_RGB/eval_preds/01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg](<D_FINE_RGB/eval_preds/01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg>) | 497257 |
+| [D_FINE_RGB/eval_preds/022a51b2-651c-5537-a89d-b370a92e0d63.jpg](<D_FINE_RGB/eval_preds/022a51b2-651c-5537-a89d-b370a92e0d63.jpg>) | 569498 |
+| [D_FINE_RGB/eval_preds/025d0b11-77e8-5960-a30e-b4a584dfa926.jpg](<D_FINE_RGB/eval_preds/025d0b11-77e8-5960-a30e-b4a584dfa926.jpg>) | 520218 |
+| [D_FINE_RGB/eval_preds/0273f815-23d6-53e3-b3c0-d267424d707c.jpg](<D_FINE_RGB/eval_preds/0273f815-23d6-53e3-b3c0-d267424d707c.jpg>) | 438654 |
+| [D_FINE_RGB/eval_preds/028460f2-89e7-560d-b7a4-b6605cb79808.jpg](<D_FINE_RGB/eval_preds/028460f2-89e7-560d-b7a4-b6605cb79808.jpg>) | 584013 |
+| [D_FINE_RGB/eval_preds/029a4545-6b3c-5609-b61b-dbb325e48c24.jpg](<D_FINE_RGB/eval_preds/029a4545-6b3c-5609-b61b-dbb325e48c24.jpg>) | 737022 |
+| [D_FINE_RGB/eval_preds/02c84726-d217-518a-a5ca-04cbc62c2175.jpg](<D_FINE_RGB/eval_preds/02c84726-d217-518a-a5ca-04cbc62c2175.jpg>) | 586969 |
+| [D_FINE_RGB/eval_preds/02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg](<D_FINE_RGB/eval_preds/02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg>) | 587130 |
+| [D_FINE_RGB/eval_preds/02e59936-1ef0-5c79-be38-93c5f89593b2.jpg](<D_FINE_RGB/eval_preds/02e59936-1ef0-5c79-be38-93c5f89593b2.jpg>) | 536095 |
+| [D_FINE_RGB/eval_preds/02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg](<D_FINE_RGB/eval_preds/02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg>) | 534197 |
+| [D_FINE_RGB/eval_preds/03539415-6975-5733-a57d-464ac6e57572.jpg](<D_FINE_RGB/eval_preds/03539415-6975-5733-a57d-464ac6e57572.jpg>) | 566477 |
+| [D_FINE_RGB/eval_preds/03b6e79a-3ec8-5268-a960-3b51043b9222.jpg](<D_FINE_RGB/eval_preds/03b6e79a-3ec8-5268-a960-3b51043b9222.jpg>) | 547176 |
+| [D_FINE_RGB/eval_preds/03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg](<D_FINE_RGB/eval_preds/03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg>) | 610676 |
+| [D_FINE_RGB/eval_preds/046959de-3e81-5699-8ef7-eb935a0637f6.jpg](<D_FINE_RGB/eval_preds/046959de-3e81-5699-8ef7-eb935a0637f6.jpg>) | 538348 |
+| [D_FINE_RGB/eval_preds/04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg](<D_FINE_RGB/eval_preds/04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg>) | 574106 |
+| [D_FINE_RGB/eval_preds/04e181b8-fa84-5628-9879-ef19ec25c27d.jpg](<D_FINE_RGB/eval_preds/04e181b8-fa84-5628-9879-ef19ec25c27d.jpg>) | 360234 |
+| [D_FINE_RGB/eval_preds/053a95fe-de5a-5d16-83fb-4715221d74b7.jpg](<D_FINE_RGB/eval_preds/053a95fe-de5a-5d16-83fb-4715221d74b7.jpg>) | 491419 |
+| [D_FINE_RGB/eval_preds/054a2040-a884-59ef-bf27-ce8591b6e041.jpg](<D_FINE_RGB/eval_preds/054a2040-a884-59ef-bf27-ce8591b6e041.jpg>) | 441948 |
+| [D_FINE_RGB/eval_preds/054b6377-1d61-5358-89b8-a4635abeafb5.jpg](<D_FINE_RGB/eval_preds/054b6377-1d61-5358-89b8-a4635abeafb5.jpg>) | 644366 |
+| [D_FINE_RGB/eval_preds/05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg](<D_FINE_RGB/eval_preds/05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg>) | 553700 |
+| [D_FINE_RGB/eval_preds/058fd0ea-4b24-5eed-b499-280e81f81301.jpg](<D_FINE_RGB/eval_preds/058fd0ea-4b24-5eed-b499-280e81f81301.jpg>) | 580411 |
+| [D_FINE_RGB/eval_preds/0593009d-38b4-5e78-b4c3-8c419344b09e.jpg](<D_FINE_RGB/eval_preds/0593009d-38b4-5e78-b4c3-8c419344b09e.jpg>) | 524785 |
+| [D_FINE_RGB/eval_preds/05b27358-c126-5834-9b96-054ede43b794.jpg](<D_FINE_RGB/eval_preds/05b27358-c126-5834-9b96-054ede43b794.jpg>) | 407130 |
+| [D_FINE_RGB/eval_preds/05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg](<D_FINE_RGB/eval_preds/05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg>) | 514111 |
+| [D_FINE_RGB/eval_preds/05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg](<D_FINE_RGB/eval_preds/05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg>) | 560923 |
+| [D_FINE_RGB/eval_preds/06854b23-3a29-5745-b3f4-468074d2636c.jpg](<D_FINE_RGB/eval_preds/06854b23-3a29-5745-b3f4-468074d2636c.jpg>) | 276523 |
+| [D_FINE_RGB/eval_preds/06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg](<D_FINE_RGB/eval_preds/06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg>) | 476127 |
+| [D_FINE_RGB/eval_preds/06c163bf-18fe-58f7-ade9-86dada645535.jpg](<D_FINE_RGB/eval_preds/06c163bf-18fe-58f7-ade9-86dada645535.jpg>) | 612781 |
+| [D_FINE_RGB/eval_preds/06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg](<D_FINE_RGB/eval_preds/06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg>) | 490568 |
+| [D_FINE_RGB/eval_preds/06f6f7c5-664a-522f-9374-4949808df079.jpg](<D_FINE_RGB/eval_preds/06f6f7c5-664a-522f-9374-4949808df079.jpg>) | 460900 |
+| [D_FINE_RGB/eval_preds/0713bc16-e234-5396-801f-2d2e064332e6.jpg](<D_FINE_RGB/eval_preds/0713bc16-e234-5396-801f-2d2e064332e6.jpg>) | 554373 |
+| [D_FINE_RGB/eval_preds/07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg](<D_FINE_RGB/eval_preds/07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg>) | 346143 |
+| [D_FINE_RGB/eval_preds/076854fb-6651-589f-bc13-98eafcba0543.jpg](<D_FINE_RGB/eval_preds/076854fb-6651-589f-bc13-98eafcba0543.jpg>) | 461532 |
+| [D_FINE_RGB/eval_preds/07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg](<D_FINE_RGB/eval_preds/07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg>) | 573748 |
+| [D_FINE_RGB/eval_preds/07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg](<D_FINE_RGB/eval_preds/07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg>) | 412192 |
+| [D_FINE_RGB/eval_preds/07b57bdd-663f-519c-a8de-75deb5b06160.jpg](<D_FINE_RGB/eval_preds/07b57bdd-663f-519c-a8de-75deb5b06160.jpg>) | 571542 |
+| [D_FINE_RGB/eval_preds/07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg](<D_FINE_RGB/eval_preds/07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg>) | 642048 |
+| [D_FINE_RGB/eval_preds/08710518-99b7-5cf6-b7f7-c5f128d51677.jpg](<D_FINE_RGB/eval_preds/08710518-99b7-5cf6-b7f7-c5f128d51677.jpg>) | 577820 |
+| [D_FINE_RGB/eval_preds/088d8310-4643-58f0-83be-a2781e9078e9.jpg](<D_FINE_RGB/eval_preds/088d8310-4643-58f0-83be-a2781e9078e9.jpg>) | 333030 |
+| [D_FINE_RGB/eval_preds/08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg](<D_FINE_RGB/eval_preds/08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg>) | 589641 |
+| [D_FINE_RGB/eval_preds/0928986e-65bb-5a2b-aaab-452694776346.jpg](<D_FINE_RGB/eval_preds/0928986e-65bb-5a2b-aaab-452694776346.jpg>) | 577281 |
+| [D_FINE_RGB/model/config.yaml](<D_FINE_RGB/model/config.yaml>) | 4178 |
+| [D_FINE_RGB/model/extended_metrics.csv](<D_FINE_RGB/model/extended_metrics.csv>) | 153 |
+| [D_FINE_RGB/model/last.pt](<D_FINE_RGB/model/last.pt>) | 15258061 |
+| [D_FINE_RGB/model/metrics.csv](<D_FINE_RGB/model/metrics.csv>) | 177 |
+| [D_FINE_RGB/model/model.pt](<D_FINE_RGB/model/model.pt>) | 15258739 |
+| [D_FINE_RGB/model/plots/test/confusion_matrix.png](<D_FINE_RGB/model/plots/test/confusion_matrix.png>) | 22304 |
+| [D_FINE_RGB/model/plots/test/f1_score_vs_threshold.png](<D_FINE_RGB/model/plots/test/f1_score_vs_threshold.png>) | 22439 |
+| [D_FINE_RGB/model/plots/test/precision_recall_vs_threshold.png](<D_FINE_RGB/model/plots/test/precision_recall_vs_threshold.png>) | 29283 |
+| [D_FINE_RGB/model/plots/val/confusion_matrix.png](<D_FINE_RGB/model/plots/val/confusion_matrix.png>) | 22751 |
+| [D_FINE_RGB/model/plots/val/f1_score_vs_threshold.png](<D_FINE_RGB/model/plots/val/f1_score_vs_threshold.png>) | 24044 |
+| [D_FINE_RGB/model/plots/val/precision_recall_vs_threshold.png](<D_FINE_RGB/model/plots/val/precision_recall_vs_threshold.png>) | 30144 |
+| [D_FINE_RGB/model/train_log.txt](<D_FINE_RGB/model/train_log.txt>) | 125503 |
+| [D_FINE_RGB/run_metadata.json](<D_FINE_RGB/run_metadata.json>) | 212177 |
+| [D_FINE_RGB/test_metrics.json](<D_FINE_RGB/test_metrics.json>) | 429 |
+| [D_FINE_RGB/trainer_console.log](<D_FINE_RGB/trainer_console.log>) | 19804380 |
+| [D_FINE_RGB/validation_history.jsonl](<D_FINE_RGB/validation_history.jsonl>) | 78251 |
+
+## D-FINE HSV
+
+| File | Bytes |
+|---|---:|
+| [D_FINE_HSV/dfine_seg_training.yaml](<D_FINE_HSV/dfine_seg_training.yaml>) | 4413 |
+| [D_FINE_HSV/eval_preds/00248894-0f55-5341-b71e-8537cbd50a98.jpg](<D_FINE_HSV/eval_preds/00248894-0f55-5341-b71e-8537cbd50a98.jpg>) | 786152 |
+| [D_FINE_HSV/eval_preds/003a2000-914b-503e-a455-ae17c9faeacb.jpg](<D_FINE_HSV/eval_preds/003a2000-914b-503e-a455-ae17c9faeacb.jpg>) | 711433 |
+| [D_FINE_HSV/eval_preds/006ea799-2601-5cd0-ad78-86c9f8193af7.jpg](<D_FINE_HSV/eval_preds/006ea799-2601-5cd0-ad78-86c9f8193af7.jpg>) | 466259 |
+| [D_FINE_HSV/eval_preds/009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg](<D_FINE_HSV/eval_preds/009ef0ab-a05b-52ca-bf55-0c6095de8f20.jpg>) | 782137 |
+| [D_FINE_HSV/eval_preds/00b441d2-e2f1-58f7-ae07-5422427f8643.jpg](<D_FINE_HSV/eval_preds/00b441d2-e2f1-58f7-ae07-5422427f8643.jpg>) | 626290 |
+| [D_FINE_HSV/eval_preds/0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg](<D_FINE_HSV/eval_preds/0172b044-fdc5-5aa2-8dd6-4f5ca5c36252.jpg>) | 802864 |
+| [D_FINE_HSV/eval_preds/01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg](<D_FINE_HSV/eval_preds/01d9b34d-cb89-59d8-99ea-d46a4f5e8c47.jpg>) | 651559 |
+| [D_FINE_HSV/eval_preds/01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg](<D_FINE_HSV/eval_preds/01ebfbcb-783f-50cd-9880-b0cc6b815a65.jpg>) | 670081 |
+| [D_FINE_HSV/eval_preds/022a51b2-651c-5537-a89d-b370a92e0d63.jpg](<D_FINE_HSV/eval_preds/022a51b2-651c-5537-a89d-b370a92e0d63.jpg>) | 785133 |
+| [D_FINE_HSV/eval_preds/025d0b11-77e8-5960-a30e-b4a584dfa926.jpg](<D_FINE_HSV/eval_preds/025d0b11-77e8-5960-a30e-b4a584dfa926.jpg>) | 696887 |
+| [D_FINE_HSV/eval_preds/0273f815-23d6-53e3-b3c0-d267424d707c.jpg](<D_FINE_HSV/eval_preds/0273f815-23d6-53e3-b3c0-d267424d707c.jpg>) | 609871 |
+| [D_FINE_HSV/eval_preds/028460f2-89e7-560d-b7a4-b6605cb79808.jpg](<D_FINE_HSV/eval_preds/028460f2-89e7-560d-b7a4-b6605cb79808.jpg>) | 805930 |
+| [D_FINE_HSV/eval_preds/029a4545-6b3c-5609-b61b-dbb325e48c24.jpg](<D_FINE_HSV/eval_preds/029a4545-6b3c-5609-b61b-dbb325e48c24.jpg>) | 957781 |
+| [D_FINE_HSV/eval_preds/02c84726-d217-518a-a5ca-04cbc62c2175.jpg](<D_FINE_HSV/eval_preds/02c84726-d217-518a-a5ca-04cbc62c2175.jpg>) | 813058 |
+| [D_FINE_HSV/eval_preds/02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg](<D_FINE_HSV/eval_preds/02cb16dd-b078-55e7-b748-1f73fae67cfe.jpg>) | 821532 |
+| [D_FINE_HSV/eval_preds/02e59936-1ef0-5c79-be38-93c5f89593b2.jpg](<D_FINE_HSV/eval_preds/02e59936-1ef0-5c79-be38-93c5f89593b2.jpg>) | 747683 |
+| [D_FINE_HSV/eval_preds/02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg](<D_FINE_HSV/eval_preds/02eeaf3b-8a7d-530c-9a92-01cc46cea67e.jpg>) | 709346 |
+| [D_FINE_HSV/eval_preds/03539415-6975-5733-a57d-464ac6e57572.jpg](<D_FINE_HSV/eval_preds/03539415-6975-5733-a57d-464ac6e57572.jpg>) | 799130 |
+| [D_FINE_HSV/eval_preds/03b6e79a-3ec8-5268-a960-3b51043b9222.jpg](<D_FINE_HSV/eval_preds/03b6e79a-3ec8-5268-a960-3b51043b9222.jpg>) | 761443 |
+| [D_FINE_HSV/eval_preds/03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg](<D_FINE_HSV/eval_preds/03c12a6e-1db6-5f01-acaa-a5249c285ba9.jpg>) | 836302 |
+| [D_FINE_HSV/eval_preds/046959de-3e81-5699-8ef7-eb935a0637f6.jpg](<D_FINE_HSV/eval_preds/046959de-3e81-5699-8ef7-eb935a0637f6.jpg>) | 743856 |
+| [D_FINE_HSV/eval_preds/04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg](<D_FINE_HSV/eval_preds/04d7b43f-97ca-52d4-89a5-bd5d522ec208.jpg>) | 785720 |
+| [D_FINE_HSV/eval_preds/04e181b8-fa84-5628-9879-ef19ec25c27d.jpg](<D_FINE_HSV/eval_preds/04e181b8-fa84-5628-9879-ef19ec25c27d.jpg>) | 463373 |
+| [D_FINE_HSV/eval_preds/053a95fe-de5a-5d16-83fb-4715221d74b7.jpg](<D_FINE_HSV/eval_preds/053a95fe-de5a-5d16-83fb-4715221d74b7.jpg>) | 701973 |
+| [D_FINE_HSV/eval_preds/054a2040-a884-59ef-bf27-ce8591b6e041.jpg](<D_FINE_HSV/eval_preds/054a2040-a884-59ef-bf27-ce8591b6e041.jpg>) | 500326 |
+| [D_FINE_HSV/eval_preds/054b6377-1d61-5358-89b8-a4635abeafb5.jpg](<D_FINE_HSV/eval_preds/054b6377-1d61-5358-89b8-a4635abeafb5.jpg>) | 874416 |
+| [D_FINE_HSV/eval_preds/05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg](<D_FINE_HSV/eval_preds/05714c69-9078-50c6-9fd5-51b0a6629f1f.jpg>) | 763575 |
+| [D_FINE_HSV/eval_preds/058fd0ea-4b24-5eed-b499-280e81f81301.jpg](<D_FINE_HSV/eval_preds/058fd0ea-4b24-5eed-b499-280e81f81301.jpg>) | 798310 |
+| [D_FINE_HSV/eval_preds/0593009d-38b4-5e78-b4c3-8c419344b09e.jpg](<D_FINE_HSV/eval_preds/0593009d-38b4-5e78-b4c3-8c419344b09e.jpg>) | 739478 |
+| [D_FINE_HSV/eval_preds/05b27358-c126-5834-9b96-054ede43b794.jpg](<D_FINE_HSV/eval_preds/05b27358-c126-5834-9b96-054ede43b794.jpg>) | 586433 |
+| [D_FINE_HSV/eval_preds/05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg](<D_FINE_HSV/eval_preds/05b7735a-1c7c-528d-b5ce-2b5face6d587.jpg>) | 723037 |
+| [D_FINE_HSV/eval_preds/05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg](<D_FINE_HSV/eval_preds/05b905f3-e5f1-5b73-a433-ac7a9837a2b7.jpg>) | 782273 |
+| [D_FINE_HSV/eval_preds/06854b23-3a29-5745-b3f4-468074d2636c.jpg](<D_FINE_HSV/eval_preds/06854b23-3a29-5745-b3f4-468074d2636c.jpg>) | 370003 |
+| [D_FINE_HSV/eval_preds/06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg](<D_FINE_HSV/eval_preds/06ad09c6-8aaa-5651-8be7-0e89b4d32d08.jpg>) | 688133 |
+| [D_FINE_HSV/eval_preds/06c163bf-18fe-58f7-ade9-86dada645535.jpg](<D_FINE_HSV/eval_preds/06c163bf-18fe-58f7-ade9-86dada645535.jpg>) | 845892 |
+| [D_FINE_HSV/eval_preds/06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg](<D_FINE_HSV/eval_preds/06c53a4b-6491-5959-96a8-e2ea8734ada7.jpg>) | 661114 |
+| [D_FINE_HSV/eval_preds/06f6f7c5-664a-522f-9374-4949808df079.jpg](<D_FINE_HSV/eval_preds/06f6f7c5-664a-522f-9374-4949808df079.jpg>) | 653189 |
+| [D_FINE_HSV/eval_preds/0713bc16-e234-5396-801f-2d2e064332e6.jpg](<D_FINE_HSV/eval_preds/0713bc16-e234-5396-801f-2d2e064332e6.jpg>) | 759287 |
+| [D_FINE_HSV/eval_preds/07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg](<D_FINE_HSV/eval_preds/07363fb8-6f56-51be-afa1-6d610fb26e4e.jpg>) | 460879 |
+| [D_FINE_HSV/eval_preds/076854fb-6651-589f-bc13-98eafcba0543.jpg](<D_FINE_HSV/eval_preds/076854fb-6651-589f-bc13-98eafcba0543.jpg>) | 623715 |
+| [D_FINE_HSV/eval_preds/07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg](<D_FINE_HSV/eval_preds/07a550b3-88af-5986-9b91-dc75f7fe13a4.jpg>) | 787895 |
+| [D_FINE_HSV/eval_preds/07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg](<D_FINE_HSV/eval_preds/07a66117-f1f0-5107-b1a7-b192b9faf11d.jpg>) | 580141 |
+| [D_FINE_HSV/eval_preds/07b57bdd-663f-519c-a8de-75deb5b06160.jpg](<D_FINE_HSV/eval_preds/07b57bdd-663f-519c-a8de-75deb5b06160.jpg>) | 798971 |
+| [D_FINE_HSV/eval_preds/07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg](<D_FINE_HSV/eval_preds/07c926b9-06b1-586d-84a5-c7f21f9ef225.jpg>) | 874872 |
+| [D_FINE_HSV/eval_preds/08710518-99b7-5cf6-b7f7-c5f128d51677.jpg](<D_FINE_HSV/eval_preds/08710518-99b7-5cf6-b7f7-c5f128d51677.jpg>) | 782437 |
+| [D_FINE_HSV/eval_preds/088d8310-4643-58f0-83be-a2781e9078e9.jpg](<D_FINE_HSV/eval_preds/088d8310-4643-58f0-83be-a2781e9078e9.jpg>) | 404805 |
+| [D_FINE_HSV/eval_preds/08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg](<D_FINE_HSV/eval_preds/08cdffc9-25a6-58e7-98eb-6bdfff007e7e.jpg>) | 815100 |
+| [D_FINE_HSV/eval_preds/0928986e-65bb-5a2b-aaab-452694776346.jpg](<D_FINE_HSV/eval_preds/0928986e-65bb-5a2b-aaab-452694776346.jpg>) | 798976 |
+| [D_FINE_HSV/model/config.yaml](<D_FINE_HSV/model/config.yaml>) | 4417 |
+| [D_FINE_HSV/model/extended_metrics.csv](<D_FINE_HSV/model/extended_metrics.csv>) | 153 |
+| [D_FINE_HSV/model/last.pt](<D_FINE_HSV/model/last.pt>) | 15258061 |
+| [D_FINE_HSV/model/metrics.csv](<D_FINE_HSV/model/metrics.csv>) | 177 |
+| [D_FINE_HSV/model/model.pt](<D_FINE_HSV/model/model.pt>) | 15258739 |
+| [D_FINE_HSV/model/plots/test/confusion_matrix.png](<D_FINE_HSV/model/plots/test/confusion_matrix.png>) | 22122 |
+| [D_FINE_HSV/model/plots/test/f1_score_vs_threshold.png](<D_FINE_HSV/model/plots/test/f1_score_vs_threshold.png>) | 24127 |
+| [D_FINE_HSV/model/plots/test/precision_recall_vs_threshold.png](<D_FINE_HSV/model/plots/test/precision_recall_vs_threshold.png>) | 28304 |
+| [D_FINE_HSV/model/plots/val/confusion_matrix.png](<D_FINE_HSV/model/plots/val/confusion_matrix.png>) | 21940 |
+| [D_FINE_HSV/model/plots/val/f1_score_vs_threshold.png](<D_FINE_HSV/model/plots/val/f1_score_vs_threshold.png>) | 20139 |
+| [D_FINE_HSV/model/plots/val/precision_recall_vs_threshold.png](<D_FINE_HSV/model/plots/val/precision_recall_vs_threshold.png>) | 29153 |
+| [D_FINE_HSV/model/train_log.txt](<D_FINE_HSV/model/train_log.txt>) | 107449 |
+| [D_FINE_HSV/prepared_dataset/test.json](<D_FINE_HSV/prepared_dataset/test.json>) | 6950314 |
+| [D_FINE_HSV/prepared_dataset/train.json](<D_FINE_HSV/prepared_dataset/train.json>) | 11610459 |
+| [D_FINE_HSV/prepared_dataset/val.json](<D_FINE_HSV/prepared_dataset/val.json>) | 6970972 |
+| [D_FINE_HSV/run_metadata.json](<D_FINE_HSV/run_metadata.json>) | 213296 |
+| [D_FINE_HSV/test_metrics.json](<D_FINE_HSV/test_metrics.json>) | 430 |
+| [D_FINE_HSV/trainer_console.log](<D_FINE_HSV/trainer_console.log>) | 16819220 |
+| [D_FINE_HSV/validation_history.jsonl](<D_FINE_HSV/validation_history.jsonl>) | 66439 |
+
+## Comparison
+
+| File | Bytes |
+|---|---:|
+| [Comparison/all_metrics.json](<Comparison/all_metrics.json>) | 2770467 |
+| [Comparison/dfine_training_losses.md](<Comparison/dfine_training_losses.md>) | 7393 |
+| [Comparison/metrics_report.md](<Comparison/metrics_report.md>) | 10629 |

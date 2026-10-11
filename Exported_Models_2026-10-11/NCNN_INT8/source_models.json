@@ -1,0 +1,51 @@
+{
+  "yolo_rgb": {
+    "run_id": "yolo26n-detect-20261006-221958",
+    "run_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958",
+    "stamp": "20261006-221958",
+    "family": "yolo",
+    "task": "detect",
+    "colour": "rgb",
+    "colour_evidence": "experiment.colour_space",
+    "validation_map50_95": 0.98359,
+    "metric_evidence": "selection.best_validation_metric",
+    "stop_reason": "early_stopping",
+    "checkpoint": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261006-221958\\weights\\best.pt",
+    "checkpoint_exists": true,
+    "has_metadata": true,
+    "checkpoint_sha256": "1e9052defed6576c1bdd8a409a7c2b2282fa398ddd5715ca48c137a1aeb8fa7a"
+  },
+  "yolo_hsv": {
+    "run_id": "yolo26n-detect-20261007-101115",
+    "run_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115",
+    "stamp": "20261007-101115",
+    "family": "yolo",
+    "task": "detect",
+    "colour": "hsv",
+    "colour_evidence": "experiment.colour_space",
+    "validation_map50_95": 0.9778584754167007,
+    "metric_evidence": "selection.best_validation_metric",
+    "stop_reason": "early_stopping",
+    "checkpoint": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\yolo26\\yolo26n-detect-20261007-101115\\weights\\best.pt",
+    "checkpoint_exists": true,
+    "has_metadata": true,
+    "checkpoint_sha256": "172c50b241b634749338e26ec49a35b35cdcce565976569ae4a53164ba8a2b8e"
+  },
+  "environment": {
+    "python": "3.12.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "logical_processors": 16,
+    "packages": {
+      "ncnn": "1.0.20260526",
+      "numpy": "2.2.6",
+      "opencv-python": "4.13.0.92",
+      "faster-coco-eval": "1.7.2"
+    },
+    "module_versions": {
+      "numpy": "2.2.6",
+      "opencv": "4.13.0",
+      "ncnn": "1.0.20260526"
+    }
+  }
+}

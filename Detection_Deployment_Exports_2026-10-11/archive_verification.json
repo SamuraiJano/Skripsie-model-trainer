@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "archives": [
+    {
+      "file": "NVIDIA_Detection_Models_2026-10-11.zip",
+      "bytes": 96461773,
+      "sha256": "ae2d29600dc254fa4ac88fdc4011ba174bb7ec5264f9a1c2b07fd58511b78716",
+      "member_count": 25,
+      "crc_check": "PASS"
+    },
+    {
+      "file": "Raspberry_Pi4_Detection_Models_2026-10-11.zip",
+      "bytes": 90605346,
+      "sha256": "45b51fc9f68716c9ac0c5d5a03d1b33934a976191c9e5f6ab6b77d39ecbfaafb",
+      "member_count": 27,
+      "crc_check": "PASS"
+    }
+  ]
+}

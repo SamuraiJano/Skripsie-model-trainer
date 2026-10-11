@@ -1,0 +1,99 @@
+Experiment: dfine-seg-n-detect-20261007-112627, Task: detect, Annotations: COCO
+Loaded 843 images from train.json
+Loaded 504 images from val.json
+Loaded 504 images from test.json
+Images in train: 843, val: 504, test: 504
+Objects count: naartjie: 86199
+Background images: 13
+Pretrained weigts from C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\third_party\D-FINE-seg\pretrained\dfine_n_coco.pt, {'missed': ['decoder.denoising_class_embed.weight'], 'unmatched': ['decoder.enc_score_head.weight', 'decoder.enc_score_head.bias', 'decoder.dec_score_head.0.weight', 'decoder.dec_score_head.0.bias', 'decoder.dec_score_head.1.weight', 'decoder.dec_score_head.1.bias', 'decoder.dec_score_head.2.weight', 'decoder.dec_score_head.2.bias']}
+EMA model will be evaluated and saved
+Physical batch size: 4; accumulation: 4; effective batch size: 16; AMP: True
+Saving new best model🔥
+Metrics on epoch 1:
++-----+--------+-----+-----------+--------+-----+-----------+-----+-----+---------+
+|     | mAP_50 | f1  | precision | recall | iou | mAP_50_95 | TPs | FPs |   FNs   |
++-----+--------+-----+-----------+--------+-----+-----------+-----+-----+---------+
+| val | 0.4383 | 0.0 |    0.0    |  0.0   | 0.0 |  0.3822   | 0.0 | 0.0 | 23546.0 |
++-----+--------+-----+-----------+--------+-----+-----------+-----+-----+---------+
+
+Metrics on epoch 2:
++-----+--------+--------+-----------+--------+--------+-----------+---------+---------+--------+
+|     | mAP_50 |   f1   | precision | recall |  iou   | mAP_50_95 |   TPs   |   FPs   |  FNs   |
++-----+--------+--------+-----------+--------+--------+-----------+---------+---------+--------+
+| val | 0.4002 | 0.4738 |  0.3489   | 0.7383 | 0.2984 |  0.3815   | 17385.0 | 32448.0 | 6161.0 |
++-----+--------+--------+-----------+--------+--------+-----------+---------+---------+--------+
+
+Saving new best model🔥
+Metrics on epoch 3:
++-----+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+|     | mAP_50 |   f1   | precision | recall |  iou   | mAP_50_95 |   TPs   |  FPs   |  FNs   |
++-----+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+| val | 0.8494 | 0.8012 |  0.7356   | 0.8795 | 0.6399 |  0.8033   | 20709.0 | 7442.0 | 2837.0 |
++-----+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+
+Saving new best model🔥
+Metrics on epoch 4:
++-----+--------+--------+-----------+--------+-------+-----------+---------+--------+--------+
+|     | mAP_50 |   f1   | precision | recall |  iou  | mAP_50_95 |   TPs   |  FPs   |  FNs   |
++-----+--------+--------+-----------+--------+-------+-----------+---------+--------+--------+
+| val | 0.9157 | 0.8876 |  0.8494   | 0.9295 | 0.764 |  0.8682   | 21887.0 | 3882.0 | 1659.0 |
++-----+--------+--------+-----------+--------+-------+-----------+---------+--------+--------+
+
+Saving new best model🔥
+Metrics on epoch 5:
++-----+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+|     | mAP_50 |   f1   | precision | recall |  iou   | mAP_50_95 |   TPs   |  FPs   |  FNs   |
++-----+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+| val | 0.9368 | 0.9086 |  0.8722   | 0.9481 | 0.7995 |  0.8935   | 22325.0 | 3270.0 | 1221.0 |
++-----+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+
+Caught SystemError in DataLoader worker process 0.
+Original numpy._core._exceptions._ArrayMemoryError: Unable to allocate 1.56 MiB for an array with shape (640, 640) and data type float32
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\torch\utils\data\_utils\worker.py", line 374, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\torch\utils\data\_utils\fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\third_party\D-FINE-seg\src\dl\dataset.py", line 717, in __getitem__
+    transformed = self.transform(
+                  ^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\albumentations\core\composition.py", line 610, in __call__
+    data = t(**data)
+           ^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\albumentations\core\transforms_interface.py", line 273, in __call__
+    return self.apply_with_params(params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\albumentations\core\transforms_interface.py", line 310, in apply_with_params
+    target_function(ensure_contiguous_output(arg), **params),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\albumentations\augmentations\pixel\transforms.py", line 246, in apply
+    return normalize(
+           ^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\albucore\functions.py", line 330, in normalize
+    return normalize_lut(img, mean, denominator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\albucore\decorators.py", line 42, in wrapped_function
+    result = func(img, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\.venv\Lib\site-packages\albucore\functions.py", line 322, in normalize_lut
+    return cv2.merge([cv2.LUT(img[:, :, i], luts[i]) for i in range(num_channels)])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SystemError: <built-in function LUT> returned a result with an exception set
+
+Evaluating best model...
+Best Threshold for object detection: 0.7 with F1 Score: 0.923
+Best Threshold for object detection: 0.7 with F1 Score: 0.921
+Best epoch metrics:
++------+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+|      | mAP_50 |   f1   | precision | recall |  iou   | mAP_50_95 |   TPs   |  FPs   |  FNs   |
++------+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+| val  | 0.9368 | 0.9086 |  0.8722   | 0.9481 | 0.7995 |  0.8935   | 22325.0 | 3270.0 | 1221.0 |
+| test | 0.9304 | 0.9084 |  0.8727   | 0.9471 | 0.8002 |  0.8943   | 22236.0 | 3245.0 | 1242.0 |
++------+--------+--------+-----------+--------+--------+-----------+---------+--------+--------+
+
+Full training time: 0.33 hours

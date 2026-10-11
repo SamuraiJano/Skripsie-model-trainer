@@ -1,0 +1,591 @@
+{
+  "status": "PASS",
+  "folder": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Exported_Models_2026-10-11",
+  "copied_files": 95,
+  "copied_bytes": 330748584,
+  "source_models": [
+    "yolo_rgb",
+    "yolo_hsv",
+    "dfine_rgb",
+    "dfine_hsv"
+  ],
+  "formats": [
+    "ONNX FP32",
+    "TensorRT engine FP32",
+    "NCNN mixed-precision INT8",
+    "NCNN FP32 reference"
+  ],
+  "originals_preserved": true,
+  "entries": [
+    {
+      "path": "yolo_rgb/model.onnx",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_rgb/model.onnx",
+      "sha256": "652e657e11781cb0b184a4988586c776962664be34ad9eeaae7d5c5cdf752a19",
+      "bytes": 9805102
+    },
+    {
+      "path": "yolo_rgb/nvidia/model_fp32.engine",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_rgb/nvidia/model_fp32.engine",
+      "sha256": "182898d45a136fed749e9dca4a927811c104527df69995224e297fc15a6ebdf8",
+      "bytes": 60257972
+    },
+    {
+      "path": "yolo_rgb/raspberry_pi4/ncnn_fp32/model.ncnn.param",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_rgb/raspberry_pi4/ncnn_fp32/model.ncnn.param",
+      "sha256": "1564847eb02c07b6abded54a84851944d5befbcbee7a1036984394c6f8cc5d2a",
+      "bytes": 26137
+    },
+    {
+      "path": "yolo_rgb/raspberry_pi4/ncnn_fp32/model.ncnn.bin",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_rgb/raspberry_pi4/ncnn_fp32/model.ncnn.bin",
+      "sha256": "eaf2b0958d16261a11369ba632cbe1dd26336522f393ba43e0927d4221aedf73",
+      "bytes": 9601332
+    },
+    {
+      "path": "yolo_hsv/model.onnx",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_hsv/model.onnx",
+      "sha256": "a22eff846d026c66188c7c39d228bd2a156a7dafa7942598de0e7674533419f4",
+      "bytes": 9805102
+    },
+    {
+      "path": "yolo_hsv/nvidia/model_fp32.engine",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_hsv/nvidia/model_fp32.engine",
+      "sha256": "60d9c257fa7834bfdb014022daef969184d7c9b67b3df9549c0e1bc03b295da0",
+      "bytes": 60980684
+    },
+    {
+      "path": "yolo_hsv/raspberry_pi4/ncnn_fp32/model.ncnn.param",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_hsv/raspberry_pi4/ncnn_fp32/model.ncnn.param",
+      "sha256": "1564847eb02c07b6abded54a84851944d5befbcbee7a1036984394c6f8cc5d2a",
+      "bytes": 26137
+    },
+    {
+      "path": "yolo_hsv/raspberry_pi4/ncnn_fp32/model.ncnn.bin",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_hsv/raspberry_pi4/ncnn_fp32/model.ncnn.bin",
+      "sha256": "1625eac3e9945e5bd38349ba3cea5fb800bb2f1904a6f71c25083d5055027ac6",
+      "bytes": 9601332
+    },
+    {
+      "path": "dfine_rgb/model.onnx",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_rgb/model.onnx",
+      "sha256": "340a4189c7985dbf0b078fc1ee16162f1aa58c45cf6223ff90f65f533eae0b67",
+      "bytes": 15392086
+    },
+    {
+      "path": "dfine_rgb/nvidia/model_fp32.engine",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_rgb/nvidia/model_fp32.engine",
+      "sha256": "c43f705a048cfa46cd530e4dfcd6c508111f8fecf434267058d66cc26dd554d8",
+      "bytes": 36685884
+    },
+    {
+      "path": "dfine_rgb/raspberry_pi4/model.onnx",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_rgb/raspberry_pi4/model.onnx",
+      "sha256": "340a4189c7985dbf0b078fc1ee16162f1aa58c45cf6223ff90f65f533eae0b67",
+      "bytes": 15392086
+    },
+    {
+      "path": "dfine_hsv/model.onnx",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_hsv/model.onnx",
+      "sha256": "5ec4884e028597f60a60504dc887c50a3fe35481b7d36595ff141d6d5db273b3",
+      "bytes": 15392086
+    },
+    {
+      "path": "dfine_hsv/nvidia/model_fp32.engine",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_hsv/nvidia/model_fp32.engine",
+      "sha256": "3160079e7b900b0e7f55ff4a21d5f15a4ee14679a305739270cb88f01cb0515c",
+      "bytes": 37579860
+    },
+    {
+      "path": "dfine_hsv/raspberry_pi4/model.onnx",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_hsv/raspberry_pi4/model.onnx",
+      "sha256": "5ec4884e028597f60a60504dc887c50a3fe35481b7d36595ff141d6d5db273b3",
+      "bytes": 15392086
+    },
+    {
+      "path": "infer.py",
+      "source": "Detection_Deployment_Exports_2026-10-11/infer.py",
+      "sha256": "f994a34982f178a85c94a3be3ca7ebb8af46bff2f18ad4517c5ffc9709061b01",
+      "bytes": 7888
+    },
+    {
+      "path": "source_selection.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/selection.json",
+      "sha256": "0e5272fe3cdfe388d94a8d3b4da2c5292460f90edc08aedd59d141add15c464c",
+      "bytes": 31224
+    },
+    {
+      "path": "verification/original_export_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/bundle_verification.json",
+      "sha256": "b10572d6f18ab605cfad28aa52ed51890ec3132901b8a064c4bf12c02f50bc75",
+      "bytes": 3420
+    },
+    {
+      "path": "verification/original_runner_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/inference_runner_verification.json",
+      "sha256": "93c866912ba19b79105b313e0c5d18a8d0410fabee6ad70b01f95b76633a280b",
+      "bytes": 21412
+    },
+    {
+      "path": "yolo_rgb/onnx_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_rgb/onnx_verification.json",
+      "sha256": "c91528ff4f42937edcf1a8fcfb1b3346c4a71001d6adec13b2165655654d8589",
+      "bytes": 4590
+    },
+    {
+      "path": "yolo_rgb/tensorrt_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_rgb/tensorrt_verification.json",
+      "sha256": "cf4834e097c41f02006561d95bf9d5787ba0ae0c5ca4c7245a06ff4d57681c68",
+      "bytes": 4704
+    },
+    {
+      "path": "yolo_rgb/ncnn_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_rgb/ncnn_verification.json",
+      "sha256": "614a243437965542c21b8c52b22e47c49e93bac91cb23ff9bd0d89f45688dd50",
+      "bytes": 4702
+    },
+    {
+      "path": "yolo_hsv/onnx_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_hsv/onnx_verification.json",
+      "sha256": "43ca581efdc4474d008e2941c5f4e60c80638cc61b6d0acc3e1674d32db173f3",
+      "bytes": 4584
+    },
+    {
+      "path": "yolo_hsv/tensorrt_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_hsv/tensorrt_verification.json",
+      "sha256": "10a779c9ddf5c8a8c8ffd7ad680f35ac5ca5a5a2176b92ef53dba27e64db11a9",
+      "bytes": 4694
+    },
+    {
+      "path": "yolo_hsv/ncnn_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/yolo_hsv/ncnn_verification.json",
+      "sha256": "7c40e294998c8a728d24d15bb14f61ce1a73ab4ee1200c011fcb57a31a801b2e",
+      "bytes": 4705
+    },
+    {
+      "path": "dfine_rgb/onnx_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_rgb/onnx_verification.json",
+      "sha256": "b9c1fafb89118e5e81ea9b1124db3e0223f96a83f59ec152f0061ce56b27b04e",
+      "bytes": 3151
+    },
+    {
+      "path": "dfine_rgb/tensorrt_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_rgb/tensorrt_verification.json",
+      "sha256": "7c3be7aef212d53d70d47a65820d1feda0ea32fd8f4a747fb29c82fe66679a23",
+      "bytes": 3156
+    },
+    {
+      "path": "dfine_rgb/ncnn_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_rgb/ncnn_verification.json",
+      "sha256": "389fb1375f0eabb695dffedf0e5cf9e36a1790935091908074a96241a6b2b57e",
+      "bytes": 266
+    },
+    {
+      "path": "dfine_hsv/onnx_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_hsv/onnx_verification.json",
+      "sha256": "bd4bab18a18a8b3ecb13c5823ee1efe01a1db8838122bcb34faf9ec2e4c465bb",
+      "bytes": 3150
+    },
+    {
+      "path": "dfine_hsv/tensorrt_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_hsv/tensorrt_verification.json",
+      "sha256": "6528ae96b69428b77f43913acd59f677196ab962c5d827efaa9cb652bc280fff",
+      "bytes": 3156
+    },
+    {
+      "path": "dfine_hsv/ncnn_verification.json",
+      "source": "Detection_Deployment_Exports_2026-10-11/dfine_hsv/ncnn_verification.json",
+      "sha256": "389fb1375f0eabb695dffedf0e5cf9e36a1790935091908074a96241a6b2b57e",
+      "bytes": 266
+    },
+    {
+      "path": "NCNN_INT8/benchmark_images/003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::benchmark_images/003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "sha256": "982fed644b85097da105536729893aeb1806d075c41bca4508e2e94cdf67f5c4",
+      "bytes": 211149
+    },
+    {
+      "path": "NCNN_INT8/benchmark_images/754e2d21-22bb-5b40-81d4-46c8c74bf390.jpg",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::benchmark_images/754e2d21-22bb-5b40-81d4-46c8c74bf390.jpg",
+      "sha256": "c79cdb41956c936c5dbe6b5fe852e45b97b1da02308d8d95e7681682c44a3118",
+      "bytes": 203147
+    },
+    {
+      "path": "NCNN_INT8/benchmark_images/ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::benchmark_images/ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "sha256": "bdae155bca2475d53dd632092fcfba8914c96038e9c745faf115e7a7c79ee293",
+      "bytes": 220921
+    },
+    {
+      "path": "NCNN_INT8/calibration_manifest.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::calibration_manifest.json",
+      "sha256": "b5bc6e22f9004731b5b28fbf032d5515eabc97cc93d6a09bc09dbc283eaa5fa4",
+      "bytes": 511702
+    },
+    {
+      "path": "NCNN_INT8/hsv/fp32/model.bin",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/fp32/model.bin",
+      "sha256": "1625eac3e9945e5bd38349ba3cea5fb800bb2f1904a6f71c25083d5055027ac6",
+      "bytes": 9601332
+    },
+    {
+      "path": "NCNN_INT8/hsv/fp32/model.param",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/fp32/model.param",
+      "sha256": "1564847eb02c07b6abded54a84851944d5befbcbee7a1036984394c6f8cc5d2a",
+      "bytes": 26137
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem11_head/model.bin",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem11_head/model.bin",
+      "sha256": "4e17e4b3ade08777f77c1dbd94c291a85223de36f18141d7f718e9e1c2e5711c",
+      "bytes": 2721248
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem11_head/model.param",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem11_head/model.param",
+      "sha256": "b4e5131c8caf3f42f75747aaa28257d2ce9d6a5cbe2d837e19c9fdd776db4deb",
+      "bytes": 23110
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem11_head/quantization.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem11_head/quantization.json",
+      "sha256": "1e02d2f18b4ec9bddae2fc9b13ea3c8eafb509beceb98a2334abae85b7ecb6bc",
+      "bytes": 2749
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem6_head/model.bin",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem6_head/model.bin",
+      "sha256": "e0d2445f5ada0679c6d4779f0bb123a472294cc78c1eae684efcc990f7aa04c7",
+      "bytes": 2660020
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem6_head/model.param",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem6_head/model.param",
+      "sha256": "db560cac8a283d0bd66e9c33d549b7d96be0f0c02c5badab1510c23cc25c7a5d",
+      "bytes": 23130
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem6_head/quantization.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem6_head/quantization.json",
+      "sha256": "4789bd206c8d910d95eb09946f4cf9cbcd4e7a2cb89f3d482387c4a99e4ad605",
+      "bytes": 2672
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem6_regression/model.bin",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem6_regression/model.bin",
+      "sha256": "31806f94900d8fb94b555f578d54cd9e94203cf8fc795a465fa0ece3085b2ff3",
+      "bytes": 2617444
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem6_regression/model.param",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem6_regression/model.param",
+      "sha256": "4fe46e2de30e4928d86b473c997487c001053d05b96d0d382535e3fa26b88234",
+      "bytes": 23178
+    },
+    {
+      "path": "NCNN_INT8/hsv/minmax_stem6_regression/quantization.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::hsv/minmax_stem6_regression/quantization.json",
+      "sha256": "9b6d6df2b3c80a780f8971986f4acf4cc601b53ddae523f0af71b1c81175df66",
+      "bytes": 2468
+    },
+    {
+      "path": "NCNN_INT8/ncnn_runner.py",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::ncnn_runner.py",
+      "sha256": "efd323537e32cbbea2e552879b6134197fed5e85a7ce33f5ef61ff24dcec05dc",
+      "bytes": 8491
+    },
+    {
+      "path": "NCNN_INT8/README.md",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::README.md",
+      "sha256": "9fb47745ab46792bfb14b43f718567bba6a7bf1acd5f87510aca6a5f901fb134",
+      "bytes": 6039
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_aciq_stem6_head_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_aciq_stem6_head_val.json",
+      "sha256": "7517cd1dfdcc1b1ca66ada9b5b14bf09fd7a58c31b048d0416ad076b32d8a29e",
+      "bytes": 2919
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_aciq_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_aciq_val.json",
+      "sha256": "6d68ae8c8b7416a58f27ba993ef4950412270ad18fb820ec5cd7fb1f7a183f41",
+      "bytes": 2912
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_fp32_test.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_fp32_test.json",
+      "sha256": "2dff3088cdaaa349b2966c206a3178da79b831305eaeda0e23309ed1538e7a0a",
+      "bytes": 5258
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_fp32_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_fp32_val.json",
+      "sha256": "2543a23bca1c3b215091f55eba5092ffd1801bdc0cbd2ed9003d267bfb9fd284",
+      "bytes": 2791
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_kl_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_kl_val.json",
+      "sha256": "3b25fda1fa0d22e4b92d5c900fa9af33580f900b3e41df3da653239db7058e83",
+      "bytes": 2894
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_minmax_stem11_head_test.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_minmax_stem11_head_test.json",
+      "sha256": "e78d36b946ef501c7dcf3adc417f760272442d08a5002fc301ec2f461ac6d1ef",
+      "bytes": 5273
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_minmax_stem11_head_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_minmax_stem11_head_val.json",
+      "sha256": "6cd8e94dfafddd3facc8eb40f4bc2cb519798e82c8f2a4d485d374c12b2306ad",
+      "bytes": 2927
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_minmax_stem6_head_test.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_minmax_stem6_head_test.json",
+      "sha256": "b69bd2405ea96cf7298452653316552d977fd791b7050b71c6414ac60b566b56",
+      "bytes": 5274
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_minmax_stem6_head_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_minmax_stem6_head_val.json",
+      "sha256": "ad554af45dac4270fb188e822cce758184d6c68a41ffd3165b3e0d707377704f",
+      "bytes": 2926
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_minmax_stem6_regression_test.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_minmax_stem6_regression_test.json",
+      "sha256": "3ed25de7286f2e3773848d49d62baf9a3514ff52708e17c8a83b8ea2a876bbb7",
+      "bytes": 5276
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_minmax_stem6_regression_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_minmax_stem6_regression_val.json",
+      "sha256": "198dabc79441143f42fcfd3800ec88cc4cefccd2db147d113b57fb9b866b2a95",
+      "bytes": 2930
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_minmax_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_minmax_val.json",
+      "sha256": "4836cb2314093b69d1e3ce3eddcff38224555726e52718d7d1f947b8234154e5",
+      "bytes": 2908
+    },
+    {
+      "path": "NCNN_INT8/reports/hsv_workstation_benchmark.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/hsv_workstation_benchmark.json",
+      "sha256": "da905be243007bad6dc7bb8a1b6f157a5500f289fae13899a65f966f2f63a0aa",
+      "bytes": 1527
+    },
+    {
+      "path": "NCNN_INT8/reports/pi_tuner_verification.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/pi_tuner_verification.json",
+      "sha256": "98e9c7ecf2b5eb414b59ac5948c5aaf00d524efea0a484af68feb9f89812fbff",
+      "bytes": 294
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_aciq_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_aciq_val.json",
+      "sha256": "844cf431cd940f55610548e6b73135084de194515a9365f33c50dab0cfc58eaf",
+      "bytes": 2908
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_fp32_test.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_fp32_test.json",
+      "sha256": "5ae8d923514dfc338eea4e0ce830160ae0dfb6989cbf6ba59fae2db52353740b",
+      "bytes": 5255
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_fp32_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_fp32_val.json",
+      "sha256": "8824c2398e6a3b7dd83ebc02750cfc6aed757f43e3c9cef29d3f6515ac0dc2b5",
+      "bytes": 2789
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_kl_range_stem6_head_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_kl_range_stem6_head_val.json",
+      "sha256": "97ced3e8a9fff5f2acd89b9644f73a9a52865b291cc4a6f4e4996f73c4f708b4",
+      "bytes": 2925
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_kl_range_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_kl_range_val.json",
+      "sha256": "28ba28bbeb79678475b4cef2a1056833213ab1aac885ee55f9ad99f1e35701e7",
+      "bytes": 2913
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_kl_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_kl_val.json",
+      "sha256": "f0709456e12bd82040b98866bd45b085bede7220e08485f8614478e2d144a852",
+      "bytes": 2789
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_minmax_stem11_head_test.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_minmax_stem11_head_test.json",
+      "sha256": "7c533c8ebb6e99ab63f1933d8daf04fdb583569d7777eaa4406168d870b0c031",
+      "bytes": 5272
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_minmax_stem11_head_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_minmax_stem11_head_val.json",
+      "sha256": "fc224a438b74fd705f18776ea03b6c26b7004bf96acd38c2d1b317dc82940376",
+      "bytes": 2919
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_minmax_stem2_head_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_minmax_stem2_head_val.json",
+      "sha256": "e673fabaa3f6c12d774071a9f0ec35579985b786c2917453d56cd803066ac67a",
+      "bytes": 2918
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_minmax_stem6_head_test.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_minmax_stem6_head_test.json",
+      "sha256": "f995dc696e4a4ae62be112d0817a580ab1fef08573254070ab72cb4477b9fd62",
+      "bytes": 5264
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_minmax_stem6_head_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_minmax_stem6_head_val.json",
+      "sha256": "3b0a4ee9639c606af88d08b0368a3c8b57f8ea297ccf576e1958848dcd867692",
+      "bytes": 2924
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_minmax_stem6_regression_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_minmax_stem6_regression_val.json",
+      "sha256": "22a08b657b1cabe46cf15e16f5f3eae6220f1323813aeb362ea1bece5cd1122e",
+      "bytes": 2927
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_minmax_val.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_minmax_val.json",
+      "sha256": "331a5e91a4ca6314ae0027be8e4eb7ba833e7c64d0b056abd55422228700562b",
+      "bytes": 2914
+    },
+    {
+      "path": "NCNN_INT8/reports/rgb_workstation_benchmark.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::reports/rgb_workstation_benchmark.json",
+      "sha256": "3c98087b1a26f2ada04076634a6e98bfb34032832ac8811e505ecff685e3dc9a",
+      "bytes": 1244
+    },
+    {
+      "path": "NCNN_INT8/requirements.txt",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::requirements.txt",
+      "sha256": "d27707d3a3ee64f628654f321862fbaf0fa03468bed6a8cb7d6333daf03e5dc5",
+      "bytes": 66
+    },
+    {
+      "path": "NCNN_INT8/RESULTS.md",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::RESULTS.md",
+      "sha256": "6b985fa3d4ce78fc479af5ff70ca8160f833c154123f8b8d2de62107235792d4",
+      "bytes": 3118
+    },
+    {
+      "path": "NCNN_INT8/rgb/fp32/model.bin",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::rgb/fp32/model.bin",
+      "sha256": "eaf2b0958d16261a11369ba632cbe1dd26336522f393ba43e0927d4221aedf73",
+      "bytes": 9601332
+    },
+    {
+      "path": "NCNN_INT8/rgb/fp32/model.param",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::rgb/fp32/model.param",
+      "sha256": "1564847eb02c07b6abded54a84851944d5befbcbee7a1036984394c6f8cc5d2a",
+      "bytes": 26137
+    },
+    {
+      "path": "NCNN_INT8/rgb/minmax_stem11_head/model.bin",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::rgb/minmax_stem11_head/model.bin",
+      "sha256": "61df8877148af6b38b92f9907b3a4a2efaf4352e6f4f2270b57b0fdce82e984d",
+      "bytes": 2721248
+    },
+    {
+      "path": "NCNN_INT8/rgb/minmax_stem11_head/model.param",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::rgb/minmax_stem11_head/model.param",
+      "sha256": "b4e5131c8caf3f42f75747aaa28257d2ce9d6a5cbe2d837e19c9fdd776db4deb",
+      "bytes": 23110
+    },
+    {
+      "path": "NCNN_INT8/rgb/minmax_stem11_head/quantization.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::rgb/minmax_stem11_head/quantization.json",
+      "sha256": "e801948a5c7a1c2ecb85405273fe86f7c58c3c940df5270693193c9d0072b914",
+      "bytes": 2749
+    },
+    {
+      "path": "NCNN_INT8/rgb/minmax_stem6_head/model.bin",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::rgb/minmax_stem6_head/model.bin",
+      "sha256": "77f27ac8c0e802b7510c96a2684ea8a74e13db8481f7a1234685814d977a02ab",
+      "bytes": 2660020
+    },
+    {
+      "path": "NCNN_INT8/rgb/minmax_stem6_head/model.param",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::rgb/minmax_stem6_head/model.param",
+      "sha256": "db560cac8a283d0bd66e9c33d549b7d96be0f0c02c5badab1510c23cc25c7a5d",
+      "bytes": 23130
+    },
+    {
+      "path": "NCNN_INT8/rgb/minmax_stem6_head/quantization.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::rgb/minmax_stem6_head/quantization.json",
+      "sha256": "14529c208685887591efa1c0834cff8297911172aceaed5b86a2f0a865aab38d",
+      "bytes": 2672
+    },
+    {
+      "path": "NCNN_INT8/runner_verification.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::runner_verification.json",
+      "sha256": "fdb29e0f5056006293446b0ca02d3b873470d637b9fd7b1bee9155a4dca4b587",
+      "bytes": 338
+    },
+    {
+      "path": "NCNN_INT8/screening_summary.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::screening_summary.json",
+      "sha256": "e851e1ec4083ba523cc3e97bf429423fb3344bba1745b1827449470bf4a7892b",
+      "bytes": 256308
+    },
+    {
+      "path": "NCNN_INT8/selection.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::selection.json",
+      "sha256": "e91650672dc67527bdf914b677ffc121f3dca443aa36e927a0a53dde5dd415ef",
+      "bytes": 1683
+    },
+    {
+      "path": "NCNN_INT8/source_models.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::source_models.json",
+      "sha256": "28011882ce7cde4e4ef7962a8ae6d2032c2f2482c9b1ffd1ae1110fc284b8623",
+      "bytes": 2127
+    },
+    {
+      "path": "NCNN_INT8/tables/hsv_minmax_stem11_head.table",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::tables/hsv_minmax_stem11_head.table",
+      "sha256": "4d0197f3ec46202f9c295463655e81372f4c176100f32c33e9471712ab09892e",
+      "bytes": 78164
+    },
+    {
+      "path": "NCNN_INT8/tables/hsv_minmax_stem6_head.table",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::tables/hsv_minmax_stem6_head.table",
+      "sha256": "c9068ad12ca69a8033dbcc7739aed5ebcee97eb072de87a54c1d8f543e02d574",
+      "bytes": 81700
+    },
+    {
+      "path": "NCNN_INT8/tables/hsv_minmax_stem6_regression.table",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::tables/hsv_minmax_stem6_regression.table",
+      "sha256": "ec62aa8d97dd4a2a0272b96e5a1474977008fb41d35b7ca14e698379bee6aa36",
+      "bytes": 93149
+    },
+    {
+      "path": "NCNN_INT8/tables/rgb_minmax_stem11_head.table",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::tables/rgb_minmax_stem11_head.table",
+      "sha256": "5f006a366c24c7f7f998055b51fadb152b21e61f7912ba8a63354c3a49b69386",
+      "bytes": 78344
+    },
+    {
+      "path": "NCNN_INT8/tables/rgb_minmax_stem6_head.table",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::tables/rgb_minmax_stem6_head.table",
+      "sha256": "62ecb0a8c8b483de021cdeb84e542d0518db79868031c33790f8fcc362efe24b",
+      "bytes": 81885
+    },
+    {
+      "path": "NCNN_INT8/bundle_verification.json",
+      "source": "Detection_NCNN_INT8_2026-10-11/Raspberry_Pi4_NCNN_INT8_2026-10-11.zip::bundle_verification.json",
+      "sha256": "808137045bcaf50e7313fef1f88642a6ca48082b4a06edbfd33fdaf7c5bee6b1",
+      "bytes": 11343
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+description: Ultralytics YOLO26n model trained on C:\Users\USER\Desktop\1Skripsie\VS
+  Code\New Model Trainer\model_training\runs\yolo26\_dataset_configs\detect-9d5d0ede5955f753.yaml
+author: Ultralytics
+date: '2026-10-11T12:54:03.691520'
+version: 8.4.95
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+head: Detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: naartjie
+args:
+  batch: 1
+  quantize: null
+channels: 3
+end2end: false

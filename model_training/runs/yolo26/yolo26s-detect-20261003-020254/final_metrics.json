@@ -1,0 +1,18 @@
+{
+  "metrics/precision(B)": 0.9905838868050464,
+  "metrics/recall(B)": 0.9918715273074825,
+  "metrics/mAP50(B)": 0.9947527411191085,
+  "metrics/mAP50-95(B)": 0.9882872282586941,
+  "fitness": 0.9882872282586941,
+  "epoch": 326.0,
+  "time": 7720.12,
+  "train/box_loss": 0.18162,
+  "train/cls_loss": 0.07154,
+  "train/dfl_loss": 0.00046,
+  "val/box_loss": 0.13737,
+  "val/cls_loss": 0.06372,
+  "val/dfl_loss": 0.00052,
+  "lr/pg0": 0.00039125,
+  "lr/pg1": 0.00039125,
+  "lr/pg2": 0.00039125
+}

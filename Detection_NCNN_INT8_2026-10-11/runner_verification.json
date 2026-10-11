@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "input": "754e2d21-22bb-5b40-81d4-46c8c74bf390.jpg",
+  "rgb_hsv_preprocessing_matches_prior_verified_runner": true,
+  "backends": {
+    "rgb": {
+      "variant": "minmax_stem11_head",
+      "detections": 42
+    },
+    "hsv": {
+      "variant": "minmax_stem11_head",
+      "detections": 42
+    }
+  }
+}

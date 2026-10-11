@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "archive": "Raspberry_Pi4_NCNN_INT8_2026-10-11.zip",
+  "bytes": 29245114,
+  "sha256": "2010dac788ccba645873f45f68559111c6a14d29ce54f7b4ff68892332613529",
+  "files": 65,
+  "crc_check": "PASS",
+  "all_manifest_file_hashes": "PASS",
+  "inference_from_extracted_zip": "PASS",
+  "standalone_runner_checks": [
+    {
+      "colour": "rgb",
+      "variant": "minmax_stem11_head",
+      "detections": 42
+    },
+    {
+      "colour": "hsv",
+      "variant": "minmax_stem11_head",
+      "detections": 42
+    }
+  ],
+  "workstation_device_choice_excluded": true
+}

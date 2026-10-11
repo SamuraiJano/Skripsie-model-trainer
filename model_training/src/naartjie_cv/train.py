@@ -6,6 +6,7 @@ import json
 import math
 import os
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -25,6 +26,19 @@ from .datasets import (
     require_valid_training_export,
     require_valid_yolo_training_dataset,
 )
+from .experiment_tracking import dataset_identity, dataset_split_integrity, record_validation, update_metadata
+from .colour import colour_metadata, dataset_colour, file_sha256, prepare_colour_dataset
+from .runtime import seed_training
+from .training_policy import MAX_EPOCHS, MIN_EPOCHS, PATIENCE, WORKERS, policy_metadata
+
+YOLO_FINAL_CHECKPOINTS = {"detect": "yolo26n.pt", "segment": "yolo26n-seg.pt"}
+OFFICIAL_DFINE_NANO_URL = "https://github.com/Peterande/storage/releases/download/dfinev1.0/dfine_n_coco.pth"
+
+
+def official_dfine_checkpoint(upstream: Path) -> str:
+    """Prefer the original Nano checkpoint cached inside the upstream checkout."""
+    local = upstream / "pretrained" / "dfine_n_coco.pth"
+    return str(local.resolve()) if local.is_file() else OFFICIAL_DFINE_NANO_URL
 
 
 @dataclass
@@ -32,13 +46,14 @@ class YoloTrainingOptions:
     """Ultralytics train-mode settings exposed by the CLI and notebook UI."""
 
     time: float | None = None
-    patience: int = 100
+    patience: int = PATIENCE
+    min_epochs_before_early_stop: int = MIN_EPOCHS
     save: bool = True
     save_period: int = -1
     cache: bool | Literal["ram", "disk"] = False
     pretrained: bool = True
     cls_remap: bool = True
-    optimizer: str = "auto"
+    optimizer: str = "AdamW"
     verbose: bool = True
     deterministic: bool = True
     single_cls: bool = False
@@ -65,51 +80,60 @@ class YoloTrainingOptions:
     # Preserve the project's current plotting choices while making them editable.
     show_labels: bool = False
     line_width: int = 2
-    lr0: float = 0.01
+    lr0: float = 0.001
     lrf: float = 0.01
-    momentum: float = 0.937
+    momentum: float = 0.9
     weight_decay: float = 0.0005
     warmup_epochs: float = 3.0
     warmup_momentum: float = 0.8
-    warmup_bias_lr: float = 0.1
+    warmup_bias_lr: float = 0.0
     box: float = 7.5
     cls: float = 0.5
     cls_pw: float = 0.0
     dfl: float = 1.5
     rle: float = 1.0
-    nbs: int = 64
+    nbs: int = 16
     distill_model: str | None = None
     dis: float = 6.0
-    hsv_h: float = 0.015
-    hsv_s: float = 0.7
-    hsv_v: float = 0.4
-    degrees: float = 0.0
+    hsv_h: float = 0.0
+    hsv_s: float = 0.0
+    hsv_v: float = 0.0
+    degrees: float = 10.0
     translate: float = 0.1
-    scale: float = 0.5
+    scale: float = 0.25
     shear: float = 0.0
     perspective: float = 0.0
     flipud: float = 0.0
     fliplr: float = 0.5
     bgr: float = 0.0
-    mosaic: float = 1.0
+    mosaic: float = 0.0
     mixup: float = 0.0
     cutmix: float = 0.0
     copy_paste: float = 0.0
     copy_paste_mode: str = "flip"
-    auto_augment: str = "randaugment"
-    erasing: float = 0.4
+    auto_augment: str | None = None
+    erasing: float = 0.0
     # Escape hatch for a newer installed Ultralytics version. Managed run/path
     # keys are rejected below so custom values cannot bypass this workflow.
-    extra_args: dict[str, Any] = field(default_factory=dict)
+    extra_args: dict[str, Any] = field(default_factory=lambda: {"augmentations": []})
+
+
+def final_yolo_options(task: str = "detect") -> YoloTrainingOptions:
+    """Shared final-experiment defaults for the notebook, CLI and Python API."""
+    options = YoloTrainingOptions()
+    if task == "detect":
+        return replace(options, mosaic=0.5)
+    return options
 
 
 @dataclass
 class TrainingOptions:
-    epochs: int = 100
+    epochs: int = MAX_EPOCHS
     imgsz: int = 640
     batch: int | float = 16
-    workers: int = 8
-    seed: int = 42
+    workers: int = WORKERS
+    seed: int = 0
+    colour_space: Literal["auto", "rgb", "hsv"] = "auto"
     device: str = "0"
     amp: bool = True
     output_dir: str = "runs"
@@ -125,21 +149,37 @@ class TrainingOptions:
     dfine_extra_config: dict[str, Any] = field(default_factory=dict)
 
 
+def preferred_dfine_amp_dtype() -> str:
+    try:
+        import torch
+
+        if torch.cuda.is_available() and torch.cuda.is_bf16_supported():
+            return "bfloat16"
+    except (ImportError, RuntimeError):
+        pass
+    return "float16"
+
+
 @dataclass
 class DFineSegOptions:
     """D-FINE-seg settings shared by detection and instance segmentation."""
 
     model_size: Literal["n", "s", "m", "l", "x"] = "n"
-    epochs: int = 75
+    epochs: int = MAX_EPOCHS
     imgsz: int = 640
     batch: int = 2
-    workers: int = 0 if os.name == "nt" else 8
-    seed: int = 42
+    # Loading in the trainer avoids spawned PyTorch workers on Windows.
+    # Explicit worker counts remain available for machines with enough RAM.
+    workers: int = 0
+    seed: int = 0
+    deterministic: bool = True
+    colour_space: Literal["auto", "rgb", "hsv"] = "auto"
     device: str = "cuda"
     amp: bool = True
-    amp_dtype: Literal["bfloat16", "float16"] = "float16"
-    early_stopping: int = 0
-    grad_accumulation: int = 1
+    amp_dtype: Literal["bfloat16", "float16"] = field(default_factory=preferred_dfine_amp_dtype)
+    early_stopping: int = PATIENCE
+    min_epochs_before_early_stop: int = MIN_EPOCHS
+    grad_accumulation: int = 8
     clip_max_norm: float = 0.1
     use_wandb: bool = False
     use_ema: bool = True
@@ -149,8 +189,8 @@ class DFineSegOptions:
     base_lr: float | None = None
     backbone_lr: float | None = None
     weight_decay: float = 0.000125
-    mosaic_probability: float | None = None
-    no_mosaic_epochs: int = 5
+    mosaic_probability: float | None = 0.0
+    no_mosaic_epochs: int = 10
     conf_threshold: float = 0.5
     iou_threshold: float = 0.5
     pretrained_dataset: Literal["coco", "obj2coco"] = "coco"
@@ -159,6 +199,34 @@ class DFineSegOptions:
     output_dir: str = "runs"
     run_name: str | None = None
     extra_config: dict[str, Any] = field(default_factory=dict)
+
+
+def final_dfine_seg_options(task: str = "segment") -> DFineSegOptions:
+    """Project ArgoHA recipes: Nano detection and Nano segmentation."""
+    options = DFineSegOptions()
+    if task == "detect":
+        return replace(
+            options, model_size="n", batch=4, grad_accumulation=4,
+            use_muon=False, aux_optimizer="adamw", base_lr=0.0008,
+            backbone_lr=0.0004, weight_decay=0.0001, mosaic_probability=0.5,
+        )
+    return options
+
+
+def _final_dfine_extra_config(task: str) -> dict[str, Any]:
+    return {"train": {
+        "decision_metrics": ["mAP_50_95" if task == "detect" else "mAP_50_95_mask"],
+        "keep_ratio": True, "freeze_except_mask": False, "mask_batch_size": 16,
+        "max_walltime_min": None, "ignore_background_epochs": 0,
+        # The project detection scheduler otherwise homogenizes these LRs.
+        "preserve_lr_groups": task == "detect",
+        "augs": {
+            "left_right_flip": 0.5, "up_down_flip": 0.0, "rotate_90": 0.0,
+            "rotation_degree": 10.0, "rotation_p": 0.05, "blur": 0.0,
+            "to_gray": 0.0, "gamma": 0.0, "brightness": 0.0, "noise": 0.0,
+            "coarse_dropout": 0.0, "multiscale_prob": 0.0,
+        },
+    }}
 
 
 def _utc_now() -> str:
@@ -340,12 +408,14 @@ def _yolo_dataset_metadata(export_root: str | Path, data_yaml: Path, task: str) 
         "export_hash": manifest.get("export_hash") if manifest is not None else None,
         "split": manifest.get("split") if manifest is not None else None,
         "class_mapping": manifest_mapping if manifest_mapping is not None else names,
+        "split_integrity": dataset_split_integrity(data_yaml),
     }
 
 
 def _runtime() -> dict[str, Any]:
     import torch
     import ultralytics
+    from .runtime import library_versions
 
     return {
         "python": platform.python_version(),
@@ -354,6 +424,10 @@ def _runtime() -> dict[str, Any]:
         "cuda_available": bool(torch.cuda.is_available()),
         "cuda_version": torch.version.cuda,
         "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
+        "libraries": library_versions(),
+        "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(),
+        "cudnn_deterministic": torch.backends.cudnn.deterministic,
+        "cudnn_benchmark": torch.backends.cudnn.benchmark,
     }
 
 
@@ -367,6 +441,8 @@ def _validate_options(options: TrainingOptions) -> None:
         raise ValueError("time must be positive when supplied")
     if yolo.patience < 0 or yolo.save_period < -1 or yolo.close_mosaic < 0:
         raise ValueError("patience/close_mosaic cannot be negative and save_period must be at least -1")
+    if yolo.min_epochs_before_early_stop < 0:
+        raise ValueError("Minimum epochs cannot be negative")
     if not 0 < yolo.fraction <= 1:
         raise ValueError("fraction must be greater than 0 and at most 1")
     unit_interval_settings = (
@@ -411,6 +487,18 @@ def _cuda_visible_devices(device: str) -> str:
     return value
 
 
+def resolved_yolo_arguments(options: TrainingOptions, data_yaml: Path, task: str, project: Path, name: str) -> dict[str, Any]:
+    """The exact fresh-run arguments, shared with the final preflight."""
+    yolo = asdict(options.yolo)
+    yolo.pop("min_epochs_before_early_stop")  # Implemented by our stopper, not an Ultralytics argument.
+    extra = yolo.pop("extra_args")
+    yolo = {key: value for key, value in yolo.items() if value is not None or key == "auto_augment"}
+    yolo.update(extra)
+    return {"data": str(data_yaml), "task": task, "epochs": options.epochs, "imgsz": options.imgsz,
+            "batch": options.batch, "workers": options.workers, "seed": options.seed, "device": options.device,
+            "amp": options.amp, "project": str(project), "name": name, "exist_ok": False, **yolo}
+
+
 def train_yolo_export(
     export_root: str | Path,
     task: Literal["detect", "segment"],
@@ -418,55 +506,168 @@ def train_yolo_export(
 ) -> dict[str, Any]:
     from ultralytics import YOLO
 
-    options = options or TrainingOptions()
+    options = options or TrainingOptions(yolo=final_yolo_options(task))
     _validate_options(options)
     if not options.yolo.val or options.yolo.split != "val" or not options.yolo.save:
         raise ValueError("YOLO training must validate on val and save a checkpoint; test is reserved for final evaluation")
+    original_data_yaml = require_valid_yolo_training_dataset(export_root, task)
+    original_root = str(Path(export_root).expanduser().resolve())
+    export_root = prepare_colour_dataset(export_root, task, Path(options.output_dir).expanduser().resolve() / "yolo26" / "_colour_datasets", options.colour_space)
     data_yaml = require_valid_yolo_training_dataset(export_root, task)
+    seed_training(options.seed, options.yolo.deterministic)
     test_images = _yolo_test_image_count(data_yaml)
-    model_name = "yolo26n.pt" if task == "detect" else "yolo26n-seg.pt"
-    run_name = options.run_name or f"yolo26n-{task}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+    model_name = YOLO_FINAL_CHECKPOINTS[task]
+    model_variant = "yolo26n"
+    run_name = options.run_name or f"{model_variant}-{task}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
     project_dir = Path(options.output_dir).expanduser().resolve() / "yolo26"
     run_dir = project_dir / run_name
     training_data_yaml: Path | None = None
+
+    def track_initialisation(trainer: Any) -> None:
+        from .yolo_training import ValidationEarlyStopping
+
+        trainer.stopper = ValidationEarlyStopping(trainer.args.patience, options.yolo.min_epochs_before_early_stop, trainer.epochs)
+        trainer._model_trainer_last_epoch = getattr(trainer, "start_epoch", 0) - 1
+        metadata_path = Path(trainer.save_dir) / "run_metadata.json"
+        previous = json.loads(metadata_path.read_text(encoding="utf-8")) if options.resume and metadata_path.is_file() else {}
+        trainer._model_trainer_optimizer_steps = previous.get("actual_optimizer_steps", 0)
+        history = metadata_path.parent / "validation_history.jsonl"
+        if options.resume and history.is_file():
+            for line in history.read_text(encoding="utf-8").splitlines():
+                observation = json.loads(line)
+                if observation["epoch"] <= getattr(trainer, "start_epoch", 0):
+                    trainer.stopper(observation["epoch"], observation["value"])
+        def count_step(*_):
+            trainer._model_trainer_optimizer_steps += 1
+        trainer.optimizer.register_step_post_hook(count_step)
+        actual_args = vars(trainer.args).copy()
+        physical = trainer.batch_size
+        effective = physical * trainer.accumulate
+        metric = "metrics/mAP50-95(B)" if task == "detect" else "metrics/mAP50-95(M)"
+        from ultralytics.utils import LOGGER
+
+        LOGGER.info(f"Physical batch size: {physical}; accumulation: {trainer.accumulate}; effective batch size: {effective}; AMP: {bool(trainer.amp)}")
+        policy = policy_metadata(trainer.epochs, options.yolo.min_epochs_before_early_stop, trainer.args.patience, metric)
+        if previous:
+            policy.update(best_metric=previous.get("best_metric"), best_epoch=previous.get("best_epoch"))
+        batches = len(trainer.train_loader) if hasattr(trainer, "train_loader") else None
+        update_metadata(
+            Path(trainer.save_dir) / "run_metadata.json",
+            trainer="ultralytics", model=model_name, model_variant=model_variant, task=task,
+            **policy,
+            options=asdict(options), training_arguments=actual_args, runtime=_runtime(),
+            dataset={**_yolo_dataset_metadata(original_root, original_data_yaml, task),
+                     "prepared_root": str(export_root), **dataset_identity(data_yaml)},
+            optimisation={
+                "optimizer": type(trainer.optimizer).__name__, "physical_batch_size": physical,
+                "effective_batch_size": effective, "gradient_accumulation": trainer.accumulate,
+                "amp": bool(trainer.amp), "scheduler": "cosine" if trainer.args.cos_lr else "linear",
+                "scheduler_epochs": trainer.epochs,
+                "optimizer_steps_per_epoch": batches if trainer.accumulate == 1 else None,
+                "total_optimizer_steps": batches * trainer.epochs if batches is not None and trainer.accumulate == 1 else None,
+                "resolved_workers": trainer.train_loader.num_workers if hasattr(trainer, "train_loader") else actual_args["workers"],
+                "warmup_epochs": trainer.args.warmup_epochs,
+                "parameter_groups": [{key: group[key] for key in ("lr", "initial_lr", "weight_decay", "betas", "momentum", "eps") if key in group} for group in trainer.optimizer.param_groups],
+            },
+            selection=previous.get("selection") or {"split": "val", "metric": metric, "best_epoch": None, "best_validation_metric": None,
+                       "best_checkpoint_path": str(Path(trainer.save_dir) / "weights" / "best.pt")},
+            experiment={"architecture": "YOLO26", "colour_space": dataset_colour(data_yaml),
+                        "model_size": "Nano", "task": task, "input_representation": colour_metadata(data_yaml),
+                        "source_dataset": original_root, "dataset_path": str(data_yaml),
+                        "pretrained_checkpoint": model_name if not options.resume else options.resume,
+                        "pretrained_checkpoint_sha256": file_sha256(Path(model_name)) if Path(model_name).is_file() and not options.resume else None,
+                        "image_size": actual_args["imgsz"], "epochs": trainer.epochs,
+                        "batch_size": physical, "seed": actual_args["seed"],
+                        "deterministic": actual_args["deterministic"], "amp": bool(trainer.amp),
+                        "ema": True, "gradient_clip_norm": 10.0,
+                        "optimizer_and_augmentations": actual_args},
+        )
+        LOGGER.info("Experiment configuration saved to " + str(Path(trainer.save_dir) / "run_metadata.json"))
+
+    def track_validation(trainer: Any) -> None:
+        # Ultralytics emits this callback again after its final evaluation.
+        if trainer.epoch == getattr(trainer, "_model_trainer_last_epoch", -1):
+            return
+        metric = "metrics/mAP50-95(B)" if task == "detect" else "metrics/mAP50-95(M)"
+        metrics = _metric_values(trainer.metrics)
+        if metric in metrics:
+            record_validation(Path(trainer.save_dir) / "run_metadata.json", epoch=trainer.epoch + 1,
+                              metric=metric, value=float(metrics[metric]),
+                              checkpoint=Path(trainer.save_dir) / "weights" / "best.pt", metrics=metrics, replace_equal=True)
+            trainer._model_trainer_last_epoch = trainer.epoch
+            update_metadata(Path(trainer.save_dir) / "run_metadata.json",
+                            actual_optimizer_steps=trainer._model_trainer_optimizer_steps,
+                            early_stopping_state=vars(trainer.stopper.state))
+        else:
+            raise ValueError(f"Required validation-only selection metric is missing: {metric}")
+
+    def attach_tracking(model: Any) -> None:
+        if hasattr(model, "add_callback"):
+            model.add_callback("on_pretrain_routine_end", track_initialisation)
+            model.add_callback("on_fit_epoch_end", track_validation)
+            model.add_callback("on_train_epoch_start", prevent_batch_reduction)
+
+    def prevent_batch_reduction(trainer: Any) -> None:
+        # Ultralytics 8.4.95 silently halves batch on first-epoch OOM.
+        # Controlled pairs must fail at their configured physical batch.
+        trainer._oom_retries = 3
+
+    def execute_training(model: Any, **kwargs: Any) -> Any:
+        try:
+            result = model.train(**kwargs)
+        except BaseException as error:
+            trainer = getattr(model, "trainer", None)
+            directory = Path(getattr(trainer, "save_dir", run_dir))
+            update_metadata(directory / "run_metadata.json",
+                            **{key: value for key, value in policy_metadata(options.epochs, options.yolo.min_epochs_before_early_stop,
+                                options.yolo.patience, "metrics/mAP50-95(B)" if task == "detect" else "metrics/mAP50-95(M)").items()
+                               if key not in {"best_metric", "best_epoch", "actual_stop_epoch", "stop_reason"}},
+                            actual_stop_epoch=max(0, getattr(trainer, "_model_trainer_last_epoch", -1) + 1),
+                            stop_reason="manual_interrupt" if isinstance(error, KeyboardInterrupt) else "error",
+                            actual_optimizer_steps=getattr(trainer, "_model_trainer_optimizer_steps", 0),
+                            training_error=str(error))
+            raise
+        trainer = getattr(model, "trainer", None)
+        if trainer is not None and hasattr(trainer, "_model_trainer_last_epoch"):
+            state = getattr(getattr(trainer, "stopper", None), "state", None)
+            completed = getattr(trainer, "_model_trainer_last_epoch", -1) + 1
+            reason = "max_epochs" if completed >= trainer.epochs else (
+                "early_stopping" if state is not None and state.should_stop else "manual_interrupt")
+            update_metadata(Path(trainer.save_dir) / "run_metadata.json", actual_stop_epoch=completed,
+                            stop_reason=reason, actual_optimizer_steps=getattr(trainer, "_model_trainer_optimizer_steps", 0))
+        return result
 
     if options.resume:
         checkpoint = Path(options.resume).expanduser().resolve()
         if not checkpoint.is_file():
             raise FileNotFoundError(f"Resume checkpoint does not exist: {checkpoint}")
         model = YOLO(str(checkpoint))
+        attach_tracking(model)
         # Ultralytics restores the original run configuration from last.pt, but
         # explicitly permits a worker-count override. This matters for recovery
         # from Windows/Jupyter data-loader deadlocks: setting workers=0 keeps
         # loading in the trainer process while preserving model/optimizer state.
-        results = model.train(resume=True, workers=options.workers)
+        if task == "segment":
+            from .yolo_training import MaskSelectionTrainer
+
+            results = execute_training(model, trainer=MaskSelectionTrainer, resume=True, workers=options.workers)
+        else:
+            results = execute_training(model, resume=True, workers=options.workers)
         arguments: dict[str, Any] = {
             "resume": str(checkpoint),
             "workers": options.workers,
         }
     else:
         training_data_yaml = _resolved_yolo_data_yaml(data_yaml, project_dir, task)
-        yolo_arguments = asdict(options.yolo)
-        extra_arguments = yolo_arguments.pop("extra_args")
-        yolo_arguments = {key: value for key, value in yolo_arguments.items() if value is not None}
-        yolo_arguments.update(extra_arguments)
-        arguments = {
-            "data": str(training_data_yaml),
-            "task": task,
-            "epochs": options.epochs,
-            "imgsz": options.imgsz,
-            "batch": options.batch,
-            "workers": options.workers,
-            "seed": options.seed,
-            "device": options.device,
-            "amp": options.amp,
-            "project": str(project_dir),
-            "name": run_name,
-            "exist_ok": False,
-            **yolo_arguments,
-        }
+        arguments = resolved_yolo_arguments(options, training_data_yaml, task, project_dir, run_name)
         model = YOLO(model_name)
-        results = model.train(**arguments)
+        attach_tracking(model)
+        if task == "segment":
+            from .yolo_training import MaskSelectionTrainer
+
+            results = execute_training(model, trainer=MaskSelectionTrainer, **arguments)
+        else:
+            results = execute_training(model, **arguments)
 
     # Ultralytics owns the final save directory. This is especially important
     # for resume, which continues the checkpoint's original run rather than the
@@ -485,10 +686,9 @@ def train_yolo_export(
     test_checkpoint: Path | None = None
     if test_images:
         best = run_dir / "weights" / "best.pt"
-        last = run_dir / "weights" / "last.pt"
-        test_checkpoint = best if best.is_file() else last
+        test_checkpoint = best
         if not test_checkpoint.is_file():
-            raise FileNotFoundError(f"No trained YOLO checkpoint is available for test evaluation in {run_dir}")
+            raise FileNotFoundError(f"No best validation YOLO checkpoint is available for test evaluation in {run_dir}")
         test_model = YOLO(str(test_checkpoint))
         test_results = test_model.val(
             data=str(training_data_yaml or _resolved_yolo_data_yaml(data_yaml, project_dir, task)),
@@ -519,11 +719,15 @@ def train_yolo_export(
         "schema_version": "1.0",
         "created_at": _utc_now(),
         "trainer": "ultralytics",
+        "model_family": "YOLO26",
+        "model_variant": model_variant,
+        "pretrained_checkpoint": model_name if not options.resume else options.resume,
         "model": model_name,
         "task": task,
         "options": asdict(options),
         "training_arguments": arguments,
-        "dataset": _yolo_dataset_metadata(export_root, data_yaml, task),
+        "dataset": {**_yolo_dataset_metadata(original_root, original_data_yaml, task),
+                    "prepared_root": str(export_root), **dataset_identity(data_yaml)},
         "runtime": _runtime(),
         "artifacts": {
             "training_data_yaml": str(training_data_yaml) if training_data_yaml else None,
@@ -535,7 +739,14 @@ def train_yolo_export(
             "test_checkpoint": str(test_checkpoint) if test_checkpoint else None,
         },
     }
-    _write_json(run_dir / "run_metadata.json", metadata)
+    # Keep the per-epoch selection and actual optimiser/batch records produced
+    # by callbacks, including any arguments restored by an explicit resume.
+    metadata_path = run_dir / "run_metadata.json"
+    if metadata_path.is_file():
+        recorded = json.loads(metadata_path.read_text(encoding="utf-8"))
+        metadata["training_arguments"] = recorded.get("training_arguments", arguments)
+        metadata["runtime"] = recorded.get("runtime", metadata["runtime"])
+    update_metadata(metadata_path, **metadata)
     return {
         "run_dir": str(run_dir),
         "metadata": str(run_dir / "run_metadata.json"),
@@ -615,21 +826,32 @@ def _dfine_config(
             raise ValueError("Official D-FINE warmup scheduler config must be a mapping")
         warmup["warmup_duration"] = options.dfine_warmup_steps
 
-    if options.imgsz != 640:
-        custom_config = yaml.safe_load(upstream_config.read_text(encoding="utf-8")) or {}
-        dataloader_config = yaml.safe_load(
-            (upstream / "configs" / "dfine" / "include" / "dataloader.yml").read_text(encoding="utf-8")
-        ) or {}
-        for split, source in (("train", custom_config), ("val", dataloader_config)):
-            source_ops = source.get(f"{split}_dataloader", {}).get("dataset", {}).get("transforms", {}).get("ops", [])
-            ops = [dict(item) for item in source_ops]
-            resize = next((item for item in ops if item.get("type") == "Resize"), None)
-            if resize is None:
-                raise ValueError(f"Official D-FINE {split} transforms have no Resize operation")
-            resize["size"] = [options.imgsz, options.imgsz]
-            payload[f"{split}_dataloader"].setdefault("dataset", {}).setdefault("transforms", {})["ops"] = ops
-        payload["eval_spatial_size"] = [options.imgsz, options.imgsz]
-        payload["train_dataloader"].setdefault("collate_fn", {})["base_size"] = options.imgsz
+    # Always resolve transforms: inherited photometric distort and multiscale
+    # collation must be disabled even at the native 640 default.
+    custom_config = yaml.safe_load(upstream_config.read_text(encoding="utf-8")) or {}
+    dataloader_config = yaml.safe_load(
+        (upstream / "configs" / "dfine" / "include" / "dataloader.yml").read_text(encoding="utf-8")
+    ) or {}
+    for split, source in (("train", custom_config), ("val", dataloader_config)):
+        source_ops = source.get(f"{split}_dataloader", {}).get("dataset", {}).get("transforms", {}).get("ops")
+        if source_ops is None:
+            source_ops = dataloader_config.get(f"{split}_dataloader", {}).get("dataset", {}).get("transforms", {}).get("ops", [])
+        override_ops = options.dfine_extra_config.get(f"{split}_dataloader", {}).get("dataset", {}).get("transforms", {}).get("ops")
+        ops = [dict(item) for item in (override_ops if override_ops is not None else source_ops)
+               if override_ops is not None or item.get("type") != "RandomPhotometricDistort"]
+        resize = next((item for item in ops if item.get("type") == "Resize"), None)
+        if resize is None:
+            raise ValueError(f"Official D-FINE {split} transforms have no Resize operation")
+        resize["size"] = [options.imgsz, options.imgsz]
+        payload[f"{split}_dataloader"].setdefault("dataset", {}).setdefault("transforms", {})["ops"] = ops
+    payload["eval_spatial_size"] = [options.imgsz, options.imgsz]
+    payload["train_dataloader"].setdefault("collate_fn", {})["base_size"] = options.imgsz
+    payload["train_dataloader"]["collate_fn"].setdefault("base_size_repeat", None)
+    payload["seed"] = options.seed
+    payload["deterministic"] = options.yolo.deterministic
+    payload["colour_space"] = prepared.get("colour_space", "rgb")
+    payload["input_representation"] = colour_metadata(Path(prepared["source_data_yaml"]))
+    payload["use_amp"] = options.amp
     destination = run_dir / "dfine_n_training.yml"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
@@ -678,7 +900,8 @@ def train_dfine_export(
     execute: bool = True,
     output_callback: Callable[[str], None] | None = None,
 ) -> dict[str, Any]:
-    options = options or TrainingOptions()
+    # This official Nano route is separate from the final ArgoHA experiments.
+    options = options or TrainingOptions(batch=8)
     _validate_options(options)
     if isinstance(options.batch, bool) or not isinstance(options.batch, int) or options.batch <= 0:
         raise ValueError(
@@ -705,6 +928,8 @@ def train_dfine_export(
         raise FileNotFoundError(f"Not an official Peterande/D-FINE checkout: {upstream}")
     run_name = options.run_name or f"dfine-n-detect-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
     run_dir = Path(options.output_dir).expanduser().resolve() / "dfine" / run_name
+    original_root = str(Path(export_root).expanduser().resolve())
+    export_root = prepare_colour_dataset(export_root, "detect", run_dir.parent / "_colour_datasets", options.colour_space)
     # Official D-FINE requires COCO JSON. Stage either a standalone YOLO
     # detection dataset or a complete Data Labeller bundle into a stable COCO
     # view without modifying or duplicating the source images when hard links
@@ -720,7 +945,8 @@ def train_dfine_export(
     test_metrics = run_dir / "test_metrics.json" if test_images else None
     console_log = run_dir / "trainer_console.log"
     executable = _resolve_python_executable(python_executable)
-    command = [str(executable), str(train_script), "-c", str(config), "--seed", str(options.seed), "--output-dir", str(run_dir)]
+    runner = Path(__file__).resolve().parents[2] / "scripts" / "dfine_train_runner.py"
+    command = [str(executable), str(runner), "--upstream", str(upstream), "-c", str(config), "--seed", str(options.seed), "--output-dir", str(run_dir)]
     if options.amp:
         command.append("--use-amp")
     resume_stage1: Path | None = None
@@ -730,6 +956,8 @@ def train_dfine_export(
             raise FileNotFoundError(f"Resume checkpoint does not exist: {checkpoint}")
         resume_stage1 = _stage_dfine_resume_checkpoint(checkpoint, run_dir)
         command.extend(["--resume", str(checkpoint)])
+    else:
+        command.extend(["--tuning", official_dfine_checkpoint(upstream)])
     metadata = {
         "schema_version": "1.0",
         "created_at": _utc_now(),
@@ -740,6 +968,13 @@ def train_dfine_export(
         "python": str(executable),
         "command": command,
         "options": asdict(options),
+        "experiment": {"architecture": "Peterande/D-FINE-N", "colour_space": dataset_colour(Path(prepared["source_data_yaml"])),
+                       "model_size": "Nano", "task": "detect", "input_representation": colour_metadata(Path(prepared["source_data_yaml"])),
+                       "source_dataset": original_root, "dataset_path": prepared["root"],
+                       "pretrained_checkpoint": options.resume or command[-1], "image_size": [options.imgsz] * 2,
+                       "epochs": options.epochs, "batch_size": options.batch, "seed": options.seed,
+                       "deterministic": options.yolo.deterministic, "amp": options.amp, "ema": options.dfine_use_ema},
+        "effective_training_config": yaml.safe_load(config.read_text(encoding="utf-8")),
         "dataset": prepared,
         "artifacts": {
             "run_dir": str(run_dir),
@@ -759,6 +994,8 @@ def train_dfine_export(
         if options.device not in {"cpu", "mps"}:
             environment["CUDA_VISIBLE_DEVICES"] = _cuda_visible_devices(options.device)
         environment["PYTHONUNBUFFERED"] = "1"
+        environment["PYTHONHASHSEED"] = str(options.seed)
+        environment["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
         if output_callback:
             output_callback(f"Trainer console log: {console_log}\n")
         _run_training_process(
@@ -831,6 +1068,43 @@ def _resolve_python_executable(value: str | Path | None) -> Path:
     if discovered:
         return Path(discovered).resolve()
     raise FileNotFoundError(f"Training Python executable does not exist: {requested}")
+
+
+class TrainingProcessError(subprocess.CalledProcessError):
+    """Keep subprocess details while showing the trainer's actual failure."""
+
+    def __init__(self, returncode: int, command: list[str], output: str, log_path: Path | None = None):
+        super().__init__(returncode, command, output=output)
+        self.log_path = log_path
+
+    def __str__(self) -> str:
+        tail = re.sub(r"\x1b\[[0-?]*[ -/]*[@-~]", "", self.output or "")[-8192:].strip()
+        traceback_start = tail.find("Traceback (most recent call last):")
+        if traceback_start >= 0:
+            tail = tail[traceback_start:]
+        else:
+            tail = "\n".join(tail.splitlines()[-20:])
+        message = f"Training process exited with status {self.returncode}."
+        if tail:
+            message += "\n" + tail
+        ram_failure = re.search(r"\b(?:MemoryError|_ArrayMemoryError)\b", tail, re.IGNORECASE) or any(
+            marker in tail.lower() for marker in ("unable to allocate", "paging file is too small", "defaultcpuallocator")
+        )
+        if ram_failure:
+            message += (
+                "\nSystem RAM allocation failed. Set Data workers to 0 (CLI: --workers 0) "
+                "and close other memory-heavy applications before retrying."
+            )
+        elif re.search(r"DataLoader worker.*exited unexpectedly", tail, re.IGNORECASE):
+            message += (
+                "\nAn image-loading worker stopped unexpectedly; the log does not identify why. "
+                "Set Data workers to 0 (CLI: --workers 0) before retrying. "
+                "This loads images in the trainer process and surfaces image-loading errors directly. "
+                "Restart the notebook kernel and rerun the setup/dashboard cells to load updated defaults."
+            )
+        if self.log_path is not None:
+            message += f"\nFull trainer log: {self.log_path}"
+        return message
 
 
 def _run_training_process(
@@ -917,7 +1191,11 @@ def _run_training_process(
                 process.wait()
                 raise
         if return_code:
-            raise subprocess.CalledProcessError(return_code, command)
+            with log_path.open("rb") as source:
+                source.seek(0, os.SEEK_END)
+                source.seek(max(start_offset, source.tell() - 16384))
+                tail = source.read().decode("utf-8", errors="replace")
+            raise TrainingProcessError(return_code, command, tail, log_path)
         return
 
     process = subprocess.Popen(
@@ -933,6 +1211,7 @@ def _run_training_process(
     )
     assert process.stdout is not None
     pending = ""
+    tail = ""
     try:
         while True:
             character = process.stdout.read(1)
@@ -940,9 +1219,11 @@ def _run_training_process(
                 break
             pending += character
             if character in "\r\n":
+                tail = (tail + pending)[-16384:]
                 output_callback(pending)
                 pending = ""
         if pending:
+            tail = (tail + pending)[-16384:]
             output_callback(pending)
         return_code = process.wait()
     except Exception:
@@ -950,7 +1231,7 @@ def _run_training_process(
         process.wait()
         raise
     if return_code:
-        raise subprocess.CalledProcessError(return_code, command)
+        raise TrainingProcessError(return_code, command, tail)
 
 
 def _validate_dfine_seg_options(options: DFineSegOptions) -> None:
@@ -960,6 +1241,8 @@ def _validate_dfine_seg_options(options: DFineSegOptions) -> None:
         raise ValueError("D-FINE-seg epochs and image size must be positive")
     if options.batch == 0 or options.workers < 0 or options.early_stopping < 0:
         raise ValueError("D-FINE-seg batch cannot be zero; workers/patience cannot be negative")
+    if options.min_epochs_before_early_stop < 0:
+        raise ValueError("Minimum epochs cannot be negative")
     if options.grad_accumulation <= 0 or options.no_mosaic_epochs < 0:
         raise ValueError("Gradient accumulation must be positive and no-mosaic epochs cannot be negative")
     for name in ("conf_threshold", "iou_threshold", "mosaic_probability"):
@@ -987,6 +1270,7 @@ def _dfine_seg_config(
         raise ValueError(f"D-FINE-seg config must contain a YAML mapping: {base_config}")
     if not isinstance(options.extra_config, dict):
         raise ValueError("D-FINE-seg extra_config must be a mapping")
+    _deep_merge(payload, _final_dfine_extra_config(task))
     _deep_merge(payload, options.extra_config)
 
     model_dir = run_dir / "model"
@@ -1014,9 +1298,22 @@ def _dfine_seg_config(
             "exp": run_dir.name,
             "model_name": options.model_size,
             "task": task,
+            "now_dir": datetime.now().strftime("%Y-%m-%d"),
         }
     )
     train = payload.setdefault("train", {})
+    decision_metrics = train.setdefault("decision_metrics", ["mAP_50_95" if task == "detect" else "mAP_50_95_mask"])
+    supported_metrics = {
+        "f1", "iou", "precision", "recall", "mAP_50", "mAP_50_95",
+        "mAP_50_mask", "mAP_50_95_mask",
+    }
+    if (
+        not isinstance(decision_metrics, list)
+        or not decision_metrics
+        or any(not isinstance(metric, str) or metric not in supported_metrics for metric in decision_metrics)
+        or (task == "detect" and any(metric.endswith("_mask") for metric in decision_metrics))
+    ):
+        raise ValueError("D-FINE-seg train.decision_metrics must be a non-empty list of supported task metrics")
     train.update(
         {
             "root": str(run_dir.parent),
@@ -1033,7 +1330,6 @@ def _dfine_seg_config(
             "device": options.device,
             "label_to_name": prepared["classes"],
             "use_one_class": False,
-            "decision_metrics": ["f1", "mAP_50", "iou"],
             "img_size": [options.imgsz, options.imgsz],
             "in_channels": 3,
             "to_visualize_eval": options.visualize_validation,
@@ -1045,6 +1341,7 @@ def _dfine_seg_config(
             "b_accum_steps": options.grad_accumulation,
             "epochs": options.epochs,
             "early_stopping": options.early_stopping,
+            "min_epochs_before_early_stop": options.min_epochs_before_early_stop,
             "num_workers": options.workers,
             "conf_thresh": options.conf_threshold,
             "iou_thresh": options.iou_threshold,
@@ -1063,6 +1360,12 @@ def _dfine_seg_config(
             ),
             "weight_decay": options.weight_decay,
             "seed": options.seed,
+            "deterministic": options.deterministic,
+            "cudnn_fixed": options.deterministic,
+            "colour_space": prepared.get("colour_space", "rgb"),
+            "input_representation": {key: prepared[key] for key in (
+                "colour_space", "hsv_encoding", "hsv_storage_order", "tensor_channel_order", "tensor_scaling",
+                "hue_range", "saturation_range", "value_range") if key in prepared},
         }
     )
     train.setdefault("ddp", {}).update({"enabled": False, "n_gpus": 1})
@@ -1142,7 +1445,7 @@ def train_dfine_seg_export(
     output_callback: Callable[[str], None] | None = None,
 ) -> dict[str, Any]:
     """Prepare and train ArgoHA/D-FINE-seg without mutating the labelled export."""
-    options = options or DFineSegOptions()
+    options = options or final_dfine_seg_options(task)
     _validate_dfine_seg_options(options)
     if task == "segment" and options.pretrained_dataset != "coco" and not options.pretrained_model:
         raise ValueError(
@@ -1155,6 +1458,8 @@ def train_dfine_seg_export(
         f"dfine-seg-{options.model_size}-{task}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
     )
     run_dir = Path(options.output_dir).expanduser().resolve() / "dfine-seg" / run_name
+    original_root = str(Path(export_root).expanduser().resolve())
+    export_root = prepare_colour_dataset(export_root, task, run_dir.parent / "_colour_datasets", options.colour_space)
     prepared = prepare_dfine_seg_dataset(export_root, task, run_dir / "prepared_dataset")
     test_images = prepared["splits"].get("test", {}).get("images", 0)
     test_metrics_path = run_dir / "test_metrics.json" if test_images else None
@@ -1177,13 +1482,27 @@ def train_dfine_seg_export(
         "schema_version": "1.0",
         "created_at": _utc_now(),
         "trainer": "ArgoHA/D-FINE-seg",
+        **policy_metadata(options.epochs, options.min_epochs_before_early_stop, options.early_stopping,
+                          "mAP_50_95" if task == "detect" else "mAP_50_95_mask"),
+        "model_family": "D-FINE" if task == "detect" else "D-FINE-seg",
+        "model_variant": options.model_size.upper(),
         "model": f"D-FINE-seg-{options.model_size.upper()}",
         "task": task,
         "upstream": str(upstream),
         "python": str(executable),
         "command": command,
         "options": asdict(options),
-        "dataset": prepared,
+        "experiment": {"architecture": "ArgoHA/D-FINE-seg", "colour_space": dataset_colour(Path(prepared["source_data_yaml"])),
+                       "recipe": "Project D-FINE detection recipe" if task == "detect" else "Project D-FINE segmentation recipe",
+                       "model_size": options.model_size.upper(), "task": task,
+                       "input_representation": colour_metadata(Path(prepared["source_data_yaml"])),
+                       "source_dataset": original_root, "dataset_path": prepared["root"]},
+        "effective_training_config": yaml.safe_load(config.read_text(encoding="utf-8")),
+        "augmentation": {"mixup": 0.0, "mixup_supported": False},
+        "dataset": {**prepared, **dataset_identity(Path(prepared["source_data_yaml"]))},
+        "selection": {"split": "val", "metric": yaml.safe_load(config.read_text(encoding="utf-8"))["train"]["decision_metrics"],
+                      "best_epoch": None, "best_validation_metric": None,
+                      "best_checkpoint_path": str(run_dir / "model" / "model.pt")},
         "artifacts": {
             "run_dir": str(run_dir),
             "model_dir": str(run_dir / "model"),
@@ -1201,15 +1520,25 @@ def train_dfine_seg_export(
         _ensure_dfine_seg_pretrained(config, automatic=not bool(options.pretrained_model))
         environment = os.environ.copy()
         environment["PYTHONUNBUFFERED"] = "1"
+        environment["PYTHONHASHSEED"] = str(options.seed)
+        environment["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
         if output_callback:
             output_callback(f"Trainer console log: {console_log}\n")
-        _run_training_process(
-            command,
-            cwd=upstream,
-            environment=environment,
-            output_callback=output_callback,
-            output_log=console_log,
-        )
+        try:
+            _run_training_process(
+                command,
+                cwd=upstream,
+                environment=environment,
+                output_callback=output_callback,
+                output_log=console_log,
+            )
+        except BaseException as error:
+            recorded = json.loads(metadata_path.read_text(encoding="utf-8"))
+            update_metadata(metadata_path, actual_stop_epoch=recorded.get("actual_stop_epoch") or recorded.get("completed_epochs", 0),
+                            stop_reason="manual_interrupt" if isinstance(error, KeyboardInterrupt) else "error",
+                            training_error=recorded.get("training_error") or str(error),
+                            training_process_error=str(error))
+            raise
         if test_metrics_path:
             _write_json(
                 test_metrics_path,
@@ -1243,7 +1572,7 @@ def dfine_seg_loader_smoke(
     python_executable: str | Path | None = None,
 ) -> dict[str, Any]:
     """Load one prepared batch through the selected D-FINE-seg checkout."""
-    options = options or DFineSegOptions()
+    options = options or final_dfine_seg_options(task)
     with tempfile.TemporaryDirectory(prefix="model-trainer-dfine-seg-smoke-") as temporary:
         smoke_options = replace(
             options,

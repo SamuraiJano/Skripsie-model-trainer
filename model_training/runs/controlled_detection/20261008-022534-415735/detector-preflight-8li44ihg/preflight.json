@@ -1,0 +1,336 @@
+{
+  "loader_shape": [
+    8,
+    3,
+    640,
+    640
+  ],
+  "model_parameters": 3731817,
+  "loss": 38.99113464355469,
+  "resolved_config": {
+    "task": "detection",
+    "evaluator": {
+      "type": "CocoEvaluator",
+      "iou_types": [
+        "bbox"
+      ]
+    },
+    "num_classes": 1,
+    "remap_mscoco_category": false,
+    "train_dataloader": {
+      "type": "DataLoader",
+      "dataset": {
+        "type": "CocoDetection",
+        "img_folder": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\prepared_dataset\\images",
+        "ann_file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\prepared_dataset\\train.json",
+        "return_masks": false,
+        "transforms": {
+          "type": "Compose",
+          "ops": [
+            {
+              "type": "ControlledLetterbox",
+              "size": 640,
+              "colour": "rgb",
+              "flip_probability": 0.0
+            },
+            {
+              "type": "ConvertPILImage",
+              "dtype": "float32",
+              "scale": true
+            },
+            {
+              "type": "ConvertBoxes",
+              "fmt": "cxcywh",
+              "normalize": true
+            }
+          ],
+          "policy": {
+            "name": "default",
+            "epoch": 200,
+            "ops": [
+              "RandomPhotometricDistort",
+              "RandomZoomOut",
+              "RandomIoUCrop"
+            ]
+          }
+        },
+        "remap_mscoco_category": false
+      },
+      "shuffle": true,
+      "num_workers": 0,
+      "drop_last": false,
+      "collate_fn": {
+        "type": "BatchImageCollateFunction",
+        "base_size": 640,
+        "base_size_repeat": null,
+        "stop_epoch": 280,
+        "ema_restart_decay": 0.9999
+      },
+      "total_batch_size": 8
+    },
+    "val_dataloader": {
+      "type": "DataLoader",
+      "dataset": {
+        "type": "CocoDetection",
+        "img_folder": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\prepared_dataset\\images",
+        "ann_file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\prepared_dataset\\val.json",
+        "return_masks": false,
+        "transforms": {
+          "type": "Compose",
+          "ops": [
+            {
+              "type": "ControlledLetterbox",
+              "size": 640,
+              "colour": "rgb",
+              "flip_probability": 0.0
+            },
+            {
+              "type": "ConvertPILImage",
+              "dtype": "float32",
+              "scale": true
+            }
+          ],
+          "policy": {
+            "name": "default"
+          }
+        },
+        "remap_mscoco_category": false
+      },
+      "shuffle": false,
+      "num_workers": 0,
+      "drop_last": false,
+      "collate_fn": {
+        "type": "BatchImageCollateFunction"
+      },
+      "total_batch_size": 8
+    },
+    "print_freq": 10,
+    "output_dir": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg",
+    "checkpoint_freq": 300,
+    "sync_bn": true,
+    "find_unused_parameters": false,
+    "use_amp": true,
+    "scaler": {
+      "type": "GradScaler",
+      "enabled": true
+    },
+    "use_ema": true,
+    "ema": {
+      "type": "ModelEMA",
+      "decay": 0.9999,
+      "warmups": 1000,
+      "start": 0
+    },
+    "use_wandb": false,
+    "project_name": "D-FINE",
+    "exp_name": "baseline",
+    "epochs": 300,
+    "clip_max_norm": 0.1,
+    "optimizer": {
+      "type": "AdamW",
+      "params": [
+        {
+          "params": "^(?=.*backbone)(?!.*norm|bn).*$",
+          "lr": 0.0004
+        },
+        {
+          "params": "^(?=.*backbone)(?=.*norm|bn).*$",
+          "lr": 0.0004,
+          "weight_decay": 0.0
+        },
+        {
+          "params": "^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$",
+          "weight_decay": 0.0
+        }
+      ],
+      "lr": 0.0008,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0.0001
+    },
+    "lr_scheduler": {
+      "type": "MultiStepLR",
+      "milestones": [
+        500
+      ],
+      "gamma": 0.1
+    },
+    "lr_warmup_scheduler": {
+      "type": "LinearWarmup",
+      "warmup_duration": 500
+    },
+    "model": "DFINE",
+    "criterion": "DFINECriterion",
+    "postprocessor": "DFINEPostProcessor",
+    "use_focal_loss": true,
+    "eval_spatial_size": [
+      640,
+      640
+    ],
+    "DFINE": {
+      "backbone": "HGNetv2",
+      "encoder": "HybridEncoder",
+      "decoder": "DFINETransformer"
+    },
+    "HGNetv2": {
+      "pretrained": false,
+      "local_model_dir": "weight/hgnetv2/",
+      "name": "B0",
+      "return_idx": [
+        2,
+        3
+      ],
+      "freeze_at": -1,
+      "freeze_norm": false,
+      "use_lab": true
+    },
+    "HybridEncoder": {
+      "in_channels": [
+        512,
+        1024
+      ],
+      "feat_strides": [
+        16,
+        32
+      ],
+      "hidden_dim": 128,
+      "use_encoder_idx": [
+        1
+      ],
+      "num_encoder_layers": 1,
+      "nhead": 8,
+      "dim_feedforward": 512,
+      "dropout": 0.0,
+      "enc_act": "gelu",
+      "expansion": 0.34,
+      "depth_mult": 0.5,
+      "act": "silu"
+    },
+    "DFINETransformer": {
+      "feat_channels": [
+        128,
+        128
+      ],
+      "feat_strides": [
+        16,
+        32
+      ],
+      "hidden_dim": 128,
+      "num_levels": 2,
+      "num_layers": 3,
+      "eval_idx": -1,
+      "num_queries": 300,
+      "num_denoising": 100,
+      "label_noise_ratio": 0.5,
+      "box_noise_scale": 1.0,
+      "reg_max": 32,
+      "reg_scale": 4,
+      "layer_scale": 1,
+      "num_points": [
+        6,
+        6
+      ],
+      "cross_attn_method": "default",
+      "query_select_method": "default",
+      "dim_feedforward": 512
+    },
+    "DFINEPostProcessor": {
+      "num_top_queries": 300
+    },
+    "DFINECriterion": {
+      "weight_dict": {
+        "loss_vfl": 1,
+        "loss_bbox": 5,
+        "loss_giou": 2,
+        "loss_fgl": 0.15,
+        "loss_ddf": 1.5
+      },
+      "losses": [
+        "vfl",
+        "boxes",
+        "local"
+      ],
+      "alpha": 0.75,
+      "gamma": 2.0,
+      "reg_max": 32,
+      "matcher": {
+        "type": "HungarianMatcher",
+        "weight_dict": {
+          "cost_class": 2,
+          "cost_bbox": 5,
+          "cost_giou": 2
+        },
+        "alpha": 0.25,
+        "gamma": 2.0
+      }
+    },
+    "__include__": [
+      "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE\\configs\\dfine\\custom\\dfine_hgnetv2_n_custom.yml"
+    ],
+    "seed": 0,
+    "deterministic": true,
+    "colour_space": "rgb",
+    "input_representation": {
+      "colour_space": "RGB",
+      "tensor_scaling": "divide_by_255",
+      "tensor_channel_order": "RGB"
+    },
+    "device": "cuda:0",
+    "controlled_detection": {
+      "rgb_yaml": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\_datasets\\d5485a04cba79ab8eae87244\\rgb\\data.yaml",
+      "colour": "rgb",
+      "batch": 8,
+      "workers": 0,
+      "seed": 0,
+      "metadata": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\runs\\controlled_detection\\20261008-022534-415735\\detector-preflight-8li44ihg\\run_metadata.json",
+      "augmentation": {
+        "colour": "disabled",
+        "horizontal_flip": 0.0,
+        "vertical_flip": 0.0,
+        "rotation": 0.0,
+        "perspective": 0.0,
+        "scale_jitter": 0.0,
+        "translation": 0.0,
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "geometry": "640-square aspect-preserving letterbox, RGB geometry before representation"
+      }
+    },
+    "controlled_policy": {
+      "max_epochs": 300,
+      "min_epochs": 100,
+      "patience": 40,
+      "validation_frequency": 1,
+      "selection_metric": "box COCO mAP50-95",
+      "selection_split": "val",
+      "min_delta": 0.0
+    },
+    "tuning": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\third_party\\D-FINE\\pretrained\\dfine_n_coco.pth"
+  },
+  "batch_object_counts": [
+    83,
+    81,
+    79,
+    79,
+    79,
+    78,
+    78,
+    78
+  ],
+  "status": "PASS",
+  "model": "dfine_n",
+  "colour": "rgb",
+  "device": "cuda:0",
+  "requested_batch": 8,
+  "backward": true,
+  "optimizer_updates": 0,
+  "test_inference_performed": false,
+  "test_usage": "pairing/hash audit only; no inference or selection",
+  "batch_selection": "densest training images",
+  "amp": true,
+  "manifest_sha256": "1ef90eb20def685ccc59bac0b6da0c170c53111ab8f8d657b147c0e1ec6fbff0",
+  "peak_allocated_bytes": 2233700864
+}

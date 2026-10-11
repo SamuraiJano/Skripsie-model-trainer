@@ -1,0 +1,3 @@
+,precision_naartjie,recall_naartjie,iou_naartjie,f1_naartjie,optimal_thresh
+val,0.9914,0.9942,0.9697,0.9928,0.65
+test,0.9927,0.9972,0.9744,0.9949,0.6

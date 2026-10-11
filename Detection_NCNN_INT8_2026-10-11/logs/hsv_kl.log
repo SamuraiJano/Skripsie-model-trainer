@@ -1,0 +1,134 @@
+mean = 
+norm = 
+shape = [640,640,3]
+pixel = 
+thread = 8
+method = kl
+---------------------------------------
+count the absmax 0.00% [ 0 / 843 ]
+count the absmax 11.86% [ 100 / 843 ]
+count the absmax 23.72% [ 200 / 843 ]
+count the absmax 35.59% [ 300 / 843 ]
+count the absmax 47.45% [ 400 / 843 ]
+count the absmax 59.31% [ 500 / 843 ]
+count the absmax 71.17% [ 600 / 843 ]
+count the absmax 83.04% [ 700 / 843 ]
+count the absmax 94.90% [ 800 / 843 ]
+build histogram 0.00% [ 0 / 843 ]
+build histogram 11.86% [ 100 / 843 ]
+build histogram 23.72% [ 200 / 843 ]
+build histogram 35.59% [ 300 / 843 ]
+build histogram 47.45% [ 400 / 843 ]
+build histogram 59.31% [ 500 / 843 ]
+build histogram 71.17% [ 600 / 843 ]
+build histogram 83.04% [ 700 / 843 ]
+build histogram 94.90% [ 800 / 843 ]
+conv_0                                   : max = 1.000000         threshold = 0.447998         scale = 283.483368     
+conv_1                                   : max = 61.061642        threshold = 13.461588        scale = 9.434251       
+conv_2                                   : max = 111.639297       threshold = 13.709611        scale = 9.263575       
+conv_3                                   : max = 43.822975        threshold = 13.855165        scale = 9.166257       
+conv_4                                   : max = 2.968292         threshold = 0.538438         scale = 235.867554     
+conv_5                                   : max = 72.314064        threshold = 13.788400        scale = 9.210641       
+conv_6                                   : max = 17.731333        threshold = 6.038869         scale = 21.030426      
+conv_7                                   : max = 10.154390        threshold = 4.544189         scale = 27.947781      
+conv_8                                   : max = 5.187722         threshold = 1.787079         scale = 71.065689      
+conv_9                                   : max = 6.139341         threshold = 3.245038         scale = 39.136681      
+conv_10                                  : max = 8.295663         threshold = 5.219220         scale = 24.333139      
+conv_11                                  : max = 6.723190         threshold = 1.987740         scale = 63.891651      
+conv_12                                  : max = 10.031756        threshold = 2.980627         scale = 42.608486      
+conv_13                                  : max = 6.357174         threshold = 2.990790         scale = 42.463699      
+conv_14                                  : max = 3.629034         threshold = 1.813631         scale = 70.025276      
+conv_15                                  : max = 6.311850         threshold = 2.245206         scale = 56.564957      
+conv_16                                  : max = 5.514287         threshold = 3.749339         scale = 33.872643      
+conv_17                                  : max = 5.746880         threshold = 2.246278         scale = 56.537971      
+conv_18                                  : max = 6.357174         threshold = 2.990790         scale = 42.463699      
+conv_19                                  : max = 10.223783        threshold = 7.161141         scale = 17.734604      
+conv_20                                  : max = 7.797657         threshold = 3.607558         scale = 35.203865      
+conv_21                                  : max = 7.749849         threshold = 2.242083         scale = 56.643761      
+conv_22                                  : max = 7.014850         threshold = 3.598193         scale = 35.295490      
+conv_23                                  : max = 7.498939         threshold = 3.004335         scale = 42.272243      
+conv_24                                  : max = 5.127348         threshold = 2.114280         scale = 60.067730      
+conv_25                                  : max = 7.850406         threshold = 3.260142         scale = 38.955364      
+conv_26                                  : max = 7.997308         threshold = 6.488050         scale = 19.574448      
+conv_27                                  : max = 7.370550         threshold = 3.597102         scale = 35.306202      
+conv_28                                  : max = 7.498939         threshold = 3.004335         scale = 42.272243      
+conv_29                                  : max = 17.158978        threshold = 9.136653         scale = 13.900058      
+conv_30                                  : max = 8.216299         threshold = 3.997823         scale = 31.767288      
+conv_31                                  : max = 8.641452         threshold = 3.964182         scale = 32.036877      
+conv_32                                  : max = 12.511059        threshold = 10.895250        scale = 11.656455      
+conv_33                                  : max = 13.868896        threshold = 7.134220         scale = 17.801525      
+conv_34                                  : max = 14.052379        threshold = 6.007255         scale = 21.141106      
+convdw_211                               : max = 15.088483        threshold = 13.088227        scale = 9.703377       
+conv_35                                  : max = 10.602944        threshold = 7.266227         scale = 17.478123      
+conv_36                                  : max = 14.459838        threshold = 9.019748         scale = 14.080216      
+conv_37                                  : max = 8.553434         threshold = 0.732973         scale = 173.267075     
+conv_38                                  : max = 21.330364        threshold = 6.004373         scale = 21.151253      
+conv_39                                  : max = 10.925387        threshold = 2.264564         scale = 56.081436      
+conv_40                                  : max = 7.567243         threshold = 2.998446         scale = 42.355274      
+conv_41                                  : max = 3.534860         threshold = 2.237767         scale = 56.753010      
+conv_42                                  : max = 5.487094         threshold = 1.879490         scale = 67.571510      
+conv_43                                  : max = 10.707824        threshold = 5.429724         scale = 23.389771      
+conv_44                                  : max = 5.710574         threshold = 1.624223         scale = 78.191216      
+conv_45                                  : max = 7.567243         threshold = 2.998446         scale = 42.355274      
+conv_46                                  : max = 15.949508        threshold = 7.184288         scale = 17.677465      
+conv_47                                  : max = 10.593237        threshold = 2.981934         scale = 42.589809      
+conv_48                                  : max = 8.249788         threshold = 2.257816         scale = 56.249058      
+conv_49                                  : max = 5.464246         threshold = 2.989594         scale = 42.480690      
+conv_50                                  : max = 1.266017         threshold = 1.200181         scale = 105.817352     
+conv_51                                  : max = 5.874029         threshold = 3.274025         scale = 38.790169      
+conv_52                                  : max = 6.757845         threshold = 4.175807         scale = 30.413282      
+conv_53                                  : max = 5.139653         threshold = 3.243653         scale = 39.153381      
+conv_54                                  : max = 5.464246         threshold = 2.989594         scale = 42.480690      
+conv_55                                  : max = 17.213343        threshold = 12.199788        scale = 10.410017      
+conv_56                                  : max = 12.604938        threshold = 4.532977         scale = 28.016911      
+conv_57                                  : max = 6.775655         threshold = 5.146255         scale = 24.678137      
+conv_58                                  : max = 8.941813         threshold = 2.556363         scale = 49.679958      
+conv_59                                  : max = 10.266980        threshold = 3.998006         scale = 31.765835      
+conv_60                                  : max = 3.116059         threshold = 1.324477         scale = 95.886894      
+conv_61                                  : max = 5.623663         threshold = 2.242051         scale = 56.644562      
+conv_62                                  : max = 6.569549         threshold = 3.963222         scale = 32.044640      
+conv_63                                  : max = 6.712848         threshold = 2.974565         scale = 42.695316      
+conv_64                                  : max = 10.266980        threshold = 3.998006         scale = 31.765835      
+conv_65                                  : max = 32.099220        threshold = 12.123411        scale = 10.475599      
+conv_66                                  : max = 10.266980        threshold = 5.993249         scale = 21.190508      
+conv_67                                  : max = 11.163744        threshold = 4.527094         scale = 28.053314      
+conv_68                                  : max = 10.925387        threshold = 3.016751         scale = 42.098267      
+conv_69                                  : max = 7.930811         threshold = 2.232477         scale = 56.887493      
+conv_70                                  : max = 8.046836         threshold = 3.251346         scale = 39.060745      
+conv_71                                  : max = 13.522848        threshold = 8.917288         scale = 14.241999      
+convdw_212                               : max = 12.476028        threshold = 7.069546         scale = 17.964378      
+conv_72                                  : max = 12.402180        threshold = 9.189604         scale = 13.819964      
+conv_73                                  : max = 13.716788        threshold = 10.264150        scale = 12.373163      
+conv_74                                  : max = 14.191770        threshold = 4.043407         scale = 31.409157      
+conv_75                                  : max = 15.914403        threshold = 4.479811         scale = 28.349409      
+conv_76                                  : max = 6.775655         threshold = 5.146255         scale = 24.678137      
+conv_77                                  : max = 19.215645        threshold = 12.023852        scale = 10.562339      
+conv_78                                  : max = 3.830769         threshold = 2.550417         scale = 49.795780      
+conv_79                                  : max = 11.163744        threshold = 4.527094         scale = 28.053314      
+conv_80                                  : max = 13.738441        threshold = 9.025914         scale = 14.070597      
+conv_81                                  : max = 6.404452         threshold = 3.266333         scale = 38.881519      
+conv_82                                  : max = 25.737190        threshold = 6.176674         scale = 20.561226      
+conv_83                                  : max = 7.309689         threshold = 5.994444         scale = 21.186283      
+conv_84                                  : max = 6.692410         threshold = 5.141849         scale = 24.699286      
+convdw_213                               : max = 6.775655         threshold = 5.146255         scale = 24.678137      
+conv_85                                  : max = 15.174814        threshold = 9.095256         scale = 13.963324      
+convdw_214                               : max = 9.480454         threshold = 3.288996         scale = 38.613613      
+conv_86                                  : max = 19.111607        threshold = 7.171518         scale = 17.708942      
+conv_87                                  : max = 33.736252        threshold = 8.969428         scale = 14.159208      
+convdw_215                               : max = 11.163744        threshold = 4.527094         scale = 28.053314      
+conv_88                                  : max = 18.495411        threshold = 11.952478        scale = 10.625411      
+convdw_216                               : max = 11.687042        threshold = 5.971919         scale = 21.266197      
+conv_89                                  : max = 15.585412        threshold = 7.218146         scale = 17.594545      
+conv_90                                  : max = 29.930536        threshold = 12.268889        scale = 10.351385      
+convdw_217                               : max = 25.737190        threshold = 6.176674         scale = 20.561226      
+conv_91                                  : max = 27.230747        threshold = 5.976670         scale = 21.249290      
+convdw_218                               : max = 11.469438        threshold = 3.990222         scale = 31.827805      
+conv_92                                  : max = 12.187024        threshold = 5.971523         scale = 21.267607      
+conv_93                                  : max = 16.700527        threshold = 5.214838         scale = 24.353586      
+ncnn int8 calibration table create success, best wish for your int8 inference has a low accuracy loss...\(^0^)/...233...
+param:102
+param:0
+param:0
+param:0
+param:0
+param:0

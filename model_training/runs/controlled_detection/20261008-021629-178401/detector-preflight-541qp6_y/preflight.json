@@ -1,0 +1,20 @@
+{
+  "loader_shape": [
+    1,
+    3,
+    640,
+    640
+  ],
+  "model_parameters": 2504190,
+  "loss": 3.9626858234405518,
+  "status": "PASS",
+  "model": "yolo26n",
+  "colour": "rgb",
+  "device": "cpu",
+  "requested_batch": 1,
+  "backward": true,
+  "optimizer_updates": 0,
+  "test_images_used": false,
+  "manifest_sha256": "a8683fa26f94a56da1ee31fdc5bde07cd8368a480303180eec2bd6418658413c",
+  "peak_allocated_bytes": null
+}

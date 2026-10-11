@@ -20,6 +20,8 @@ from naartjie_cv.train import (
     DFineSegOptions,
     TrainingOptions,
     YoloTrainingOptions,
+    final_yolo_options,
+    final_dfine_seg_options,
     dfine_seg_loader_smoke,
     synthetic_asset_summary,
     train_dfine_export,
@@ -45,7 +47,7 @@ YOLO_BOOLEAN_ARGUMENTS = (
     "plots",
     "show_labels",
 )
-YOLO_INTEGER_ARGUMENTS = ("patience", "save_period", "close_mosaic", "mask_ratio", "max_det", "line_width", "nbs")
+YOLO_INTEGER_ARGUMENTS = ("patience", "min_epochs_before_early_stop", "save_period", "close_mosaic", "mask_ratio", "max_det", "line_width", "nbs")
 YOLO_FLOAT_ARGUMENTS = (
     "fraction",
     "multi_scale",
@@ -106,8 +108,8 @@ def _json_object(value: str) -> dict[str, object]:
     return payload
 
 
-def _add_yolo_arguments(command: argparse.ArgumentParser) -> None:
-    defaults = YoloTrainingOptions()
+def _add_yolo_arguments(command: argparse.ArgumentParser, task: str) -> None:
+    defaults = final_yolo_options(task)
     command.add_argument("--time", type=float)
     command.add_argument("--conf", type=float)
     command.add_argument("--cache", nargs="?", const="ram", choices=("ram", "disk"), default=defaults.cache)
@@ -135,14 +137,18 @@ def _add_yolo_arguments(command: argparse.ArgumentParser) -> None:
     command.add_argument(
         "--yolo-args-json",
         type=_json_object,
-        default={},
+        default=defaults.extra_args,
         metavar="JSON",
         help="Additional or version-specific Ultralytics train arguments as a JSON object.",
     )
 
 
-def _add_dfine_seg_arguments(command: argparse.ArgumentParser) -> None:
-    defaults = DFineSegOptions()
+def _native_optional_float(value: str) -> float | None:
+    return None if value.lower() in {"none", "default"} else float(value)
+
+
+def _add_dfine_seg_arguments(command: argparse.ArgumentParser, task: str = "segment") -> None:
+    defaults = final_dfine_seg_options(task)
     command.add_argument("export_root")
     command.add_argument("--dfine-seg-root", required=True)
     command.add_argument("--python-executable", default=sys.executable)
@@ -152,10 +158,13 @@ def _add_dfine_seg_arguments(command: argparse.ArgumentParser) -> None:
     command.add_argument("--batch", type=int, default=defaults.batch)
     command.add_argument("--workers", type=int, default=defaults.workers)
     command.add_argument("--seed", type=int, default=defaults.seed)
+    command.add_argument("--colour-space", choices=("auto", "rgb", "hsv"), default="auto")
+    command.add_argument("--deterministic", action=argparse.BooleanOptionalAction, default=True)
     command.add_argument("--device", default=defaults.device)
     command.add_argument("--amp", action=argparse.BooleanOptionalAction, default=defaults.amp)
     command.add_argument("--amp-dtype", choices=("bfloat16", "float16"), default=defaults.amp_dtype)
     command.add_argument("--early-stopping", type=int, default=defaults.early_stopping)
+    command.add_argument("--min-epochs-before-early-stop", type=int, default=defaults.min_epochs_before_early_stop)
     command.add_argument("--grad-accumulation", type=int, default=defaults.grad_accumulation)
     command.add_argument("--clip-max-norm", type=float, default=defaults.clip_max_norm)
     command.add_argument("--wandb", action=argparse.BooleanOptionalAction, default=defaults.use_wandb)
@@ -163,10 +172,10 @@ def _add_dfine_seg_arguments(command: argparse.ArgumentParser) -> None:
     command.add_argument("--scheduler", action=argparse.BooleanOptionalAction, default=defaults.use_scheduler)
     command.add_argument("--muon", action=argparse.BooleanOptionalAction, default=defaults.use_muon)
     command.add_argument("--aux-optimizer", choices=("adamw", "adan"), default=defaults.aux_optimizer)
-    command.add_argument("--base-lr", type=float)
-    command.add_argument("--backbone-lr", type=float)
+    command.add_argument("--base-lr", type=_native_optional_float, default=defaults.base_lr)
+    command.add_argument("--backbone-lr", type=_native_optional_float, default=defaults.backbone_lr)
     command.add_argument("--weight-decay", type=float, default=defaults.weight_decay)
-    command.add_argument("--mosaic-probability", type=float)
+    command.add_argument("--mosaic-probability", type=_native_optional_float, default=defaults.mosaic_probability)
     command.add_argument("--no-mosaic-epochs", type=int, default=defaults.no_mosaic_epochs)
     command.add_argument("--conf-threshold", type=float, default=defaults.conf_threshold)
     command.add_argument("--iou-threshold", type=float, default=defaults.iou_threshold)
@@ -204,21 +213,23 @@ def parser() -> argparse.ArgumentParser:
     for name in ("yolo-detect", "yolo-segment", "dfine-detect"):
         command = commands.add_parser(name)
         command.add_argument("export_root")
-        command.add_argument("--epochs", type=int, default=100)
+        command.add_argument("--epochs", type=int, default=TrainingOptions().epochs)
         command.add_argument("--imgsz", type=int, default=640)
         command.add_argument(
             "--batch",
             type=int if name == "dfine-detect" else _int_or_float,
             default=8 if name == "dfine-detect" else 16,
         )
-        command.add_argument("--workers", type=int, default=8)
-        command.add_argument("--seed", type=int, default=42)
+        command.add_argument("--workers", type=int, default=TrainingOptions().workers)
+        command.add_argument("--seed", type=int, default=0)
+        command.add_argument("--colour-space", choices=("auto", "rgb", "hsv"), default="auto")
         command.add_argument("--device", default="0")
         command.add_argument("--output-dir", default="runs")
         command.add_argument("--run-name")
         command.add_argument("--resume")
         command.add_argument("--no-amp", action="store_true")
         if name == "dfine-detect":
+            command.add_argument("--deterministic", action=argparse.BooleanOptionalAction, default=True)
             command.add_argument("--dfine-root", required=True)
             command.add_argument("--python-executable", default=sys.executable)
             command.add_argument("--dfine-base-lr", type=float)
@@ -230,9 +241,9 @@ def parser() -> argparse.ArgumentParser:
             command.add_argument("--dfine-config-json", type=_json_object, default={})
             command.add_argument("--dry-run", action="store_true")
         else:
-            _add_yolo_arguments(command)
+            _add_yolo_arguments(command, "segment" if name == "yolo-segment" else "detect")
     for name in ("dfine-seg-detect", "dfine-seg-segment"):
-        _add_dfine_seg_arguments(commands.add_parser(name))
+        _add_dfine_seg_arguments(commands.add_parser(name), "segment" if name.endswith("segment") else "detect")
     dfine_seg_smoke = commands.add_parser("smoke-dfine-seg")
     dfine_seg_smoke.add_argument("--task", choices=("detect", "segment"), required=True)
     _add_dfine_seg_arguments(dfine_seg_smoke)
@@ -272,10 +283,13 @@ def main() -> None:
             batch=args.batch,
             workers=args.workers,
             seed=args.seed,
+            colour_space=args.colour_space,
+            deterministic=args.deterministic,
             device=args.device,
             amp=args.amp,
             amp_dtype=args.amp_dtype,
             early_stopping=args.early_stopping,
+            min_epochs_before_early_stop=args.min_epochs_before_early_stop,
             grad_accumulation=args.grad_accumulation,
             clip_max_norm=args.clip_max_norm,
             use_wandb=args.wandb,
@@ -315,7 +329,7 @@ def main() -> None:
                 execute=not args.dry_run,
             )
     else:
-        yolo = YoloTrainingOptions()
+        yolo = YoloTrainingOptions(deterministic=args.deterministic)
         if args.command.startswith("yolo-"):
             yolo_values = {
                 item.name: getattr(args, item.name)
@@ -330,6 +344,7 @@ def main() -> None:
             batch=args.batch,
             workers=args.workers,
             seed=args.seed,
+            colour_space=args.colour_space,
             device=args.device,
             amp=not args.no_amp,
             output_dir=args.output_dir,

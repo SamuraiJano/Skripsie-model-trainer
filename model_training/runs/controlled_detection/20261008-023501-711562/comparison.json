@@ -1,0 +1,283 @@
+{
+  "manifest_sha256": "4f3aa85ff20cc5bf147565988374a57da6dc21fdfd3f45cfd9c70389f0f43288",
+  "per_seed": [],
+  "summary": [
+    {
+      "model": "yolo26n",
+      "colour": "rgb",
+      "completed_seeds": 0,
+      "expected_seeds": 5,
+      "complete": false,
+      "statistics": {
+        "completed_epochs": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "best_validation_mAP50-95": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "test_mAP50-95": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "test_mAP50": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "precision": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "recall": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "F1": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "selected_confidence": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "training_seconds": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "physical_batch": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "gradient_accumulation": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "effective_batch": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        }
+      }
+    },
+    {
+      "model": "yolo26n",
+      "colour": "hsv",
+      "completed_seeds": 0,
+      "expected_seeds": 5,
+      "complete": false,
+      "statistics": {
+        "completed_epochs": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "best_validation_mAP50-95": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "test_mAP50-95": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "test_mAP50": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "precision": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "recall": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "F1": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "selected_confidence": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "training_seconds": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "physical_batch": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "gradient_accumulation": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "effective_batch": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        }
+      }
+    },
+    {
+      "model": "dfine_n",
+      "colour": "rgb",
+      "completed_seeds": 0,
+      "expected_seeds": 5,
+      "complete": false,
+      "statistics": {
+        "completed_epochs": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "best_validation_mAP50-95": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "test_mAP50-95": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "test_mAP50": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "precision": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "recall": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "F1": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "selected_confidence": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "training_seconds": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "physical_batch": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "gradient_accumulation": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "effective_batch": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        }
+      }
+    },
+    {
+      "model": "dfine_n",
+      "colour": "hsv",
+      "completed_seeds": 0,
+      "expected_seeds": 5,
+      "complete": false,
+      "statistics": {
+        "completed_epochs": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "best_validation_mAP50-95": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "test_mAP50-95": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "test_mAP50": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "precision": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "recall": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "F1": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "selected_confidence": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "training_seconds": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "physical_batch": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "gradient_accumulation": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        },
+        "effective_batch": {
+          "mean": null,
+          "std": null,
+          "std_definition": "sample standard deviation (ddof=1)"
+        }
+      }
+    }
+  ],
+  "complete": false
+}

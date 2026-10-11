@@ -1,0 +1,655 @@
+{
+  "status": "PASS",
+  "preprocessing": [
+    {
+      "image": "003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "hsv_full_tensor_exact_match": true
+    },
+    {
+      "image": "74e5e392-046d-505b-a5e7-ccc44281a599.jpg",
+      "hsv_full_tensor_exact_match": true
+    },
+    {
+      "image": "ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "hsv_full_tensor_exact_match": true
+    }
+  ],
+  "backend_checks": [
+    {
+      "model": "yolo_rgb",
+      "backend": "tensorrt",
+      "image": "003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 33,
+              "exported_detections": 33,
+              "max_coordinate_difference_pixels": 0.021240234375,
+              "max_score_difference": 0.000921882688999176,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 0.0025634765625,
+              "max_score_difference": 0.00013023614883422852,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 0.0025634765625,
+              "max_score_difference": 0.00013023614883422852,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 31
+    },
+    {
+      "model": "yolo_rgb",
+      "backend": "tensorrt",
+      "image": "74e5e392-046d-505b-a5e7-ccc44281a599.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 0.017120361328125,
+              "max_score_difference": 0.0010638833045959473,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 0.017120361328125,
+              "max_score_difference": 0.0010638833045959473,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 0.017120361328125,
+              "max_score_difference": 0.0010638833045959473,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 40
+    },
+    {
+      "model": "yolo_rgb",
+      "backend": "tensorrt",
+      "image": "ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 78,
+              "exported_detections": 78,
+              "max_coordinate_difference_pixels": 0.0125579833984375,
+              "max_score_difference": 0.0006131827831268311,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 74,
+              "exported_detections": 74,
+              "max_coordinate_difference_pixels": 0.0125579833984375,
+              "max_score_difference": 0.0006131827831268311,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 72,
+              "exported_detections": 72,
+              "max_coordinate_difference_pixels": 0.0125579833984375,
+              "max_score_difference": 0.0005804300308227539,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 72
+    },
+    {
+      "model": "yolo_rgb",
+      "backend": "ncnn",
+      "image": "003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 33,
+              "exported_detections": 33,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.3113021850585938e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.1920928955078125e-07,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.1920928955078125e-07,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 31
+    },
+    {
+      "model": "yolo_rgb",
+      "backend": "ncnn",
+      "image": "74e5e392-046d-505b-a5e7-ccc44281a599.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.430511474609375e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.430511474609375e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.430511474609375e-06,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 40
+    },
+    {
+      "model": "yolo_rgb",
+      "backend": "ncnn",
+      "image": "ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 78,
+              "exported_detections": 78,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.9073486328125e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 74,
+              "exported_detections": 74,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.9073486328125e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 72,
+              "exported_detections": 72,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.9073486328125e-06,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 72
+    },
+    {
+      "model": "yolo_hsv",
+      "backend": "tensorrt",
+      "image": "003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 35,
+              "exported_detections": 35,
+              "max_coordinate_difference_pixels": 3.0517578125e-05,
+              "max_score_difference": 2.384185791015625e-05,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 33,
+              "exported_detections": 33,
+              "max_coordinate_difference_pixels": 3.0517578125e-05,
+              "max_score_difference": 2.384185791015625e-05,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 3.0517578125e-05,
+              "max_score_difference": 1.7940998077392578e-05,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 31
+    },
+    {
+      "model": "yolo_hsv",
+      "backend": "tensorrt",
+      "image": "74e5e392-046d-505b-a5e7-ccc44281a599.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 43,
+              "exported_detections": 43,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 8.225440979003906e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 41,
+              "exported_detections": 41,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 8.225440979003906e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 8.225440979003906e-06,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 40
+    },
+    {
+      "model": "yolo_hsv",
+      "backend": "tensorrt",
+      "image": "ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 80,
+              "exported_detections": 80,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 2.384185791015625e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 73,
+              "exported_detections": 73,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 2.2351741790771484e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 71,
+              "exported_detections": 71,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 2.205371856689453e-06,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 71
+    },
+    {
+      "model": "yolo_hsv",
+      "backend": "ncnn",
+      "image": "003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 35,
+              "exported_detections": 35,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.537799835205078e-05,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 33,
+              "exported_detections": 33,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.537799835205078e-05,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 31,
+              "exported_detections": 31,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.537799835205078e-05,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 31
+    },
+    {
+      "model": "yolo_hsv",
+      "backend": "ncnn",
+      "image": "74e5e392-046d-505b-a5e7-ccc44281a599.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 43,
+              "exported_detections": 43,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 4.410743713378906e-06,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 41,
+              "exported_detections": 41,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 4.410743713378906e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 40,
+              "exported_detections": 40,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 4.410743713378906e-06,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 40
+    },
+    {
+      "model": "yolo_hsv",
+      "backend": "ncnn",
+      "image": "ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "checks": {
+        "output0": {
+          "pass": true,
+          "method": "Match detections by class and box at confidence 0.01, 0.25 and 0.5; unused TopK ties ignored",
+          "coordinate_tolerance_pixels": 0.1,
+          "score_tolerance": 0.003,
+          "thresholds": {
+            "0.01": {
+              "reference_detections": 80,
+              "exported_detections": 80,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 1.792609691619873e-05,
+              "pass": true
+            },
+            "0.25": {
+              "reference_detections": 73,
+              "exported_detections": 73,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 5.602836608886719e-06,
+              "pass": true
+            },
+            "0.5": {
+              "reference_detections": 71,
+              "exported_detections": 71,
+              "max_coordinate_difference_pixels": 6.103515625e-05,
+              "max_score_difference": 5.602836608886719e-06,
+              "pass": true
+            }
+          }
+        }
+      },
+      "detections_at_0_5": 71
+    },
+    {
+      "model": "dfine_rgb",
+      "backend": "tensorrt",
+      "image": "003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "checks": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.0003428459167480469,
+          "mean_absolute_difference": 1.2526512145996094e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 4.45246696472168e-05,
+          "mean_absolute_difference": 1.6014052865405876e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      },
+      "detections_at_0_5": 32
+    },
+    {
+      "model": "dfine_rgb",
+      "backend": "tensorrt",
+      "image": "74e5e392-046d-505b-a5e7-ccc44281a599.jpg",
+      "checks": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.0004220008850097656,
+          "mean_absolute_difference": 1.4040271441141765e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 1.4483928680419922e-05,
+          "mean_absolute_difference": 1.7795246094465255e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      },
+      "detections_at_0_5": 39
+    },
+    {
+      "model": "dfine_rgb",
+      "backend": "tensorrt",
+      "image": "ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "checks": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.000675201416015625,
+          "mean_absolute_difference": 1.2230277061462402e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 5.882978439331055e-05,
+          "mean_absolute_difference": 1.3065640814602374e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      },
+      "detections_at_0_5": 74
+    },
+    {
+      "model": "dfine_hsv",
+      "backend": "tensorrt",
+      "image": "003a2000-914b-503e-a455-ae17c9faeacb.jpg",
+      "checks": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.0015003681182861328,
+          "mean_absolute_difference": 2.157131830851237e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 1.0564923286437988e-05,
+          "mean_absolute_difference": 1.2851611245423555e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      },
+      "detections_at_0_5": 32
+    },
+    {
+      "model": "dfine_hsv",
+      "backend": "tensorrt",
+      "image": "74e5e392-046d-505b-a5e7-ccc44281a599.jpg",
+      "checks": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.0006804466247558594,
+          "mean_absolute_difference": 1.7873446146647136e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 6.556510925292969e-06,
+          "mean_absolute_difference": 1.1824750496695439e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      },
+      "detections_at_0_5": 40
+    },
+    {
+      "model": "dfine_hsv",
+      "backend": "tensorrt",
+      "image": "ff346bcf-a163-54f6-a0f5-93ffb3453dc0.jpg",
+      "checks": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.00010967254638671875,
+          "mean_absolute_difference": 1.1604825655619303e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 6.42240047454834e-06,
+          "mean_absolute_difference": 6.684994635482629e-08,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      },
+      "detections_at_0_5": 74
+    }
+  ]
+}

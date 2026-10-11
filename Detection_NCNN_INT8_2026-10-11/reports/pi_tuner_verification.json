@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "tested": "CLI --benchmark --tune; 1/2/4 thread sweep; accuracy-qualified INT8-only selection; saved-choice inference; explicit thread override",
+  "platform": "Windows workstation smoke test only; no Pi speed claim",
+  "device_choice_removed_from_delivery": true
+}

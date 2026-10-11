@@ -1,0 +1,5 @@
+model,colour,completed_seeds,completed_epochs_mean,completed_epochs_std,best_validation_mAP50-95_mean,best_validation_mAP50-95_std,test_mAP50-95_mean,test_mAP50-95_std,test_mAP50_mean,test_mAP50_std,precision_mean,precision_std,recall_mean,recall_std,F1_mean,F1_std,selected_confidence_mean,selected_confidence_std,training_seconds_mean,training_seconds_std,physical_batch_mean,physical_batch_std,gradient_accumulation_mean,gradient_accumulation_std,effective_batch_mean,effective_batch_std
+yolo26n,rgb,0,,,,,,,,,,,,,,,,,,,,,,,,
+yolo26n,hsv,0,,,,,,,,,,,,,,,,,,,,,,,,
+dfine_n,rgb,0,,,,,,,,,,,,,,,,,,,,,,,,
+dfine_n,hsv,0,,,,,,,,,,,,,,,,,,,,,,,,

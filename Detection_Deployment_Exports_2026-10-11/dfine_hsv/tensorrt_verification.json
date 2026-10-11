@@ -1,0 +1,100 @@
+{
+  "status": "validated",
+  "format": "tensorrt",
+  "precision": "fp32",
+  "file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\dfine_hsv\\nvidia\\model_fp32.engine",
+  "tensorrt_version": "11.2.1.2",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "platform": "win32",
+  "portability": "Built for this NVIDIA GPU and TensorRT runtime; rebuild ONNX on other target systems.",
+  "samples": [
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\003a2000-914b-503e-a455-ae17c9faeacb.png",
+      "outputs": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.0015003681182861328,
+          "mean_absolute_difference": 2.157131830851237e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 1.0564923286437988e-05,
+          "mean_absolute_difference": 1.2851611245423555e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      }
+    },
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\74e5e392-046d-505b-a5e7-ccc44281a599.png",
+      "outputs": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.0006804466247558594,
+          "mean_absolute_difference": 1.7873446146647136e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 6.556510925292969e-06,
+          "mean_absolute_difference": 1.1824750496695439e-07,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      }
+    },
+    {
+      "image": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\Detection_Deployment_Exports_2026-10-11\\verification_images\\hsv\\ff346bcf-a163-54f6-a0f5-93ffb3453dc0.png",
+      "outputs": {
+        "logits": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            1
+          ],
+          "max_absolute_difference": 0.00010967254638671875,
+          "mean_absolute_difference": 1.1604825655619303e-05,
+          "atol": 0.003,
+          "rtol": 0.01
+        },
+        "boxes": {
+          "pass": true,
+          "shape": [
+            1,
+            300,
+            4
+          ],
+          "max_absolute_difference": 6.42240047454834e-06,
+          "mean_absolute_difference": 6.684994635482629e-08,
+          "atol": 0.003,
+          "rtol": 0.01
+        }
+      }
+    }
+  ],
+  "sha256": "3160079e7b900b0e7f55ff4a21d5f15a4ee14679a305739270cb88f01cb0515c"
+}

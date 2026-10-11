@@ -1,0 +1,32 @@
+{
+  "source_file_count": 2058,
+  "source_bytes": 7127273872,
+  "archives": [
+    {
+      "file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\reports\\latest_four_detection_runs_20261009-125417\\latest_four_run_artifacts.zip",
+      "bytes": 163125574,
+      "source_files": 207,
+      "crc_check": "PASS",
+      "member_list_check": "PASS",
+      "size_check": "PASS",
+      "total_members": 216,
+      "supplementary_loss_report_crc_check": "PASS",
+      "original_member_crc_and_size_preserved": "PASS",
+      "local_file_links_verified": "PASS"
+    },
+    {
+      "file": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\reports\\latest_four_detection_runs_20261009-125417\\latest_four_runs_complete.zip",
+      "bytes": 7067719202,
+      "source_files": 2058,
+      "crc_check": "PASS",
+      "member_list_check": "PASS",
+      "size_check": "PASS",
+      "total_members": 2067,
+      "supplementary_loss_report_crc_check": "PASS",
+      "original_member_crc_and_size_preserved": "PASS",
+      "local_file_links_verified": "PASS"
+    }
+  ],
+  "source_files_unchanged": true,
+  "all_metrics_with_training_losses": "C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\reports\\latest_four_detection_runs_20261009-125417\\all_metrics_with_training_losses.json"
+}

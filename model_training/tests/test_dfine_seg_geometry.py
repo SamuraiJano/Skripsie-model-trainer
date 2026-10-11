@@ -71,15 +71,17 @@ broken_iou, _ = round_trip(200, 200, "val", True)
 assert broken_iou < 0.2, broken_iou
 _install_consistent_letterbox(module)
 _install_consistent_letterbox(module)
-for mode in ("val", "test", "bench"):
-    for h, w in ((200, 200), (207, 170), (171, 209), (800, 1000)):
-        for keep_ratio in (True, False):
-            iou, error = round_trip(h, w, mode, keep_ratio)
-            assert iou > 0.95, (mode, h, w, keep_ratio, iou)
-            # Upstream rounds boxes to integer input pixels before undoing
-            # resizing; a pixel corresponds to >1 original pixel when reduced.
-            tolerance = max(h / 640, w / 640, 1.0) + 0.1
-            assert error < tolerance, (mode, h, w, keep_ratio, error)
+for task in ("detect", "segment"):
+    cfg.task = task
+    for mode in ("val", "test", "bench"):
+        for h, w in ((200, 200), (207, 170), (171, 209), (800, 1000)):
+            for keep_ratio in (True, False):
+                iou, error = round_trip(h, w, mode, keep_ratio)
+                assert iou > 0.95, (task, mode, h, w, keep_ratio, iou)
+                # Upstream rounds boxes to integer input pixels before undoing
+                # resizing; a pixel corresponds to >1 original pixel when reduced.
+                tolerance = max(h / 640, w / 640, 1.0) + 0.1
+                assert error < tolerance, (task, mode, h, w, keep_ratio, error)
 print("All mask and box geometry round trips passed")
 ''', str(project)],
         cwd=project,

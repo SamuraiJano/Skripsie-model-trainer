@@ -1,0 +1,42 @@
+{
+  "colour": "hsv",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+  "ncnn": "1.0.20260526",
+  "threads": 4,
+  "repeats": 60,
+  "warmup": 15,
+  "results": [
+    {
+      "variant": "fp32",
+      "inference_topk_median_ms": 107.78935000416823,
+      "inference_topk_p95_ms": 111.65395499920123,
+      "image_to_detections_median_ms": 143.12759999302216,
+      "image_to_detections_p95_ms": 147.50528000222403
+    },
+    {
+      "variant": "minmax_stem11_head",
+      "inference_topk_median_ms": 98.40875000372762,
+      "inference_topk_p95_ms": 100.64854500233196,
+      "image_to_detections_median_ms": 132.27145000564633,
+      "image_to_detections_p95_ms": 137.01433000751422
+    },
+    {
+      "variant": "minmax_stem6_head",
+      "inference_topk_median_ms": 95.44995000032941,
+      "inference_topk_p95_ms": 97.64146999368677,
+      "image_to_detections_median_ms": 130.66165000782348,
+      "image_to_detections_p95_ms": 134.73195499900612
+    },
+    {
+      "variant": "minmax_stem6_regression",
+      "inference_topk_median_ms": 96.72334999777377,
+      "inference_topk_p95_ms": 99.31571000051918,
+      "image_to_detections_median_ms": 131.6147500037914,
+      "image_to_detections_p95_ms": 137.39161999619682
+    }
+  ],
+  "note": "Image-to-detections includes local image read/decode, preprocessing and TopK. No camera/display time.",
+  "confidence_for_image_to_detections_timing": 0.25
+}

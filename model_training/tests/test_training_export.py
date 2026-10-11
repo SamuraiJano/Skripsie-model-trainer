@@ -28,6 +28,8 @@ from naartjie_cv.notebook_ui import (
     TRAINING_TASKS,
     YOLO_PARAMETER_GROUPS,
     _project_root,
+    _dashboard_yolo_defaults,
+    _yolo_cli_arguments,
     create_training_dashboard,
 )
 import naartjie_cv.train as train_module
@@ -509,6 +511,61 @@ def test_notebook_dashboard_constructs_when_optional_dependency_is_installed() -
         for control in controls
         if getattr(control, "description", "") in {"Early-stop patience", "Dataset cache", "Checkpoint period"}
     )
+    fields = {control.description: control for control in controls if getattr(control, "description", "")}
+    assert fields["Epochs"].value == 300
+    assert fields["Batch size"].value == 16
+    assert fields["Early-stop patience"].value == 40
+    assert fields["Minimum training epochs"].value == 100 and fields["Data workers"].value == 4
+    assert fields["Optimizer"].value == "AdamW"
+    assert fields["Initial learning rate"].value == pytest.approx(0.001)
+    assert fields["Nominal batch size"].value == 16
+    assert fields["Mosaic"].value == pytest.approx(0.5)
+    assert fields["HSV hue"].value == 0
+    assert fields["HSV saturation"].value == 0
+    assert fields["HSV value"].value == 0
+    assert json.loads(fields["Additional YOLO args"].value) == {"augmentations": []}
+    assert "--optimizer AdamW" in dashboard.children[11].value
+    assert "--nbs 16" in dashboard.children[11].value
+
+    task_controls[0].value = "segment"
+    assert fields["Mosaic"].value == 0
+    assert fields["HSV hue"].value == fields["HSV saturation"].value == fields["HSV value"].value == 0
+    assert Path(fields["Dataset"].value) == project_root / "dataset_seg_rgb"
+    fields["Mosaic"].value = 0.25
+    fields["Dataset"].value = str(project_root / "custom_dataset")
+    task_controls[0].value = "detect"
+    assert fields["Mosaic"].value == 0.25
+    assert Path(fields["Dataset"].value) == project_root / "custom_dataset"
+
+
+def test_yolo_dashboard_defaults_are_reproduced_by_cli() -> None:
+    from dataclasses import fields
+    from scripts.model_trainer import parser
+
+    for task in ("detect", "segment"):
+        defaults = _dashboard_yolo_defaults(task)
+        args = parser().parse_args(["yolo-" + task, "dataset", *_yolo_cli_arguments(defaults)])
+        plain_args = parser().parse_args(["yolo-" + task, "dataset"])
+        for option in fields(defaults):
+            if option.name != "extra_args":
+                assert getattr(args, option.name) == getattr(defaults, option.name)
+                assert getattr(plain_args, option.name) == getattr(defaults, option.name)
+        assert args.yolo_args_json == {"augmentations": []}
+        assert args.epochs == 300 and args.batch == 16 and args.imgsz == 640
+    defaults.extra_args = {}
+    args = parser().parse_args(["yolo-segment", "dataset", *_yolo_cli_arguments(defaults)])
+    assert args.yolo_args_json == {}  # explicitly restore native transforms
+
+
+def test_yolo_dashboard_disables_additional_colour_transforms() -> None:
+    from ultralytics.cfg import get_cfg
+    from ultralytics.data.augment import Albumentations
+
+    options = _dashboard_yolo_defaults()
+    cfg = get_cfg(overrides=options.extra_args)
+    transform = Albumentations(transforms=cfg.augmentations)
+    assert transform.transform is not None
+    assert transform.transform.transforms == []
 
 
 def test_dashboard_groups_cover_every_yolo_training_option() -> None:
@@ -610,6 +667,7 @@ def test_dfine_seg_dry_run_generates_task_specific_config(tmp_path: Path) -> Non
                     "keep_ratio": True,
                     "freeze_except_mask": True,
                     "mask_batch_size": 48,
+                    "decision_metrics": ["mAP_50_95"],
                     "augs": {"left_right_flip": 0.5, "rotation_p": 0.2},
                 }
             },
@@ -627,11 +685,40 @@ def test_dfine_seg_dry_run_generates_task_specific_config(tmp_path: Path) -> Non
     assert config["train"]["keep_ratio"] is True
     assert config["train"]["freeze_except_mask"] is True
     assert config["train"]["mask_batch_size"] == 48
+    assert config["train"]["decision_metrics"] == ["mAP_50_95"]
     assert config["train"]["augs"]["left_right_flip"] == pytest.approx(0.5)
     assert config["train"]["augs"]["rotation_p"] == pytest.approx(0.2)
     assert config["train"]["label_to_name"] == {0: "Naartjie"}
     assert Path(result["prepared_dataset"], "train.json").is_file()
     assert result["executed"] is False
+
+
+def test_dfine_seg_failure_preserves_original_worker_error(tmp_path: Path, monkeypatch: Any) -> None:
+    root = make_yolo_dataset(tmp_path, "detect")
+    upstream = tmp_path / "D-FINE-seg"
+    (upstream / "src" / "dl").mkdir(parents=True)
+    for filename in ("train.py", "dataset.py"):
+        (upstream / "src" / "dl" / filename).write_text("# fixture\n")
+    (upstream / "config.yaml").write_text(yaml.safe_dump({"train": {
+        "ddp": {"enabled": False, "n_gpus": 1}, "augs": {}, "mosaic_augs": {},
+    }}))
+    cause = "Caught SystemError in DataLoader worker process 0: Unable to allocate 1.56 MiB"
+
+    def failing_process(command, *, output_log, **kwargs):
+        path = Path(output_log).parent / "run_metadata.json"
+        train_module.update_metadata(path, training_error=cause, completed_epochs=5, actual_stop_epoch=5)
+        raise train_module.TrainingProcessError(1, command, cause, Path(output_log))
+
+    monkeypatch.setattr(train_module, "_ensure_dfine_seg_pretrained", lambda *args, **kwargs: None)
+    monkeypatch.setattr(train_module, "_run_training_process", failing_process)
+    with pytest.raises(train_module.TrainingProcessError, match="Unable to allocate"):
+        train_dfine_seg_export(root, "detect", upstream,
+            DFineSegOptions(output_dir=str(tmp_path / "runs"), run_name="failed-worker"))
+    metadata = json.loads((tmp_path / "runs/dfine-seg/failed-worker/run_metadata.json").read_text())
+    assert metadata["training_error"] == cause
+    assert "Data workers to 0" in metadata["training_process_error"]
+    assert metadata["stop_reason"] == "error"
+    assert metadata["actual_stop_epoch"] == 5
 
 
 def test_dfine_notebook_covers_official_detection_and_dfine_seg() -> None:
@@ -668,16 +755,18 @@ def test_dfine_dashboard_constructs_with_all_task_choices() -> None:
     assert paths.children[3].layout.display != "none"  # D-FINE-seg checkout
     assert official_settings.layout.display == "none"
     seg_fields = {control.description: control for control in dashboard.children[8].children[0].children}
-    assert seg_fields["Model size"].value == "s"
-    assert seg_fields["Epochs"].value == 120
+    assert seg_fields["Model size"].value == "n"
+    assert seg_fields["Epochs"].value == 300
     assert seg_fields["Image size"].value == 640
     assert seg_fields["Physical batch size"].value == 2
-    assert seg_fields["Early-stop patience"].value == 20
+    assert seg_fields["Early-stop patience"].value == 40
+    assert seg_fields["Minimum training epochs"].value == 100 and seg_fields["Data workers"].value == 0
+    assert seg_fields["Checkpoint metric"].value == "mAP_50_95_mask"
     advanced_fields = {
         control.description: control
         for control in dashboard.children[8].children[2].children[0].children[1].children
     }
-    assert advanced_fields["Gradient accumulation"].value == 4
+    assert advanced_fields["Gradient accumulation"].value == 8
     assert advanced_fields["Mosaic probability"].value == "0"
     assert seg_fields["AMP dtype"].value == dfine_ui._preferred_amp_dtype()
     mask_fields = {
@@ -686,6 +775,9 @@ def test_dfine_dashboard_constructs_with_all_task_choices() -> None:
     }
     assert mask_fields["Mask evaluation batch"].value == 16
     assert mask_fields["Preserve image aspect ratio"].value is True
+    assert mask_fields["Colour augmentation"].value is False
+    assert advanced_fields["Muon optimizer routing"].value is True
+    assert advanced_fields["Auxiliary optimizer"].value == "adan"
     task_controls[0].value = "official_detect"
     assert Path(paths.children[0].value) == project_root / "dataset_detect_rgb"
     assert paths.children[1].layout.display != "none"  # official checkout
@@ -765,8 +857,48 @@ def test_dfine_dashboard_segmentation_controls_reach_training_config(monkeypatch
     assert train_config["augs"]["blur"] == pytest.approx(0.1)
 
     task.value = "dfine_seg_detect"
-    assert segment_settings.layout.display == "none"
+    assert segment_settings.layout.display != "none"
+    assert controls["Train mask head only"].layout.display == "none"
     assert "mask_batch_size" not in dashboard.children[9].value
+    essentials = {control.description: control for control in dashboard.children[8].children[0].children}
+    advanced = {
+        control.description: control
+        for control in dashboard.children[8].children[2].children[0].children[1].children
+    }
+    assert essentials["Physical batch size"].value == 4
+    assert essentials["Model size"].value == "n"
+    assert advanced["Gradient accumulation"].value == 4
+    assert advanced["Mosaic probability"].value == "0.5"
+    dashboard.children[10].children[2].click()
+    options = captured["options"]
+    assert options.epochs == 300
+    assert options.early_stopping == 40
+    assert options.batch * options.grad_accumulation == 16
+    assert options.use_muon is False
+    assert options.aux_optimizer == "adamw"
+    assert options.base_lr == pytest.approx(0.0008)
+    assert options.backbone_lr == pytest.approx(0.0004)
+    assert options.weight_decay == pytest.approx(0.0001)
+    assert options.extra_config["train"]["decision_metrics"] == ["mAP_50_95"]
+    assert options.extra_config["train"]["augs"]["left_right_flip"] == pytest.approx(0.6)
+    for name in ("to_gray", "gamma", "brightness", "noise"):
+        assert options.extra_config["train"]["augs"][name] == 0
+    advanced["Muon optimizer routing"].value = True
+    advanced["Base learning rate"].value = ""
+    advanced["Backbone learning rate"].value = ""
+    assert "--muon" in dashboard.children[9].value
+    assert "--base-lr none" in dashboard.children[9].value
+    assert "--backbone-lr none" in dashboard.children[9].value
+    essentials["Checkpoint metric"].value = "f1"
+    essentials["Physical batch size"].value = 1
+    advanced["Gradient accumulation"].value = 12
+    advanced["Mosaic probability"].value = "0.25"
+    task.value = "dfine_seg_segment"
+    assert essentials["Physical batch size"].value == 1
+    assert advanced["Gradient accumulation"].value == 12
+    assert advanced["Mosaic probability"].value == "0.25"
+    dashboard.children[10].children[2].click()
+    assert captured["options"].extra_config["train"]["decision_metrics"] == ["f1"]
 
 
 def test_dfine_dashboard_official_controls_reach_training_options(monkeypatch: Any) -> None:
@@ -976,6 +1108,12 @@ def test_dfine_resume_stages_stage1_checkpoint_in_new_run(tmp_path: Path) -> Non
     )
     (upstream / "configs" / "dfine" / "custom" / "dfine_hgnetv2_n_custom.yml").write_text(
         "task: detection\n", encoding="utf-8"
+    )
+    (upstream / "configs" / "dfine" / "include").mkdir()
+    (upstream / "configs" / "dfine" / "include" / "dataloader.yml").write_text(
+        yaml.safe_dump({f"{split}_dataloader": {"dataset": {"transforms": {
+            "ops": [{"type": "Resize", "size": [640, 640]}]
+        }}} for split in ("train", "val")}), encoding="utf-8"
     )
     source_run = tmp_path / "previous-run"
     source_run.mkdir()

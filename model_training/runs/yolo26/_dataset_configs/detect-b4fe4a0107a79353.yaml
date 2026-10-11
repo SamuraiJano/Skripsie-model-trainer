@@ -1,0 +1,21 @@
+path: C:/Users/USER/Desktop/1Skripsie/VS Code/New Model Trainer/model_training/runs/yolo26/_colour_datasets/d9a35c28442a6b4084c58f38
+names:
+  0: naartjie
+source_data_yaml: C:\Users\USER\Desktop\1Skripsie\VS Code\New Model Trainer\model_training\dataset_detect_rgb\data.yaml
+colour_space: HSV
+hsv_encoding: HSV_FULL
+hue_range:
+- 0
+- 255
+saturation_range:
+- 0
+- 255
+value_range:
+- 0
+- 255
+tensor_scaling: divide_by_255
+hsv_storage_order: HSV
+tensor_channel_order: HSV
+train: images/train
+val: images/val
+test: images/test

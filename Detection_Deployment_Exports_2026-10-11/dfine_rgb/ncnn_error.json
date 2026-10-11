@@ -1,0 +1,3 @@
+{
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\scripts\\export_detection_deployment.py\", line 408, in main\n    {\"onnx\": export_onnx, \"tensorrt\": export_tensorrt, \"ncnn\": export_ncnn}[args.format](model_dir, record, metadata)\n  File \"C:\\Users\\USER\\Desktop\\1Skripsie\\VS Code\\New Model Trainer\\model_training\\scripts\\export_detection_deployment.py\", line 353, in export_ncnn\n    raise RuntimeError(\"NCNN could not load exported parameters\")\nRuntimeError: NCNN could not load exported parameters\n"
+}

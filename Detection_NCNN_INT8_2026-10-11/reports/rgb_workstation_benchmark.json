@@ -1,0 +1,35 @@
+{
+  "colour": "rgb",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+  "ncnn": "1.0.20260526",
+  "threads": 4,
+  "repeats": 60,
+  "warmup": 15,
+  "results": [
+    {
+      "variant": "fp32",
+      "inference_topk_median_ms": 106.75229999469593,
+      "inference_topk_p95_ms": 112.62800998811143,
+      "image_to_detections_median_ms": 157.08460000314517,
+      "image_to_detections_p95_ms": 168.01849500334356
+    },
+    {
+      "variant": "minmax_stem11_head",
+      "inference_topk_median_ms": 97.92495000147028,
+      "inference_topk_p95_ms": 101.41235500268522,
+      "image_to_detections_median_ms": 152.9690000024857,
+      "image_to_detections_p95_ms": 158.96968999441015
+    },
+    {
+      "variant": "minmax_stem6_head",
+      "inference_topk_median_ms": 95.54835000017192,
+      "inference_topk_p95_ms": 98.3214799889538,
+      "image_to_detections_median_ms": 147.7424999975483,
+      "image_to_detections_p95_ms": 155.02614000361064
+    }
+  ],
+  "note": "Image-to-detections includes local image read/decode, preprocessing and TopK. No camera/display time.",
+  "confidence_for_image_to_detections_timing": 0.25
+}
