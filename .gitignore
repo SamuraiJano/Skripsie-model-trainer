@@ -56,3 +56,19 @@ third_party/
 !background/models/.gitkeep
 !background/output_frames/.gitkeep
 !background/logs/.gitkeep
+
+# Private local configuration and development sessions
+.claude/
+.cursor/
+.aider*
+AGENTS.md
+chat-transcripts/
+prompt-history/
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.p12
+*.pfx
+*.kdbx
