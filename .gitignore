@@ -89,3 +89,19 @@ model_training/runs/**/debug_images/
 model_training/runs/**/eval_preds/
 model_training/runs/**/preview_images/
 model_training/runs/**/plots/
+
+# Private local configuration and development sessions
+.claude/
+.cursor/
+.aider*
+AGENTS.md
+chat-transcripts/
+prompt-history/
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.p12
+*.pfx
+*.kdbx
